@@ -5,30 +5,36 @@ from datetime import datetime
 def scrape_cfr_news():
     base_url = "https://www.cfr.org"
     archive_url = f"{base_url}/newsletters/daily-news-brief"
+    # Added User-Agent so the website doesn't block us for being a bot
+    headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
     
-    response = requests.get(archive_url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    # Set default values so the file ALWAYS generates
+    content_html = "<p>Could not fetch today's news. The script failed to find the latest article link.</p>"
+    article_link = archive_url
     
-    links = soup.find_all('a', href=True)
-    article_link = None
-    for link in links:
-        href = link['href']
-        if '/newsletters/' in href and href != '/newsletters/daily-news-brief':
-            article_link = href if href.startswith('http') else base_url + href
-            break
+    try:
+        response = requests.get(archive_url, headers=headers)
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        links = soup.find_all('a', href=True)
+        for link in links:
+            href = link['href']
+            # Look for links containing daily-news-brief but not the main archive page
+            if 'daily-news-brief' in href and href != '/newsletters/daily-news-brief' and not href.startswith('#'):
+                article_link = href if href.startswith('http') else base_url + href
+                break
+                
+        if article_link != archive_url:
+            article_response = requests.get(article_link, headers=headers)
+            article_soup = BeautifulSoup(article_response.text, 'html.parser')
             
-    if not article_link:
-        print("Could not find the latest news link.")
-        return
-
-    article_response = requests.get(article_link)
-    article_soup = BeautifulSoup(article_response.text, 'html.parser')
-    
-    content_html = ""
-    for element in article_soup.find_all(['h1', 'h2', 'h3', 'p', 'li']):
-        text = element.get_text(strip=True)
-        if text:
-            content_html += f"<{element.name}>{text}</{element.name}>\n"
+            content_html = ""
+            for element in article_soup.find_all(['h1', 'h2', 'h3', 'p', 'li']):
+                text = element.get_text(strip=True)
+                if text:
+                    content_html += f"<{element.name}>{text}</{element.name}>\n"
+    except Exception as e:
+        content_html = f"<p>An error occurred while scraping: {e}</p>"
             
     date_str = datetime.now().strftime("%Y-%m-%d")
     
@@ -55,6 +61,7 @@ def scrape_cfr_news():
 </body>
 </html>"""
     
+    # This will now always run, preventing the GitHub Action from failing
     with open('index.html', 'w', encoding='utf-8') as f:
         f.write(html_template)
 
