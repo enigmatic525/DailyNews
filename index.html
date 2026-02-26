@@ -8,12 +8,52 @@
     <meta name="mobile-web-app-capable" content="yes">
     <title>News</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; padding: 20px; max-width: 800px; margin: auto; line-height: 1.6; background-color: #000000; color: #ffffff; }
-        h1 { font-size: 1.5em; border-bottom: 1px solid #333333; padding-bottom: 10px; margin-bottom: 20px; }
-        * { color: #ffffff !important; }
-        .news-section { border: 1px solid rgba(255, 255, 255, 0.4); padding: 15px; margin-bottom: 20px; background-color: #000000; }
-        .regular-section { padding: 0 15px; margin-bottom: 15px; }
-    </style>
+    body { 
+        /* Deep charcoal background from your screenshot */
+        background-color: #1a1a1a; 
+        color: #ffffff; 
+        /* Thin, elegant font stack */
+        font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif;
+        font-weight: 200; 
+        padding: 30px; 
+        max-width: 850px; 
+        margin: auto; 
+        line-height: 1.4; 
+        /* Slight letter tightening to match the image */
+        letter-spacing: -0.5px;
+        -webkit-font-smoothing: antialiased;
+    }
+    
+    h1 { 
+        font-size: 3em; 
+        font-weight: 200; 
+        margin-bottom: 40px; 
+        border: none; /* Removed the line to keep it clean like your image */
+    }
+
+    .news-section { 
+        border: 1px solid rgba(255, 255, 255, 0.2); 
+        padding: 20px; 
+        margin-bottom: 25px; 
+        background-color: transparent; 
+    }
+
+    .regular-section { 
+        padding: 0 20px; 
+        margin-bottom: 20px; 
+        opacity: 0.9; /* Slightly fades non-headers for better hierarchy */
+    }
+
+    /* Force all nested elements to inherit the thin font weight */
+    * { 
+        color: #ffffff !important; 
+        font-weight: 200 !important; 
+    }
+    
+    strong, b {
+        font-weight: 400 !important; /* Makes headers stand out slightly without being too bulky */
+    }
+</style>
 </head>
 <body>
     <div>
