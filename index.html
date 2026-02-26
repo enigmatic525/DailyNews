@@ -11,81 +11,83 @@
     body { 
         background-color: #1a1a1a; 
         color: #ffffff; 
-        font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif;
+        /* The ultra-thin look requires a very specific font stack */
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 200; 
-        padding: 40px 20px; /* Increased top/bottom padding for more breathing room */
-        max-width: 850px; 
+        padding: 60px 25px; 
+        max-width: 700px; /* Narrower width makes long text easier to read on mobile */
         margin: auto; 
-        /* LINE SPACING: Increased to 1.7 for a more open, airy feel */
-        line-height: 1.7; 
-        letter-spacing: -0.2px; /* Less aggressive tightening for better legibility */
+        line-height: 1.8; /* Maximum breathing room */
+        letter-spacing: 0.02em; 
         -webkit-font-smoothing: antialiased;
     }
     
     h1 { 
-        font-size: 2.8em; 
+        font-size: 2.2em; 
         font-weight: 200; 
-        margin-top: 20px;
-        margin-bottom: 60px; /* Massive gap after title for a clean start */
+        margin-bottom: 80px; 
         text-align: center;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        opacity: 0.7;
     }
 
+    /* THE BOX: Now uses a very faint line and more internal padding */
     .news-section { 
-        border: 1px solid rgba(255, 255, 255, 0.2); 
-        padding: 25px; /* More internal space inside the boxes */
-        margin-bottom: 40px; /* More space between different news items */
-        background-color: transparent; 
+        border: 1px solid rgba(255, 255, 255, 0.15); 
+        padding: 35px; 
+        margin-bottom: 60px; /* Huge gap between stories */
+        background-color: rgba(255, 255, 255, 0.02); /* Barely visible tint to give depth */
     }
 
     .regular-section { 
-        padding: 0 25px; 
-        margin-bottom: 35px; /* Increased space between regular paragraphs */
-        opacity: 0.85; 
+        padding: 0 35px; 
+        margin-bottom: 45px; 
+        opacity: 0.7; /* Dim secondary text so headers pop */
     }
 
-    /* Force all nested elements to inherit the thin font weight */
+    /* Force thinness everywhere */
     * { 
         color: #ffffff !important; 
         font-weight: 200 !important; 
     }
     
+    /* THE HEADER: The only thing that should be slightly 'heavier' */
     strong, b {
         font-weight: 400 !important; 
-        display: block; /* Forces the header onto its own line for better structure */
-        margin-bottom: 10px; /* Space between the bold header and the text below it */
-        font-size: 1.1em;
+        font-size: 1.2em;
+        display: block;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
     }
 
-    /* Tab Header Styling with improved spacing */
+    /* Tab Header: Minimalist and Floating */
     .nav-header {
         display: flex;
         justify-content: center;
-        gap: 40px; /* Wide gap between buttons */
-        padding: 20px 0;
-        border-bottom: 1px solid #333;
-        margin-bottom: 50px;
+        gap: 50px;
+        padding: 30px 0;
+        margin-bottom: 40px;
         position: sticky;
         top: 0;
         background: #1a1a1a;
         z-index: 100;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
     .tab-btn {
         background: none;
         border: none;
-        color: #666;
-        font-size: 1em;
-        font-weight: 200 !important;
+        color: #555;
+        font-size: 0.8em;
         cursor: pointer;
-        padding: 10px 0;
         text-transform: uppercase;
-        letter-spacing: 2px; /* Spaced out letters for the menu */
+        letter-spacing: 3px;
+        transition: 0.3s;
     }
     .tab-btn.active {
         color: #fff !important;
-        border-bottom: 1px solid #fff;
+        opacity: 1;
     }
-    .content-pane { display: none; }
-    .content-pane.active { display: block; }
 </style>
 </head>
 <body>
