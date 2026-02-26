@@ -9,39 +9,38 @@
     <title>News</title>
     <style>
     body { 
-        /* Deep charcoal background from your screenshot */
         background-color: #1a1a1a; 
         color: #ffffff; 
-        /* Thin, elegant font stack */
         font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI", sans-serif;
         font-weight: 200; 
-        padding: 30px; 
+        padding: 40px 20px; /* Increased top/bottom padding for more breathing room */
         max-width: 850px; 
         margin: auto; 
-        line-height: 1.4; 
-        /* Slight letter tightening to match the image */
-        letter-spacing: -0.5px;
+        /* LINE SPACING: Increased to 1.7 for a more open, airy feel */
+        line-height: 1.7; 
+        letter-spacing: -0.2px; /* Less aggressive tightening for better legibility */
         -webkit-font-smoothing: antialiased;
     }
     
     h1 { 
-        font-size: 3em; 
+        font-size: 2.8em; 
         font-weight: 200; 
-        margin-bottom: 40px; 
-        border: none; /* Removed the line to keep it clean like your image */
+        margin-top: 20px;
+        margin-bottom: 60px; /* Massive gap after title for a clean start */
+        text-align: center;
     }
 
     .news-section { 
         border: 1px solid rgba(255, 255, 255, 0.2); 
-        padding: 20px; 
-        margin-bottom: 25px; 
+        padding: 25px; /* More internal space inside the boxes */
+        margin-bottom: 40px; /* More space between different news items */
         background-color: transparent; 
     }
 
     .regular-section { 
-        padding: 0 20px; 
-        margin-bottom: 20px; 
-        opacity: 0.9; /* Slightly fades non-headers for better hierarchy */
+        padding: 0 25px; 
+        margin-bottom: 35px; /* Increased space between regular paragraphs */
+        opacity: 0.85; 
     }
 
     /* Force all nested elements to inherit the thin font weight */
@@ -51,8 +50,42 @@
     }
     
     strong, b {
-        font-weight: 400 !important; /* Makes headers stand out slightly without being too bulky */
+        font-weight: 400 !important; 
+        display: block; /* Forces the header onto its own line for better structure */
+        margin-bottom: 10px; /* Space between the bold header and the text below it */
+        font-size: 1.1em;
     }
+
+    /* Tab Header Styling with improved spacing */
+    .nav-header {
+        display: flex;
+        justify-content: center;
+        gap: 40px; /* Wide gap between buttons */
+        padding: 20px 0;
+        border-bottom: 1px solid #333;
+        margin-bottom: 50px;
+        position: sticky;
+        top: 0;
+        background: #1a1a1a;
+        z-index: 100;
+    }
+    .tab-btn {
+        background: none;
+        border: none;
+        color: #666;
+        font-size: 1em;
+        font-weight: 200 !important;
+        cursor: pointer;
+        padding: 10px 0;
+        text-transform: uppercase;
+        letter-spacing: 2px; /* Spaced out letters for the menu */
+    }
+    .tab-btn.active {
+        color: #fff !important;
+        border-bottom: 1px solid #fff;
+    }
+    .content-pane { display: none; }
+    .content-pane.active { display: block; }
 </style>
 </head>
 <body>
