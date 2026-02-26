@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>News Feed</title>
-    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAA...[SNIP]...JRU5ErkJggg==">
+    <title>CFR Daily</title>
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAA...[PASTE_FULL_STRING_HERE]...JRU5ErkJggg==">
     
     <style>
         body { 
@@ -14,65 +14,34 @@
             color: #ffffff; 
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 200; 
-            padding: 40px 25px; 
-            max-width: 700px; 
+            padding: 30px 20px; /* Vertical whitespace reduced 25% */
+            max-width: 875px; /* Width margins reduced by 25% (from 700px to 875px) */
             margin: auto; 
-            line-height: 1.8; 
-            letter-spacing: 0.02em; 
+            line-height: 1.5; /* Reduced from 1.8 to 1.5 (~25% reduction) */
+            letter-spacing: 0.033em; /* Increased character spacing by 10% */
             -webkit-font-smoothing: antialiased;
-        }
-
-        /* Tab Header: Minimalist and Floating */
-        .nav-header {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            padding: 30px 0;
-            margin-bottom: 40px;
-            position: sticky;
-            top: 0;
-            background: #1a1a1a;
-            z-index: 100;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        .tab-btn {
-            background: none;
-            border: none;
-            color: #555;
-            font-size: 0.8em;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            transition: 0.3s;
-            font-weight: 200 !important;
-        }
-        
-        .tab-btn.active {
-            color: #fff !important;
-            opacity: 1;
         }
 
         h1 { 
             font-size: 2.2em; 
             font-weight: 200; 
-            margin-bottom: 80px; 
+            margin-bottom: 60px; /* Reduced vertical whitespace */
             text-align: center;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             opacity: 0.7;
         }
 
         .news-section { 
             border: 1px solid rgba(255, 255, 255, 0.15); 
-            padding: 35px; 
-            margin-bottom: 60px; 
+            padding: 25px; /* Reduced from 35px */
+            margin-bottom: 45px; /* Reduced from 60px */
             background-color: rgba(255, 255, 255, 0.02); 
         }
 
         .regular-section { 
-            padding: 0 35px; 
-            margin-bottom: 45px; 
+            padding: 0 25px; 
+            margin-bottom: 30px; /* Reduced from 45px */
             opacity: 0.7; 
         }
 
@@ -80,28 +49,17 @@
         
         strong, b {
             font-weight: 400 !important; 
-            font-size: 1.2em;
+            font-size: 1.1em;
             display: block;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
             letter-spacing: 1px;
         }
-
-        .content-pane { display: none; }
-        .content-pane.active { display: block; }
     </style>
 </head>
 <body>
-    <div class="nav-header">
-        <button class="tab-btn active" onclick="openTab(event, 'cfr')">CFR</button>
-        <button class="tab-btn" onclick="openTab(event, 'redfolder')">Red Folder</button>
-    </div>
-
-    <div id="cfr" class="content-pane active">
-        <h1>CFR Brief</h1>
-        <div>
-            <div class="regular-section">
-<span style="word-break: break-word; font-size: 46px;">Daily News Brief</span></div><div class="regular-section"><em>February 26, 2026</em></div><div class="regular-section">
-<span style="word-break: break-word; font-size: 16px;">Welcome to CFR’s Daily News Brief. Today we’re covering U.S.-Iran nuclear talks amid a major U.S. military buildup, as well as...</span></div><div class="regular-section"><li aria-level="1">U.S.-Ukraine talks on peace and postwar reconstruction</li><li aria-level="1">German Chancellor Friedrich Merz’s visit to Beijing</li><li aria-level="1">New U.S. permission for some fuel to reach Cuba&nbsp;</li></div><div class="news-section"><span style="word-break: break-word; font-size: 26px;"><strong><span style="word-break: break-word;">Top of the Agenda</span></strong></span></div><div class="news-section">
+    <h1>CFR Brief</h1>
+    <div>
+        <div class="regular-section"><em>February 26, 2026</em></div><div class="regular-section"><li aria-level="1">U.S.-Ukraine talks on peace and postwar reconstruction</li><li aria-level="1">German Chancellor Friedrich Merz’s visit to Beijing</li><li aria-level="1">New U.S. permission for some fuel to reach Cuba&nbsp;</li></div><div class="news-section"><span style="word-break: break-word; font-size: 26px;"><strong><span style="word-break: break-word;">Top of the Agenda</span></strong></span></div><div class="news-section">
 <span style="word-break: break-word; font-size: 16px;"><strong>The United States and Iran are holding another round of indirect nuclear talks today in Geneva, with both sides threatening war if diplomacy fails. </strong>The United States has deployed its largest military buildup in the Middle East in decades, and Iran’s foreign minister Abbas Araghchi said yesterday that a U.S. strike would trigger a “devastating war” and could ignite a broader conflict due to the presence of U.S. bases across the region. Like U.S. President Donald Trump, Araghchi maintained that a deal is preferable. The state news agency of mediator Oman said today that both sides were demonstrating “unprecedented openness to new and creative ideas and solutions,” but did not provide further details.</span>
 </div><div class="regular-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
 <span style="word-break: break-word; font-size: 16px;"><strong>What’s being discussed. </strong>The countries are floating proposals that include limiting the amount of uranium Iran is allowed to enrich, temporarily suspending Iran’s enrichment activity, and dismantling its main nuclear sites, according to reports from multiple news outlets. Iranian officials have publicly said their proposal includes pledges to purchase U.S. goods and welcome more U.S. investment. Yet U.S. Secretary of State Marco Rubio said yesterday that Iran has refused to consider concessions regarding its ballistic missiles despite U.S. urging, calling it a “big problem.”</span>
@@ -112,7 +70,7 @@
 </div><div class="news-section">
 <span style="word-break: break-word; font-size: 17px;"><strong>—<span style="word-break: break-word; font-size: 18px;">CFR expert Max Boot</span></strong></span></div><div class="regular-section">
 <span style="word-break: break-word; font-size: 20px;">Preparing for the Day After in Europe</span></div><div class="regular-section"><span style="word-break: break-word; font-size: 11px; color: #9f9f9f;"><em>Hamad Al Kaabi/Reuters</em></span></div><div class="regular-section">
-<span style="word-break: break-word; font-size: 16px;">A settlement in Ukraine will not end Europe’s security challenges—it will merely change them. Western policymakers should begin preparing now for what comes after the guns fall silent, CFR expert Paul B. Stares writes in this Ukraine Policy Brief.</span></div><div class="regular-section"><span class="tinyMce-placeholder" style="word-break: break-word;">Across the Globe</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;">A settlement in Ukraine will not end Europe’s security challenges—it will merely change them. Western policymakers should begin preparing now for what comes after the guns fall silent, CFR expert Paul B. Stares writes in this Ukraine Policy Brief.</span></div><div class="news-section">
 <span style="word-break: break-word; font-size: 16px;"><strong>U.S.-Ukraine diplomacy. </strong>Bilateral talks between the two countries regarding ongoing peace negotiations with Russia and plans for postwar reconstruction are also taking place in Geneva today. After a call with Trump ahead of today’s meeting, Ukrainian President Volodymyr Zelenskyy wrote on social media yesterday that he soon expects an opportunity to move negotiations “to the leaders’ level.”</span>
 </div><div class="news-section">
 <span style="word-break: break-word; font-size: 16px;"><strong>Merz in Beijing. </strong>China will buy as many as 120 aircraft from European firm Airbus, Germany’s Merz said during a visit to Beijing yesterday. Merz praised China-Germany ties amid a “turbulent” world. His visit follows recent trips to China by the leaders of France and the UK. China became Germany’s top trade partner last year. While Merz told reporters that China’s export overcapacity continued to concern Germany, China’s foreign ministry noted that both countries had pledged to resolve trade concerns “through candid and open dialogue.”&nbsp;</span>
@@ -138,25 +96,7 @@ Tomorrow, Anthropic faces a deadline to reply to U.S. Department of Defense dema
 <span style="word-break: break-word; font-size: 18px;"><span style="word-break: break-word; font-size: 20px;"></span></span><span style="word-break: break-word; font-size: 20px;">Global Growth Tracker: World Economies by GDP</span>
 </div><div class="regular-section">
 <span style="word-break: break-word; font-size: 11px; color: #9f9f9f;"><em>Jack Taylor/Reuters</em></span></div><div class="regular-section">
-<span style="word-break: break-word; font-size: 16px;">Examining the economic growth performance over time of ninety-one countries around the globe allows significant trends to come into focus, CFR expert Benn Steil writes in this tracker.</span></div><div class="news-section">
-<span style="word-break: break-word; font-size: 14px;"><strong><span style="word-break: break-word;">Council on Foreign Relations</span></strong></span></div>
-        </div>
+<span style="word-break: break-word; font-size: 16px;">Examining the economic growth performance over time of ninety-one countries around the globe allows significant trends to come into focus, CFR expert Benn Steil writes in this tracker.</span></div>
     </div>
-
-    <div id="redfolder" class="content-pane">
-        <h1>The Red Folder</h1>
-        </div>
-
-    <script>
-        function openTab(evt, tabName) {
-            var i, panes, btns;
-            panes = document.getElementsByClassName("content-pane");
-            for (i = 0; i < panes.length; i++) { panes[i].classList.remove("active"); }
-            btns = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-    </script>
 </body>
 </html>
