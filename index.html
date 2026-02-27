@@ -14,13 +14,12 @@
             color: #ffffff; 
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             font-weight: 200; 
-            padding: 30px 20px;
-            max-width: 875px; 
+            padding: 30px 20px; /* Reduced vertical whitespace */
+            max-width: 875px; /* Width margins reduced 25% */
             margin: auto; 
-            line-height: 1.5; 
-            letter-spacing: 0.033em; 
+            line-height: 1.5; /* Vertical whitespace reduction */
+            letter-spacing: 0.033em; /* Character spacing increased 10% */
             -webkit-font-smoothing: antialiased;
-            text-align: left;
         }
 
         h1 { 
@@ -33,23 +32,12 @@
             opacity: 0.7;
         }
 
+        /* All items now use this boxed style */
         .news-section { 
             border: 1px solid rgba(255, 255, 255, 0.15); 
-            padding: 25px 30px; 
+            padding: 25px; 
             margin-bottom: 35px; 
             background-color: rgba(255, 255, 255, 0.02); 
-        }
-
-        /* Centered List Styling */
-        ul, ol {
-            padding: 0;
-            margin: 0 0 20px 0;
-            list-style-position: inside; /* Keeps bullet with text while centering */
-            text-align: center; /* Centers the bulleted items */
-        }
-
-        li {
-            margin-bottom: 12px;
         }
 
         * { color: #ffffff !important; font-weight: 200 !important; }
@@ -58,7 +46,7 @@
             font-weight: 400 !important; 
             font-size: 1.1em;
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             letter-spacing: 1px;
         }
     </style>
@@ -66,36 +54,49 @@
 <body>
     <h1>CFR Brief</h1>
     <div>
-        <div class="news-section"><li aria-level="1">U.S.-Ukraine talks on peace and postwar reconstruction</li><li aria-level="1">German Chancellor Friedrich Merz’s visit to Beijing</li><li aria-level="1">New U.S. permission for some fuel to reach Cuba&nbsp;</li></div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>The United States and Iran are holding another round of indirect nuclear talks today in Geneva, with both sides threatening war if diplomacy fails. </strong>The United States has deployed its largest military buildup in the Middle East in decades, and Iran’s foreign minister Abbas Araghchi said yesterday that a U.S. strike would trigger a “devastating war” and could ignite a broader conflict due to the presence of U.S. bases across the region. Like U.S. President Donald Trump, Araghchi maintained that a deal is preferable. The state news agency of mediator Oman said today that both sides were demonstrating “unprecedented openness to new and creative ideas and solutions,” but did not provide further details.</span>
+        <div class="news-section"><em>February 27, 2026</em></div><div class="news-section"><li aria-level="1">Fighting along the Afghanistan-Pakistan border</li><li aria-level="1">A U.S.-Democratic Republic of Congo (DRC) agreement on healthcare</li><li aria-level="1">
+A new U.S. evacuation warning in the Middle East</li></div><div class="news-section">
+<span style="word-break: break-word; font-size: 26px;"><strong><span style="word-break: break-word;">Top of the Agenda</span></strong></span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 15px;"><strong>Anthropic rejected an ultimatum from the Pentagon yesterday regarding government use of its technology amid an ongoing dispute about the use of AI by the U.S. military. </strong>The company opposes the government using its AI systems for mass domestic surveillance and fully autonomous weapons, deeming them “outside the bounds of what today’s technology can safely or reliably do,” Anthropic CEO Dario Amodei wrote in a statement. A Defense Department spokesperson wrote yesterday that the Pentagon “has no interest” in the two use cases flagged by Amodei, but that it still seeks a broader authorization to use Anthropic’s technology for “all lawful purposes.”&nbsp;</span>
 </div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>What’s being discussed. </strong>The countries are floating proposals that include limiting the amount of uranium Iran is allowed to enrich, temporarily suspending Iran’s enrichment activity, and dismantling its main nuclear sites, according to reports from multiple news outlets. Iranian officials have publicly said their proposal includes pledges to purchase U.S. goods and welcome more U.S. investment. Yet U.S. Secretary of State Marco Rubio said yesterday that Iran has refused to consider concessions regarding its ballistic missiles despite U.S. urging, calling it a “big problem.”</span>
+<span style="word-break: break-word; font-size: 15px;"><strong>The stakes. </strong>The Pentagon has threatened to terminate its $200 million contract with Anthropic and label the company a supply chain risk. That could force any companies that work with the U.S. military to prove they do not use Anthropic products to do so. The government took a step in that direction earlier this week by asking defense contractors to assess their reliance on Anthropic’s AI model, <em>Axios</em> reported. The Pentagon has also indicated that it could use the Defense Production Act to compel Anthropic to accept its terms, which would likely lead to legal challenges.</span>
 </div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>Regional repercussions. </strong>The United States and Australia have pulled diplomatic staff from some regional outposts as the threat of conflict looms, and multiple countries have warned their nationals to leave Iran. Other countries are considering their own roles as regional tensions escalate. U.S. partners Saudi Arabia and the United Arab Emirates have publicly said the United States cannot use their territory to attack Iran. The United Kingdom (UK) also blocked U.S. use of UK airbases in the Indian Ocean island of Diego Garcia and in England for any pre-emptive attack, multiple news outlets reported.&nbsp;<span style="word-break: break-word;">&nbsp;</span></span>
+<span style="word-break: break-word; font-size: 15px;"><strong>The broader debate. </strong>AI is being rolled out in real military settings even as policies on its usage vary by country,<strong> </strong>if they have any regulations at all. Reports suggest that countries including Israel, Russia, and Ukraine have all used AI to help identify battlefield targets. The UN Secretary-General has called for international dialogue on AI guardrails, while a U.S. envoy said earlier this month that Washington “totally” rejects global governance of AI. The United States and China both declined to sign a summit declaration this month on responsible military AI use, while multiple European countries endorsed it. The Trump Administration’s own AI Action Plan says the Pentagon will “aggressively” adopt AI to maintain global military preeminence while also ensuring the technology’s use is “secure and reliable.”&nbsp;</span>
 </div><div class="news-section">
-<span style="word-break: break-word; font-size: 17px;">“[Risks that conflict with Iran poses for the U.S. military] are magnified because of the likely lack of support from any allies—aside from Israel—for U.S. operations against Iran. The United States could still successfully strike targets in Iran, but it is far from clear that such attacks would bring major concessions from the regime. The president would be well advised to take these considerable risks and costs into account before starting a war without an obvious exit strategy.”</span>
+<span style="word-break: break-word; font-size: 17px;">“The growing gap between international dialogue on military AI, which tends to emphasize risks and potential constraints on its use, and the accelerating efforts of militaries worldwide to integrate AI should be concerning to all nations...states are deploying these technologies with a patchwork of haphazard policies—if any—and no opportunity to gain valuable insights on best practices from others.”</span><span style="word-break: break-word; font-size: 17px;">
+<br></span></div><div class="news-section"><span style="word-break: break-word; font-size: 18px;"><strong>—CFR Senior Fellow Michael C. Horowitz in an Expert Take </strong></span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 18px;"><span style="word-break: break-word; font-size: 20px;">Unpacking Debates on AI</span></span>
 </div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;">A settlement in Ukraine will not end Europe’s security challenges—it will merely change them. Western policymakers should begin preparing now for what comes after the guns fall silent, CFR expert Paul B. Stares writes in this Ukraine Policy Brief.</span></div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>U.S.-Ukraine diplomacy. </strong>Bilateral talks between the two countries regarding ongoing peace negotiations with Russia and plans for postwar reconstruction are also taking place in Geneva today. After a call with Trump ahead of today’s meeting, Ukrainian President Volodymyr Zelenskyy wrote on social media yesterday that he soon expects an opportunity to move negotiations “to the leaders’ level.”</span>
+<span style="word-break: break-word; font-size: 16px;">CFR experts Rebecca Patterson and Sebastian Mallaby dive into the possibility of an AI bubble, the technology’s productivity paradox, and the latest global AI summit in this episode of <em>The Spillover</em><em>.</em></span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>Afghanistan-Pakistan hostilities. </strong>Fighting between the two countries continued yesterday, with Taliban forces firing at Pakistani troops in the border region and Pakistan launching air strikes at Afghanistan’s two largest cities overnight. Both countries reported multiple deaths, and Pakistan’s defense minister called the situation “open war.” The latest clashes began last weekend when Pakistan targeted extremist groups in Afghanistan it alleged were responsible for suicide bombings in Pakistan.&nbsp;</span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>U.S. guidance on leaving Israel. </strong>As the United States weighs a strike on Iran, it authorized non-essential government staff and family members to depart Israel, citing unspecified “safety risks.” Meanwhile, the foreign minister of Oman said yesterday’s indirect nuclear talks between the United States and Iran had achieved “significant progress,” but did not announce a breakthrough that would avert an attack.</span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>Denmark calls snap elections. </strong>The country will hold a parliamentary election next month, Prime Minister Mette Frederiksen said yesterday. The ruling center-left party has experienced a surge in support after defending the country’s sovereignty amid U.S. President Donald Trump’s threats to acquire Greenland. The country’s normal electoral calendar required a vote be held before October 31.</span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>U.S.-DRC health deal. </strong>The United States will provide up to $900 million over the next five years to fight HIV/AIDS and other diseases in the DRC, while the DRC will increase its health expenditures by $300 million during the same period, the U.S. State Department said yesterday. This is the latest in a series of deals the Trump administration has struck with African countries in the wake of cuts to the U.S. Agency for International Development.&nbsp;&nbsp;</span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>Canada-India rapprochement. </strong>Canadian Prime Minister Mark Carney will begin talks on a comprehensive trade agreement with India during his ongoing visit, Canada’s foreign minister told Reuters. Carney has worked to warm ties with India, which have been frayed since the 2023 killing of a Sikh separatist on Indian soil. Last month in Davos, Carney called for “middle powers” to work together to shape an emerging world order.</span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>South Korea-Google agreement on maps. </strong>Seoul today said it would permit Google to export detailed geographic data of the country to its international servers with certain safeguards. For years it has refused to do so over concerns that North Korea could use the data for a military attack. Google agreed to blur images of sensitive sites.&nbsp;</span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>Greens win closely watched UK parliament seat. </strong>The United Kingdom (UK) Labour party came in third yesterday in a special election for a seat in a longheld party stronghold. The Green Party won the seat by a large margin, with right-wing Reform UK coming in second. The election was seen as a test of Labour’s popularity at a time when Prime Minister Keir Starmer’s approval has sagged.</span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 16px;">&nbsp;</span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;"><strong>U.S.-India tariff talks. </strong>India’s Commerce and Industry Minister Piyush Goyal said that he discussed trade policy with U.S. Commerce Secretary Howard Lutnick yesterday in New Delhi. India is one of the countries that stands to benefit most from last week’s Supreme Court ruling against Trump’s emergency tariffs. Washington has pledged to use other authorities to restore them. IMF Managing Director Kristalina Georgieva said at a press conference Wednesday that U.S. tariffs “added to goods inflation” and affected productivity, urging the Trump administration to work with trade partners to address deficit concerns.<span style="word-break: break-word;">&nbsp; &nbsp;&nbsp;</span></span>
 </div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>Merz in Beijing. </strong>China will buy as many as 120 aircraft from European firm Airbus, Germany’s Merz said during a visit to Beijing yesterday. Merz praised China-Germany ties amid a “turbulent” world. His visit follows recent trips to China by the leaders of France and the UK. China became Germany’s top trade partner last year. While Merz told reporters that China’s export overcapacity continued to concern Germany, China’s foreign ministry noted that both countries had pledged to resolve trade concerns “through candid and open dialogue.”&nbsp;</span>
+<span style="word-break: break-word; font-size: 18px;"><span style="word-break: break-word; font-size: 20px;">Tracking Iran’s Conflict with Israel and the United States</span></span>
 </div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>Ruling on third-country deportations. </strong>A federal judge ruled yesterday that the Trump administration’s policy of deporting immigrants to places other than their countries of origin is unconstitutional. U.S. authorities must provide deportees sufficient time to challenge their deportations by raising fears of persecution at their designated destination, the judge wrote. A spokesperson for the Justice Department denounced the ruling. The judge paused his order for fifteen days, and administration lawyers have said they are likely to appeal.&nbsp;&nbsp;&nbsp;</span>
-</div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>U.S. allows limited fuel for Cuba. </strong>The Treasury Department announced yesterday that it would permit Venezuelan fuel to be resold to Cuba if it is bought by Cuba’s small private sector. Fuel shipments to Cuba have virtually dried up since Washington banned Venezuela from selling oil to Cuba last month and threatened tariffs on any country that ships fuel to the island. UN experts warned the restrictions could result in a humanitarian crisis in the country.</span>
-</div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>Cuba speedboat altercation. </strong>Cuban military forces killed four people on a U.S.-registered speedboat yesterday after a passenger on the boat opened fire at Cuban officers, Cuba’s interior ministry said. It later added that preliminary findings suggested the passengers were Cuban nationals living in the United States who aimed to carry out “an infiltration for terrorist purposes.” Rubio said the incident was not a U.S. government operation but the United States would investigate it.</span>
-</div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>India’s Modi in Israel. </strong>Indian Prime Minister Narendra Modi became the country’s first leader to address the Israeli legislature yesterday, highlighting both countries’ counterterrorism efforts and saying India “stands with Israel, firmly, with full conviction.” Under Modi, a Hindu nationalist, India has strengthened ties with Israel—becoming Israel’s second-largest trading partner in Asia—and pivoted away from its historic support for Palestinians. Both countries pledged to expand trade, defense, and energy ties. <strong>&nbsp;</strong></span>
-</div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>Zimbabwe’s mineral export ban. </strong>The government announced yesterday it was suspending exports of all raw minerals and lithium concentrates and called for the mining industry to comply with its rules, including requirements that exporters obtain specific permits. Earlier this month, the mining ministry told companies it was monitoring “malpractices” and “leakages” among exporters.&nbsp;</span>
-</div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;"><strong>Lai wins appeal in Hong Kong. </strong>A Hong Kong appellate court overturned a fraud conviction against pro-democracy media tycoon Jimmy Lai today, ruling that prosecutors had failed to prove their claims beyond reasonable doubt. The ruling does not affect a separate twenty-year sentence Lai is serving after being convicted under Hong Kong’s national security law. While the overturned conviction is a legal victory for one of Hong Kong’s most prominent pro-democracy voices, Lai’s daughter Claire called the ruling a “PR move by the Hong Kong authorities.”&nbsp;</span>
-</div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;">The Trump administration’s foreign policy is accelerating global efforts to reduce dependence on American hyperscalers—and the long-term costs to U.S. digital influence may be severe, CFR expert Kat Duffy writes in this article.</span></div><div class="news-section"><li aria-level="1">
-Today, Canadian Prime Minister Mark Carney begins a trip to India, Australia, and Japan.</li><li aria-level="1">Today, the UK holds a special election for an open parliamentary seat.</li><li>
-Tomorrow, Anthropic faces a deadline to reply to U.S. Department of Defense demands over product usage rules.</li></div><div class="news-section">
-<span style="word-break: break-word; font-size: 16px;">Examining the economic growth performance over time of ninety-one countries around the globe allows significant trends to come into focus, CFR expert Benn Steil writes in this tracker.</span></div>
+<em><span style="word-break: break-word; font-size: 11px;">Majid Asgaripour/WANA/Reuters</span></em></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;">With the threat of conflict looming, recent military actions by the United States, Iran, and Israel demonstrate their capabilities and can be traced in this Conflict Tracker from the Center for Preventive Action.</span></div><div class="news-section"><span class="tinyMce-placeholder" style="word-break: break-word;">What’s Next </span></div><div class="news-section"><li aria-level="1"><p style="margin:0;mso-line-height-alt:28.8px" aria-level="1">
+Today, the Caribbean Community concludes a leaders’ meeting in St. Kitts and Nevis.</p></li><li aria-level="1"><p style="margin:0;mso-line-height-alt:28.8px" aria-level="1">
+Tomorrow, planetary movements will leave six planets visible at the same time in the night sky.&nbsp;</p></li><li><p style="margin:0;mso-line-height-alt:28.8px" aria-level="1">
+Sunday, China will reduce or remove tariffs on Canadian products, including canola meal and some food products.</p></li></div><div class="news-section">
+Today, the Caribbean Community concludes a leaders’ meeting in St. Kitts and Nevis.</div><div class="news-section">
+Tomorrow, planetary movements will leave six planets visible at the same time in the night sky.&nbsp;</div><div class="news-section">
+Sunday, China will reduce or remove tariffs on Canadian products, including canola meal and some food products.</div><div class="news-section">
+<span style="word-break: break-word; font-size: 18px;"><span style="word-break: break-word; font-size: 20px;">The Past and Future of Foreign Correspondence</span></span>
+</div><div class="news-section"><span style="word-break: break-word; font-size: 11px; color: #9f9f9f;"><em>Photo Collage by Lucky Benson</em></span></div><div class="news-section">
+<span style="word-break: break-word; font-size: 16px;">While journalism is undergoing enormous disruptions today, the need for honest interpreters of current events will not disappear, Press Fellow Alan Cullison told CFR’s Mariel Ferragamo in this article.</span></div>
     </div>
 </body>
 </html>
