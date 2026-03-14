@@ -61,260 +61,259 @@
 <body>
     <div id="content-feed">
         <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Daily News Brief</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News Brief - March 13, 2026</title>
     <style>
         body {
-            font-family: sans-serif; /* A common default, adjust if a specific font is implied */
-            line-height: 1.5;
-            color: #333; /* Default text color */
-            margin: 20px; /* Add some margin for overall readability */
-        }
-        /* Style for the main content paragraphs */
-        .body-paragraph {
-            border-left: 2px solid #B22222;
-            padding-left: 10px;
-            margin-bottom: 1em;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
             word-break: break-word;
+            max-width: 650px; /* Adjust for better readability */
+            margin: 20px auto;
+            padding: 0 20px;
         }
-        /* Style for converted bullet list items */
-        .bullet-item {
-            border-left: 2px solid #B22222;
-            padding-left: 10px;
-            margin-bottom: 0.5em; /* Slightly less space for list items */
-            word-break: break-word;
-        }
-        /* Custom red bullet character */
-        .bullet-char {
-            color: #B22222;
-            margin-right: 5px;
-        }
-        /* Headers should not have the red line or any left padding/margin that would make them "tabbed" */
-        h1, h2, h3, h4, h5, h6 {
-            margin-top: 1.5em;
-            margin-bottom: 0.8em;
-            line-height: 1.2;
-            word-break: break-word;
-            padding-left: 0; /* Ensure no inherited padding */
-            border-left: none; /* Ensure no inherited border */
-        }
-        /* Specific header styles based on original font sizes */
-        .header-title {
+
+        h1 {
             font-size: 46px;
-            font-weight: normal; /* The original had no explicit bold on this */
             margin-bottom: 5px;
+            color: #333; /* Ensure header color */
         }
-        .header-date {
+
+        .date {
             font-size: 16px;
             font-style: italic;
-            display: block; /* Ensure it's on its own line */
-            margin-bottom: 1em;
+            display: block;
+            margin-bottom: 25px;
+            color: #333;
         }
-        .section-header {
+
+        h2 {
             font-size: 26px;
             font-weight: bold;
-            margin-top: 2em; /* More space before main sections */
-            margin-bottom: 1em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            color: #333;
         }
-        .small-header {
+
+        h3 {
             font-size: 20px;
             font-weight: bold;
-            margin-top: 1.5em;
-            margin-bottom: 0.8em;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            color: #333;
         }
-        /* Quote specific styles */
-        .quote-text {
+
+        p {
+            font-size: 16px;
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: #F25D27; /* Default link color from original body text */
+            text-decoration: underline;
+        }
+
+        /* Specific style for the featured article/podcast titles */
+        h3 a {
+            color: #04284A; /* Specific color for these header links */
+            text-decoration: none; /* No underline for these */
+        }
+
+        .body-paragraph-block {
+            border-left: 2px solid #B22222;
+            padding-left: 15px;
+            margin-bottom: 1.5em; /* Space between paragraph blocks */
+        }
+        .body-paragraph-block:last-of-type {
+            margin-bottom: 1em; /* Slightly less margin if it's the last in a section before a new header */
+        }
+
+        .bullet-indent {
+            border-left: 2px solid #B22222;
+            padding-left: 10px;
+            margin-left: 5px; /* Slight indentation from the left edge of the content area */
+            margin-bottom: 0.5em; /* Space between bullet items */
+            display: block;
+            font-size: 16px;
+        }
+        .bullet-indent:last-of-type {
+            margin-bottom: 2em; /* More space after the list of bullet points */
+        }
+
+        blockquote {
+            border-left: 2px solid #B22222;
+            padding-left: 15px;
+            margin: 2em 0; /* Vertical spacing for blockquote */
             font-size: 17px;
             font-style: italic;
-            margin-left: 20px; /* Indent quote slightly, without red line */
-            margin-bottom: 0.5em;
-            word-break: break-word;
+            color: #333;
         }
+
         .quote-attribution {
             font-size: 18px;
             font-weight: bold;
-            margin-left: 20px;
-            margin-bottom: 1.5em;
-            word-break: break-word;
+            margin-top: -1em; /* Pull it closer to the quote */
+            margin-bottom: 2.5em; /* Space after attribution */
+            color: #333;
         }
-        /* General link styles, override specific ones if needed */
-        a {
-            color: #F25D27; /* Link color from original */
-            text-decoration: underline;
-        }
-        /* Styles for podcast/article link blocks */
-        .podcast-item {
-            margin-bottom: 0.5em;
-            word-break: break-word;
-            font-size: 18px; /* Base size as per original wrapper */
-        }
-        .podcast-item a {
-            color: #04284A; /* From source */
-            text-decoration: none; /* From source */
-        }
-        .podcast-item a span {
-            font-size: 20px; /* Specific font size for the link text */
-        }
-        .image-attribution {
+
+        .photo-credit {
             font-size: 11px;
             color: #9f9f9f;
-            font-style: italic;
-            margin-bottom: 1em;
-            display: block;
+            margin-top: -0.5em; /* Pull it closer to the link above */
+            margin-bottom: 1.5em;
+            display: block; /* Ensure it takes its own line */
         }
-        /* Footer specific styles */
+
+        .footer {
+            border-top: 1px solid #eee; /* Subtle separator for footer */
+            padding-top: 25px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
         .footer-link {
             font-size: 14px;
             font-weight: bold;
             display: block;
-            margin-top: 2em;
-            margin-bottom: 0.5em;
-        }
-        .footer-text {
-            font-size: 12px;
-            margin-bottom: 0.5em;
-            word-break: break-word;
-        }
-        .footer-text strong {
-            font-weight: bold; /* Ensure bold is applied */
-        }
-        .footer-text a {
-            color: #3d454e; /* Footer link color from original */
-            text-decoration: underline;
-        }
-        .footer-text a[style*="text-decoration: none"] { /* Specific for subscribe link */
+            margin-bottom: 5px;
+            color: #3d454e;
             text-decoration: none;
+        }
+
+        .footer-address {
+            font-size: 12px;
+            display: block;
+            margin-bottom: 3px;
+            color: #333;
+        }
+
+        .footer-subscribe {
+            font-size: 12px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            display: block;
+            color: #333;
+        }
+        .footer-subscribe a {
+            color: #f25d27;
+            text-decoration: none;
+        }
+
+        .footer-preferences-links {
+            font-size: 12px;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .footer-preferences-links a {
+            color: #3d454e;
+            text-decoration: underline;
+            margin: 0 5px; /* Space out links if multiple */
         }
     </style>
 </head>
 <body>
 
-    <h1 class="header-title">Daily News Brief</h1>
-    <em class="header-date">March 13, 2026</em>
+    <h1>Daily News Brief</h1>
+    <em class="date">March 13, 2026</em>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        Welcome to CFR’s Daily News Brief. Today we’re covering Iran’s ongoing disruption to shipping in the Strait of Hormuz, as well as...
-    </div>
-
-    <div class="bullet-item" style="font-size: 16px;">
-        <span class="bullet-char">&#x25AA;</span> Attacks in Michigan and Virginia
-    </div>
-    <div class="bullet-item" style="font-size: 16px;">
-        <span class="bullet-char">&#x25AA;</span> Canada’s plans for Arctic military infrastructure
-    </div>
-    <div class="bullet-item" style="font-size: 16px;">
-        <span class="bullet-char">&#x25AA;</span> Cuba’s prisoner release
+    <div class="body-paragraph-block">
+        <p>Welcome to CFR’s Daily News Brief. Today we’re covering Iran’s ongoing disruption to shipping in the Strait of Hormuz, as well as...</p>
     </div>
 
-    <h2 class="section-header">Top of the Agenda</h2>
+    <p class="bullet-indent">Attacks in Michigan and Virginia</p>
+    <p class="bullet-indent">Canada’s plans for Arctic military infrastructure</p>
+    <p class="bullet-indent">Cuba’s prisoner release</p>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>Iran vowed to continue the war in a </strong><a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cud2FzaGluZ3RvbnBvc3QuY29tL3dvcmxkLzIwMjYvMDMvMTIva2hhbWVuZWktaXJhbi1ob3JtdXotZ3VsZi11cy8xMDI1NjhkNC0xZTM2LTExZjEtYTI5Yy1mZDQzZGE5YTQ3OWFfc3RvcnkuaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bba2e3fe1" style="text-decoration: underline; color: #F25D27;"><strong>statement</strong></a><strong> yesterday attributed to new Supreme Leader Mojtaba Khamenei. </strong>The statement promised to keep pressure on the Strait of Hormuz and said Iran’s retaliation against U.S.-Israeli strikes was not complete. Khamenei has not been seen since his appointment and is thought to have been injured at the start of the war; his message was read on state television. In Washington, U.S. Defense Secretary Pete Hegseth <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cud2t5Yy5jb20vdmlkZW8vbmV3cy93YXRjaC1saXZlLXBlbnRhZ29uLXByZXNzLWNvbmZlcmVuY2Utd2l0aC1wZXRlLWhlZ3NldGgvOTUtNjNjYzRlY2UtZjQ2NS00OGViLTljMTgtNjNjOGE2MmFmMTRhP3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bc87c64fb" style="text-decoration: underline; color: #F25D27;">pledged</a> this morning to “keep advancing” with “no mercy for our enemies.” The statements from both capitals suggested no immediate end to the war or the energy shock roiling the world economy.
-    </div>
+    <h2>Top of the Agenda</h2>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>The latest on the battlefield. </strong>Iran continues to <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvYm90aC1zaWRlcy1kaWctaXJhbi13YXItYXBwcm9hY2hlcy10d28td2Vlay1tYXJrLTIwMjYtMDMtMTMvP3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B04eb1adb" style="text-decoration: underline; color: #F25D27;">shoot</a> missiles and drones at Israel and targets in the Gulf,&nbsp;while Israel fires at Iran and Lebanon. Israel <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9JREZGYXJzaS9zdGF0dXMvMjAzMjM2MTc1MTIxMjE4NDAyMD9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B4eb65892" style="text-decoration: underline; color: #F25D27;">issued</a> an evacuation order for parts of Tehran and <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvaXNyYWVsaS1taWxpdGFyeS1leHBhbmRzLW9yZGVycy1wZW9wbGUtc291dGhlcm4tbGViYW5vbi1sZWF2ZS0yMDI2LTAzLTEyLz91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Ba2d203d0" style="text-decoration: underline; color: #F25D27;">widened</a> its order for Lebanon to now cover around a tenth of the country. Turkey <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS90Y3NhdnVubWEvc3RhdHVzLzIwMzIzOTQ4NzgzMTU4NjQ1NDY_cz0yMCZ1dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bfb0a4b35" style="text-decoration: underline; color: #F25D27;">announced</a> today its NATO air defenses shot down an incoming Iranian missile, the third in two weeks. In Iraq, a French service member <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9FbW1hbnVlbE1hY3Jvbi9zdGF0dXMvMjAzMjI1NDYwNzY5NTQ4NzM1ND9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Baa447d55" style="text-decoration: underline; color: #F25D27;">was killed</a> after a pro-Iranian group <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmZpLmZyL2VuL2ZyYW5jZS8yMDI2MDMxMy1zb2xkaWVyLWZyaW9uLWtpbGxlZC1pbi1pcmFxLWFzLXByby1pcmFuLWdyb3VwLXZvd3MtdG8tdGFyZ2V0LWZyZW5jaC1pbnRlcmVzdHM_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Be324fc5b" style="text-decoration: underline; color: #F25D27;">said</a> it would target French forces, while at least four U.S. soldiers <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9DRU5UQ09NL3N0YXR1cy8yMDMyMzg5MDg3NDkxOTg1NzAwP3M9MjAmdXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bc1941b8a" style="text-decoration: underline; color: #F25D27;">died</a> in a plane crash yesterday that U.S. Central Command said was not due to hostile or friendly fire. That event is still under investigation.
-    </div>
-
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>The latest on economic fallout. </strong>While Iran’s ambassador to the United Nations <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvaXJhbi1ub3QtZ29pbmctY2xvc2Utc3RyYWl0LWhvcm11ei1pcmFuLXVuLWVudm95LXNheXMtMjAyNi0wMy0xMi8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B7e54e2fd" style="text-decoration: underline; color: #F25D27;">argued</a> yesterday that Tehran would not fully close the Strait of Hormuz, the country’s semi-official Fars News Agency <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMTIvc3RyYWl0LW9mLWhvcm11ei1ob3ctaXMtaXJhbi13YXItZGlzcnVwdGluZy1vaWwtdHJhZGUtY2FuLW5hdmFsLWVzY29ydHMtaGVscD91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Ba53058d7" style="text-decoration: underline; color: #F25D27;">said</a> ships passing through “could be at risk from missiles or rogue drones.” In response to the near-halt in oil shipping in the strait, and in an effort to increase the amount of oil on global markets, the United States temporarily <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8xMi91cy9wb2xpdGljcy90cnVtcC1ydXNzaWEtb2lsLXNhbmN0aW9ucy5odG1sP3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Beb453f6a" style="text-decoration: underline; color: #F25D27;">lifted sanctions</a> yesterday on Russian oil that was already at sea. German Chancellor Friedrich Merz <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS92b25kZXJidXJjaGFyZC9zdGF0dXMvMjAzMjM5ODI2ODY1MTQ0MjMxNT9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B475681e0" style="text-decoration: underline; color: #F25D27;">criticized</a> the move, saying that the war in Iran should not distract from support for Ukraine.
+    <div class="body-paragraph-block">
+        <p><strong>Iran vowed to continue the war in a <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cud2FzaGluZ3RvbnBvc3QuY29tL3dvcmxkLzIwMjYvMDMvMTIva2hhbWVuZWktaXJhbi1ob3JtdXotZ3VsZi11cy8xMDI1NjhkNC0xZTM2LTExZjEtYTI5Yy1mZDQzZGE5YTQ3OWFfc3RvcnkuaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bba2e3fe1">statement</a> yesterday attributed to new Supreme Leader Mojtaba Khamenei.</strong> The statement promised to keep pressure on the Strait of Hormuz and said Iran’s retaliation against U.S.-Israeli strikes was not complete. Khamenei has not been seen since his appointment and is thought to have been injured at the start of the war; his message was read on state television. In Washington, U.S. Defense Secretary Pete Hegseth <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cud2t5Yy5jb20vdmlkZW8vbmV3cy93YXRjaC1saXZlLXBlbnRhZ29uLXByZXNzLWNvbmZlcmVuY2Utd2l0aC1wZXRlLWhlZ3NldGgvOTUtNjNjYzRlY2UtZjQ2NS00OGViLTljMTgtNjNjOGE2MmFmMTRhP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2Bc87c64fb">pledged</a> this morning to “keep advancing” with “no mercy for our enemies.” The statements from both capitals suggested no immediate end to the war or the energy shock roiling the world economy.</p>
     </div>
 
-    <div class="quote-text" style="font-size: 17px;">
-        “This operation will ultimately be judged on its long-term outcome. If we end up with a more stable and peaceful region and a less hostile Iranian regime, it will be heralded as a resounding success. If, on the other hand, we find ourselves in a quagmire with ongoing chaos and conflict, there will be a lot of second-guessing.”
-    </div>
-    <div class="quote-attribution" style="font-size: 18px;">
-        <strong>—CFR President Michael Froman, </strong><a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy93aGF0cy1uZXh0LWZvci10aGUtd2FyLWluLWlyYW4_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B9c6c62f6" style="text-decoration: underline; color: #F25D27;"><strong><em>The World This Week</em></strong></a>
+    <div class="body-paragraph-block">
+        <p><strong>The latest on the battlefield.</strong> Iran continues to <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvYm90aC1zaWRlcy1kaWctaXJhbi13YXItYXBwcm9hY2hlcy10d28td2Vlay1tYXJrLTIwMjYtMDMtMTMvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2B04eb1adb">shoot</a> missiles and drones at Israel and targets in the Gulf, while Israel fires at Iran and Lebanon. Israel <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9JREZGYXJzaS9zdGF0dXMvMjAzMjM2MTc1MTIxMjE4NDAyMD9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2B4eb65892">issued</a> an evacuation order for parts of Tehran and <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvaXNyYWVsaS1taWxpdGFyeS1leHBhbmRzLW9yZGVycy1wZW9wbGUtc291dGhlcm4tbGViYW5vbi1sZWF2ZS0yMDI2LTAzLTEyLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Ba2d203d0">widened</a> its order for Lebanon to now cover around a tenth of the country. Turkey <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS90Y3NhdnVubWEvc3RhdHVzLzIwMzIzOTQ4NzgzMTU4NjQ1NDY_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bfb0a4b35">announced</a> today its NATO air defenses shot down an incoming Iranian missile, the third in two weeks. In Iraq, a French service member <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9FbW1hbnVlbE1hY3Jvbi9zdGF0dXMvMjAzMjI1NDYwNzY5NTQ4NzM1ND9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2Baa447d55">was killed</a> after a pro-Iranian group <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmZpLmZyL2VuL2ZyYW5jZS8yMDI2MDMxMy1zb2xkaWVyLWZyaW9uLWtpbGxlZC1pbi1pcmFxLWFzLXByby1pcmFuLWdyb3VwLXZvd3MtdG8tdGFyZ2V0LWZyZW5jaC1pbnRlcmVzdHM_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2Be324fc5b">said</a> it would target French forces, while at least four U.S. soldiers <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9DRU5UQ09NL3N0YXR1cy8yMDMyMzg5MDg3NDkxOTg1NzAwP3M9MjAmdXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2Bc1941b8a">died</a> in a plane crash yesterday that U.S. Central Command said was not due to hostile or friendly fire. That event is still under investigation.</p>
     </div>
 
-    <div class="podcast-item">
-        <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9zcGlsbG92ZXIvYWRhbS1zbWl0aHMtdGhlLXdlYWx0aC1vZi1uYXRpb25zLXR1cm5zLTI1MC1mcmVlLW1hcmtldHMtZmFjZS1vZmYtYWdhaW5zdC1pbmR1c3RyaWFsLXBvbGljeT91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B291ba1f2" target="_self" style="text-decoration: none; color: #04284A;"><span style="font-size: 20px;">The Book That Laid the Foundations of Modern Economics</span></a>
-    </div>
-    <div class="body-paragraph" style="font-size: 16px;">
-        Adam Smith’s <em>The Wealth of Nations </em>is worth revisiting in light of today’s debates about the balance of free markets and industrial policy, CFR experts Rebecca Patterson and Sebastian Mallaby said <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9zcGlsbG92ZXIvYWRhbS1zbWl0aHMtdGhlLXdlYWx0aC1vZi1uYXRpb25zLXR1cm5zLTI1MC1mcmVlLW1hcmtldHMtZmFjZS1vZmYtYWdhaW5zdC1pbmR1c3RyaWFsLXBvbGljeT91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2D291ba1f2" style="text-decoration: underline; color: #F25D27;">in this episode of <em>The Spillover</em></a><em>.</em>
+    <div class="body-paragraph-block">
+        <p><strong>The latest on economic fallout.</strong> While Iran’s ambassador to the United Nations <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvaXJhbi1ub3QtZ29pbmctY2xvc2Utc3RyYWl0LWhvcm11ei1pcmFuLXVuLWVudm95LXNheXMtMjAyNi0wMy0xMi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2B7e54e2fd">argued</a> yesterday that Tehran would not fully close the Strait of Hormuz, the country’s semi-official Fars News Agency <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMTIvc3RyYWl0LW9mLWhvcm11ei1ob3ctaXMtaXJhbi13YXItZGlzcnVwdGluZy1vaWwtdHJhZGUtY2FuLW5hdmFsLWVzY29ydHMtaGVscD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Ba53058d7">said</a> ships passing through “could be at risk from missiles or rogue drones.” In response to the near-halt in oil shipping in the strait, and in an effort to increase the amount of oil on global markets, the United States temporarily <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8xMi91cy9wb2xpdGljcy90cnVtcC1ydXNzaWEtb2lsLXNhbmN0aW9ucy5htmLDP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2Beb453f6a">lifted sanctions</a> yesterday on Russian oil that was already at sea. German Chancellor Friedrich Merz <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS92b25kZXJidXJjaGFyZC9zdGF0dXMvMjAzMjM5ODI2ODY1MTQ0MjMxNT9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2B475681e0">criticized</a> the move, saying that the war in Iran should not distract from support for Ukraine.</p>
     </div>
 
-    <h3 class="small-header">Across the Globe</h3>
+    <blockquote>“This operation will ultimately be judged on its long-term outcome. If we end up with a more stable and peaceful region and a less hostile Iranian regime, it will be heralded as a resounding success. If, on the other hand, we find ourselves in a quagmire with ongoing chaos and conflict, there will be a lot of second-guessing.”</blockquote>
+    <p class="quote-attribution"><strong>—CFR President Michael Froman, <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy93aGF0cy1uZXh0LWZvci10aGUtd2FyLWluLWlyYW4_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2B9c6c62f6"><em>The World This Week</em></a></strong></p>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>Attacks in Michigan, Virginia. </strong>The FBI is investigating a car ramming attack at a Michigan synagogue yesterday as a “targeted act of violence against the Jewish community,” a special agent <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWljaGlnYW4tc3luYWdvZ3VlLXZpcmdpbmlhLXVuaXZlcnNpdHktdGFyZ2V0ZWQtdW5uZXJ2aW5nLWRheS11cy12aW9sZW5jZS0yMDI2LTAzLTEzLz91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B62b0fc0e" style="text-decoration: underline; color: #F25D27;">said</a>. The attacker was killed and there were no other fatalities. The FBI also <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cubmJjbmV3cy5jb20vbmV3cy91cy1uZXdzL2d1bm1hbi1kZWFkLTItcGVvcGxlLWluanVyZWQtc2hvb3Rpbmctb2xkLWRvbWluaW9uLXVuaXZlcnNpdHktcmNuYTI2MzE4OT91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B3e711243" style="text-decoration: underline; color: #F25D27;">opened</a> a terrorism investigation into an attack yesterday in which a man opened fire at a Virginia university, killing one person before he was killed by Reserve Officers’ Training Corps students who were subduing him. The man had previously pleaded guilty and served prison time for federal charges related to providing material support to the self-declared Islamic State, FBI officials said.
-    </div>
-
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>Canada’s Arctic military push. </strong>Canadian Prime Minister Mark Carney yesterday <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY3R2bmV3cy5jYS9wb2xpdGljcy9hcnRpY2xlL3BtLWNhcm5leS1hbm5vdW5jZXMtMzViLWludmVzdG1lbnQtaW4tYXJjdGljLWRlZmVuY2Utbm9ydGhlcm4taW5mcmFzdHJ1Y3R1cmUvP3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B40e31363" style="text-decoration: underline; color: #F25D27;">laid out</a> a plan for spending nearly $26 billion over the next ten years for airports and military bases in northern Canada. The funds had been announced in 2022 but not spent. Carney <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucG0uZ2MuY2EvZW4vbmV3cy9uZXdzLXJlbGVhc2VzLzIwMjYvMDMvMTIvcHJpbWUtbWluaXN0ZXItY2FybmV5LWFubm91bmNlcy1hbWJpdGlvdXMtbmV3LXBsYW4tZGVmZW5kLWJ1aWxkLWFuZD91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B4926b394" style="text-decoration: underline; color: #F25D27;">said</a> the steps would support a deterrence posture in Canada’s Arctic and North with greater scale than before.
+    <h3><a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9zcGlsbG92ZXIvYWRhbS1zbWl0aHMtdGhlLXdlYWx0aC1vZi1uYXRpb25zLXR1cm5zLTI1MC1mcmVlLW1hcmtldHMtZmFjZS1vZmYtYWdhaW5zdC1pbmR1c3RyaWFsLXBvbGljeT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B291ba1f2" target="_self">The Book That Laid the Foundations of Modern Economics</a></h3>
+    <div class="body-paragraph-block">
+        <p>Adam Smith’s <em>The Wealth of Nations</em> is worth revisiting in light of today’s debates about the balance of free markets and industrial policy, CFR experts Rebecca Patterson and Sebastian Mallaby said <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9zcGlsbG92ZXIvYWRhbS1zbWl0aHMtdGhlLXdlYWx0aC1vZi1uYXRpb25zLXR1cm5zLTI1MC1mcmVlLW1hcmtldHMtZmFjZS1vZmYtYWdhaW5zdC1pbmR1c3RyaWFsLXBvbGljeT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2D291ba1f2">in this episode of <em>The Spillover</em></a><em>.</em></p>
     </div>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>Romania-Ukraine defense deal. </strong>The countries will jointly produce drones as part of an agreement signed yesterday during Ukrainian President Volodymyr Zelenskyy’s visit to Bucharest, he <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cueW91dHViZS5jb20vbGl2ZS9YalNqc0Q3bjFqRT91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B686979bc" style="text-decoration: underline; color: #F25D27;">announced</a>. They also signed another deal on energy cooperation: the governments are working to <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9aZWxlbnNreXlVYS9zdGF0dXMvMjAzMjExMzA4ODAxNTUwNzkxND9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bdd56c9c3" style="text-decoration: underline; color: #F25D27;">build</a> two new cross-border power transmission lines, and the leaders discussed the possibility of transporting U.S. liquefied natural gas through Romania to Ukraine, according to Zelenskyy.
+    <h2>Across the Globe</h2>
+
+    <div class="body-paragraph-block">
+        <p><strong>Attacks in Michigan, Virginia.</strong> The FBI is investigating a car ramming attack at a Michigan synagogue yesterday as a “targeted act of violence against the Jewish community,” a special agent <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWljaGlnYW4tc3luYWdvZ3VlLXZpcmdpbmlhLXVuaXZlcnNpdHktdGFyZ2V0ZWQtdW5uZXJ2aW5nLWRheS11cy12aW9sZW5jZS0yMDI2LTAzLTEzLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B62b0fc0e">said</a>. The attacker was killed and there were no other fatalities. The FBI also <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cubmJjbmV3cy5jb20vbmV3cy91cy1uZXdzL2d1bm1hbi1kZWFkLTItcGVvcGxlLWluanVyZWQtc2hvb3Rpbmctb2xkLWRvbWluaW9uLXVuaXZlcnNpdHktcmNuYTI2MzE4OT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B3e711243">opened</a> a terrorism investigation into an attack yesterday in which a man opened fire at a Virginia university, killing one person before he was killed by Reserve Officers’ Training Corps students who were subduing him. The man had previously pleaded guilty and served prison time for federal charges related to providing material support to the self-declared Islamic State, FBI officials said.</p>
     </div>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>China’s new language law. </strong>All Chinese schoolchildren <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuYmJjLmNvbS9uZXdzL2FydGljbGVzL2NwOW1lZWVrMDUxbz91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B358524e5" style="text-decoration: underline; color: #F25D27;">will be taught</a> Mandarin from kindergarten through the end of high school under a law approved yesterday that also includes provisions on housing and entertainment. Previously, China allowed education to occur in Tibetan, Uyghur, or Mongolian if those were students’ native languages. Beijing says the step helps foster “ethnic unity,” while critics <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvY2hpbmEtc2V0LXBhc3MtbmV3LWV0aG5pYy1taW5vcml0eS1sYXctcHJpb3JpdGlzZS11c2UtbWFuZGFyaW4tbGFuZ3VhZ2UtMjAyNi0wMy0xMi8/dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Ba7cbf9d7" style="text-decoration: underline; color: #F25D27;">say</a> it suppresses the country’s more than fifty ethnic minorities.
+    <div class="body-paragraph-block">
+        <p><strong>Canada’s Arctic military push.</strong> Canadian Prime Minister Mark Carney yesterday <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY3R2bmV3cy5jYS9wb2xpdGljcy9hcnRpY2xlL3BtLWNhcm5leS1hbm5vdW5jZXMtMzViLWludmVzdG1lbnQtaW4tYXJjdGljLWRlZmVuY2Utbm9ydGhlcm4taW5mcmFzdHJ1Y3R1cmUvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2B40e31363">laid out</a> a plan for spending nearly $26 billion over the next ten years for airports and military bases in northern Canada. The funds had been announced in 2022 but not spent. Carney <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucG0uZ2MuY2EvZW4vbmV3cy9uZXdzLXJlbGVhc2VzLzIwMjYvMDMvMTIvcHJpbWUtbWluaXN0ZXItY2FybmV5LWFubm91bmNlcy1hbWJpdGlvdXMtbmV3LXBsYW4tZGVmZW5kLWJ1aWxkLWFuZD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B4926b394">said</a> the steps would support a deterrence posture in Canada’s Arctic and North with greater scale than before.</p>
     </div>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>South Korean investments in the U.S. </strong>South Korea <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvNDM1Njk4YmEtZWY4MS00NzIyLWFiNTItNTBiODg2ZTU1N2JkP3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Bc9c2a2d2" style="text-decoration: underline; color: #F25D27;">passed</a> a law laying out the structure of the $350 billion it pledged to invest in the United States<strong> </strong>in order to secure a lower tariff rate last year. A shipbuilding partnership will account for $150 billion, while $200 billion will go to additional investments capped annually at $20 billion. That deal was reached before Trump’s emergency tariffs were struck down by the Supreme Court last month, but the Trump administration on Wednesday included South Korea on a new <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly91c3RyLmdvdi9hYm91dC9wb2xpY3ktb2ZmaWNlcy9wcmVzcy1vZmZpY2UvcHJlc3MtcmVsZWFzZXMvMjAyNi9tYXJjaC91c3RyLWluaXRpYXRlcy1zZWN0aW9uLTMwMS1pbnZlc3RpZ2F0aW9ucy1yZWxhdGluZy1zdHJ1Y3R1cmFsLWV4Y2Vzcy1jYXBhY2l0eS1hbmQtcHJvZHVjdGlvbj91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B17a08caf" style="text-decoration: underline; color: #F25D27;">list</a> of countries where it is launching trade probes.&nbsp;
+    <div class="body-paragraph-block">
+        <p><strong>Romania-Ukraine defense deal.</strong> The countries will jointly produce drones as part of an agreement signed yesterday during Ukrainian President Volodymyr Zelenskyy’s visit to Bucharest, he <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cueW91dHViZS5jb20vbGl2ZS9YalNqc0Q3bjFqRT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B686979bc">announced</a>. They also signed another deal on energy cooperation: the governments are working to <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9aZWxlbnNreXlVYS9zdGF0dXMvMjAzMjExMzA4ODAxNTUwNzkxND9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2Bdd56c9c3">build</a> two new cross-border power transmission lines, and the leaders discussed the possibility of transporting U.S. liquefied natural gas through Romania to Ukraine, according to Zelenskyy.</p>
     </div>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>U.S. tariff refund system in progress. </strong>The system for refunding some $166 billion in tariffs collected by the Trump administration that were deemed unlawful is between 40 to 80 percent complete, an official from U.S. Customs and Border Protection <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvdXMvdXMtY3VzdG9tcy1hZ2VuY3ktc2F5cy10YXJpZmYtcmVmdW5kcy1zeXN0ZW0tYmV0d2Vlbi00MC04MC1jb21wbGV0ZS0yMDI2LTAzLTEyLz91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B5c8d2899" style="text-decoration: underline; color: #F25D27;">said</a> in a court filing yesterday. The system, which includes an online portal for claims, could be up and running by the middle of April, he said in a separate filing last week.
+    <div class="body-paragraph-block">
+        <p><strong>China’s new language law.</strong> All Chinese schoolchildren <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuYmJjLmNvbS9uZXdzL2FydGljbGVzL2NwOW1lZWVrMDUxbz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B358524e5">will be taught</a> Mandarin from kindergarten through the end of high school under a law approved yesterday that also includes provisions on housing and entertainment. Previously, China allowed education to occur in Tibetan, Uyghur, or Mongolian if those were students’ native languages. Beijing says the step helps foster “ethnic unity,” while critics <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvY2hpbmEtc2V0LXBhc3MtbmV3LWV0aG5pYy1taW5vcml0eS1sYXctcHJpb3JpdGlzZS11c2UtbWFuZGFyaW4tbGFuZ3VhZ2UtMjAyNi0wMy0xMi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2Ba7cbf9d7">say</a> it suppresses the country’s more than fifty ethnic minorities.</p>
     </div>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>Cuba’s prisoner release. </strong>Cuba’s government <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8xMi93b3JsZC9hbWVyaWNhcy9jdWJhLXByaXNvbmVyLXJlbGVhc2UtdHJ1bXAtb2lsLWJsb2NhZGUuaHRtbD91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B3cf37bb7" style="text-decoration: underline; color: #F25D27;">will free</a> fifty-one prisoners as a goodwill gesture amid talks with the Vatican, it announced yesterday. The Vatican has been trying to mediate talks between Havana and Washington as the Trump administration pushes for political and economic change on the island. Recent U.S. efforts to effectively blockade fuel going to Cuba have deepened the island’s energy crisis.
+    <div class="body-paragraph-block">
+        <p><strong>South Korean investments in the U.S.</strong> South Korea <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvNDM1Njk4YmEtZWY4MS00NzIyLWFiNTItNTBiODg2ZTU1N2JkP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2Bc9c2a2d2">passed</a> a law laying out the structure of the $350 billion it pledged to invest in the United States in order to secure a lower tariff rate last year. A shipbuilding partnership will account for $150 billion, while $200 billion will go to additional investments capped annually at $20 billion. That deal was reached before Trump’s emergency tariffs were struck down by the Supreme Court last month, but the Trump administration on Wednesday included South Korea on a new <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly91c3RyLmdvdi9hYm91dC9wb2xpY3ktb2ZmaWNlcy9wcmVzcy1vZmZpY2UvcHJlc3MtcmVsZWFzZXMvMjAyNi9tYXJjaC91c3RyLWluaXRpYXRlcy1zZWN0aW9uLTMwMS1pbnZlc3RpZ2F0aW9ucy1yZWxhdGluZy1zdHJ1Y3R1cmFsLWV4Y2Vzcy1jYXBhY2l0eS1hbmQtcHJvZHVjdGlvbj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B17a08caf">list</a> of countries where it is launching trade probes.</p>
     </div>
 
-    <div class="body-paragraph" style="font-size: 16px;">
-        <strong>DRC’s first gold refinery. </strong>The Democratic Republic of Congo (DRC) opened its first gold refinery this week in the eastern city of Kalemie, its mining ministry <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9NaW5NaW5lc1JEQy9zdGF0dXMvMjAzMTc5ODY3NTYzOTI3OTkxOD9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Be203f71c" style="text-decoration: underline; color: #F25D27;">announced</a>. The state-backed initiative is part of government efforts to refine strategic minerals at home and to exert control over a gold mining sector with high levels of informality and links to criminal groups, officials have <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMTIvY29uZ28tc3RhdGUtZ29sZC1jb21wYW55LWxhdW5jaGVzLWNvdW50cnktcy1maXJzdC1nb2xkLXJlZmluZXJ5P3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B9838333b" style="text-decoration: underline; color: #F25D27;">said</a>.
+    <div class="body-paragraph-block">
+        <p><strong>U.S. tariff refund system in progress.</strong> The system for refunding some $166 billion in tariffs collected by the Trump administration that were deemed unlawful is between 40 to 80 percent complete, an official from U.S. Customs and Border Protection <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvdXMvdXMtY3VzdG9tcy1hZ2VuY3ktc2F5cy10YXJpZmYtcmVmdW5kcy1zeXN0ZW0tYmV0d2Vlbi00MC04MC1jb21wbGV0ZS0yMDI2LTAzLTEyLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B5c8d2899">said</a> in a court filing yesterday. The system, which includes an online portal for claims, could be up and running by the middle of April, he said in a separate filing last week.</p>
     </div>
 
-    <div class="podcast-item">
-        <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly95b3V0dWJlLmNvbS9zaG9ydHMvMEx1M3dBMmd2VUE_c2k9MzdfT2M4dHpaUW1WOVpzZCZ1dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B90ec38b9" target="_self" style="text-decoration: none; color: #04284A;"><span style="font-size: 20px;">Winning the War and Losing the Narrative</span></a>
-    </div>
-    <span class="image-attribution"><em>Majid Saeedi/Getty Images</em></span>
-
-    <div class="body-paragraph" style="font-size: 16px;">
-        The Trump administration should be carving out a message now for the day the Iran war is over, CFR Senior Fellow Elliott Abrams <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly95b3V0dWJlLmNvbS9zaG9ydHMvMEx1M3dBMmd2VUE_c2k9MzdfT2M4dHpaUW1WOVpzZCZ1dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2C90ec38b9" style="text-decoration: underline; color: #F25D27;">said in this YouTube Short</a>.
+    <div class="body-paragraph-block">
+        <p><strong>Cuba’s prisoner release.</strong> Cuba’s government <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8xMi93b3JsZC9hbWVyaWNhcy9jdWJhLXByaXNvbmVyLXJlbGVhc2UtdHJ1bXAtb2lsLWJsb2NhZGUuaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B3cf37bb7">will free</a> fifty-one prisoners as a goodwill gesture amid talks with the Vatican, it announced yesterday. The Vatican has been trying to mediate talks between Havana and Washington as the Trump administration pushes for political and economic change on the island. Recent U.S. efforts to effectively blockade fuel going to Cuba have deepened the island’s energy crisis.</p>
     </div>
 
-    <h3 class="small-header">What’s Next</h3>
-
-    <div class="bullet-item" style="font-size: 16px;">
-        <span class="bullet-char">&#x25AA;</span> Today, Canadian Prime Minister Mark Carney begins a visit to <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly9nbG9iYWxuZXdzLmNhL25ld3MvMTE3MjcyMzgvbWFyay1jYXJuZXktbm9yd2F5LXRyaXAvP3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B24d5fe1d" style="text-decoration: underline; color: #F25D27;">Norway</a>.
-    </div>
-    <div class="bullet-item" style="font-size: 16px;">
-        <span class="bullet-char">&#x25AA;</span> Tomorrow, the Indo-Pacific Energy Security Forum, hosted by the United States and Japan, begins in <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuaXBlbWZvcnVtLmNvbS9lbi8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2Ba8963ef3" style="text-decoration: underline; color: #F25D27;">Tokyo</a>.
-    </div>
-    <div class="bullet-item" style="font-size: 16px;">
-        <span class="bullet-char">&#x25AA;</span> Sunday, <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly9ldXJhc2lhbmV0Lm9yZy9rYXpha2hzdGFuLWNvbnN0aXR1dGlvbmFsLXJlZmVyZW5kdW0tZmFjdC1zaGVldD91dG1fc291cmNlPWRaiWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B5dfce696" style="text-decoration: underline; color: #F25D27;">Kazakhstan</a> holds a constitutional referendum.
-    </div>
-    <div class="bullet-item" style="font-size: 16px;">
-        <span class="bullet-char">&#x25AA;</span> Sunday, the <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvcmVwdWJsaWNvZmNvbmdvLWVsZWN0aW9uLXNhc3NvdS1uZ3Vlc3NvLWNlZjNjMTc2NDllYWNlODRhZjRhNDM2M2Y0NGM0NmQxP3V0bV9zb3VyY2U9ZGFpbHlyZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B6e4d2d5e" style="text-decoration: underline; color: #F25D27;">Republic of Congo</a> holds a presidential election.
+    <div class="body-paragraph-block">
+        <p><strong>DRC’s first gold refinery.</strong> The Democratic Republic of Congo (DRC) opened its first gold refinery this week in the eastern city of Kalemie, its mining ministry <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly94LmNvbS9NaW5NaW5lc1JEQy9zdGF0dXMvMjAzMTc5ODY3NTYzOTI3OTkxOD9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2Be203f71c">announced</a>. The state-backed initiative is part of government efforts to refine strategic minerals at home and to exert control over a gold mining sector with high levels of informality and links to criminal groups, officials have <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMTIvY29uZ28tc3RhdGUtZ29sZC1jb21wYW55LWxhdW5jaGVzLWNvdW50cnktcy1maXJzdC1nb2xkLXJlZmluZXJ5P3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2B9838333b">said</a>.</p>
     </div>
 
-    <div class="podcast-item">
-        <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9ob3ctaS1nb3QtbXktY2FyZWVyLWluLWZvcmVpZ24tcG9saWN5LWRhdmlkLWotc2NoZWZmZXI_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B3ffee181" target="_self" style="text-decoration: none; color: #04284A;"><span style="font-size: 20px;">Building the Scaffolding of War Crimes Tribunals</span></a>
-    </div>
-    <span class="image-attribution"><em>Photo collage by Lucky Benson</em></span>
-    <div class="body-paragraph" style="font-size: 16px;">
-        Helping create the International Criminal Tribunal for atrocity crimes in the former Yugoslavia led to further work shaping the international architecture for such crimes, Senior Fellow David Scheffer told CFR’s Mariel Ferragamo <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9ob3ctaS1nb3QtbXktY2FyZWVyLWluLWZvcmVpZ24tcG9saWN5LWRhdmlkLWotc2NoZWZmZXI_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2D3ffee181" style="text-decoration: underline; color: #F25D27;">for this article</a>.
+    <h3><a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly95b3V0dWJlLmNvbS9zaG9ydHMvMEx1M3dBMmd2VUE_c2k9MzdfT2M4dHpaUW1WOVpzZCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B90ec38b9" target="_self">Winning the War and Losing the Narrative</a></h3>
+    <p class="photo-credit"><em>Majid Saeedi/Getty Images</em></p>
+    <div class="body-paragraph-block">
+        <p>The Trump administration should be carving out a message now for the day the Iran war is over, CFR Senior Fellow Elliott Abrams <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly95b3V0dWJlLmNvbS9zaG9ydHMvMEx1M3dBMmd2VUE_c2k9MzdfT2M4dHpaUW1WOVpzZCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2C90ec38b9">said in this YouTube Short</a>.</p>
     </div>
 
-    <p class="footer-link">
-        <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B3f92d57a" target="_blank" style="text-decoration: underline; color: #3d454e;" rel="noopener"><span style="font-size: 14px;"><strong>Council on Foreign Relations</strong></span></a>
-    </p>
-    <p class="footer-text">58 East 68th Street, New York, NY 10065</p>
-    <p class="footer-text">1777 F Street, NW, Washington, DC 20006</p>
-    <p class="footer-text">
-        <strong>Was this forwarded to you? <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" style="text-decoration: none; color: #f25d27;" rel="noopener">Subscribe to the <em>Daily News Brief</em></a></strong>
-    </p>
-    <p class="footer-text">
-        <a href="https://link.cfr.org/oc/695af380dce856b6aa066af2qlpxl.1e0m/e9544f1f" target="_blank" rel="noopener" style="color: #3d454e;">Manage Your Email Preferences</a>
-    </p>
-    <p class="footer-text">
-        <a href="https://link.cfr.org/public/44683401" target="_blank" rel="noopener" style="text-decoration: underline; color: #3d454e;">View in Browser</a>
-    </p>
+    <h2>What’s Next</h2>
+
+    <p class="bullet-indent">Today, Canadian Prime Minister Mark Carney begins a visit to <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly9nbG9iYWxuZXdzLmNhL25ld3MvMTE3MjcyMzgvbWFyay1jYXJuZXktbm9yd2F5LXRyaXAvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2B24d5fe1d">Norway</a>.</p>
+    <p class="bullet-indent">Tomorrow, the Indo-Pacific Energy Security Forum, hosted by the United States and Japan, begins in <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuaXBlbWZvcnumLmNvbS9lbi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2Ba8963ef3">Tokyo</a>.</p>
+    <p class="bullet-indent">Sunday, <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly9ldXJhc2lhbmV0Lm9yZy9rYXpha2hzdGFuLWNvbnN0aXR1dGlvbmFsLXJlZmVyZW5kdW0tZmFjdC1zaGVldD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B5dfce696">Kazakhstan</a> holds a constitutional referendum.</p>
+    <p class="bullet-indent">Sunday, the <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvcmVwdWJsaWNvZmNvbmdvLWVsZWN0aW9uLXNhc3NvdS1uZ3Vlc3NvLWNlZjNjMTc2NDllYWNlODRhZjRhNDM2M2Y0NGM0NmQxP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMxMw/695af380dce856b6aa066af2B6e4d2d5e">Republic of Congo</a> holds a presidential election.</p>
+
+    <h3><a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9ob3ctaS1nb3QtbXktY2FyZWVyLWluLWZvcmVpZ24tcG9saWN5LWRhdmlkLWotc2NoZWZmZXI_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMTM/695af380dce856b6aa066af2B3ffee181" target="_self">Building the Scaffolding of War Crimes Tribunals</a></h3>
+    <p class="photo-credit"><em>Photo collage by Lucky Benson</em></p>
+    <div class="body-paragraph-block">
+        <p>Helping create the International Criminal Tribunal for atrocity crimes in the former Yugoslavia led to further work shaping the international architecture for such crimes, Senior Fellow David Scheffer told CFR’s Mariel Ferragamo <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9ob3ctaS1nb3QtbXktY2FyZWVyLWluLWZvcmVpZ24tcG9saWN5LWRhdmlkLWotc2NoZWZmZXI_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2D3ffee181">for this article</a>.</p>
+    </div>
+
+    <div class="footer">
+        <a href="https://link.cfr.org/click/44683401.64822/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzEz/695af380dce856b6aa066af2B3f92d57a" target="_blank" rel="noopener" class="footer-link"><strong>Council on Foreign Relations</strong></a>
+        <span class="footer-address">58 East 68th Street, New York, NY 10065</span>
+        <span class="footer-address">1777 F Street, NW, Washington, DC 20006</span>
+        <span class="footer-subscribe"><strong>Was this forwarded to you? <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" rel="noopener">Subscribe to the <em>Daily News Brief</em></a></strong></span>
+        <span class="footer-preferences-links">
+            <a href="https://link.cfr.org/oc/695af380dce856b6aa066af2qlpxl.1e0m/e9544f1f" target="_blank" rel="noopener">Manage Your Email Preferences</a>
+            <a href="https://link.cfr.org/public/44683401" target="_blank" rel="noopener">View in Browser</a>
+        </span>
+    </div>
 
 </body>
 </html>
