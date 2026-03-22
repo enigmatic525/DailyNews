@@ -67,195 +67,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily News Brief</title>
     <style>
+        /* General body styling for readability */
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            color: #333;
-            max-width: 700px; /* Optional: Constrain width for readability */
+            font-family: Arial, sans-serif; /* A common sans-serif font */
+            line-height: 1.5;
+            margin: 20px; /* Overall page margin */
+            max-width: 700px; /* Constrain content width */
             margin-left: auto;
             margin-right: auto;
-            padding: 20px;
+            color: #333; /* Default text color */
         }
 
-        /* General styles for paragraphs and bullet-like items */
+        /* Header styling - no indentation */
+        h1, h2, h3 {
+            margin: 0;
+            padding: 0;
+            margin-bottom: 10px; /* Space after headers */
+            color: #333;
+        }
+        h1 { font-size: 46px; line-height: 1.1; margin-bottom: 5px; }
+        h2 { font-size: 26px; margin-top: 30px; margin-bottom: 15px; }
+        h3 { font-size: 20px; margin-top: 20px; margin-bottom: 5px; }
+
+        /* Style for main body paragraphs with red line */
         .body-paragraph {
-            border-left: 2px solid #B22222;
-            padding-left: 10px;
-            margin-left: 0; /* Ensure no extra default margin */
-            margin-bottom: 15px; /* Spacing between paragraphs */
-            line-height: 1.6;
-            word-break: break-word;
-            font-size: 16px; /* Default paragraph font size */
-        }
-        
-        /* Styles for items that were originally bullet points */
-        .bullet-item {
-            border-left: 2px solid #B22222;
-            padding-left: 10px;
-            margin-left: 0;
-            margin-bottom: 8px; /* Slightly less margin for tighter list */
-            line-height: 1.4;
-            word-break: break-word;
-            font-size: 16px; /* Bullet item font size, matches original */
-        }
-
-        /* Headers should not be indented */
-        h1, h2, h3, h4 {
-            margin-left: 0;
-            padding-left: 0;
-            margin-top: 25px; /* Spacing above headers */
-            margin-bottom: 15px; /* Spacing below headers */
-            word-break: break-word;
-            line-height: 1.2;
-        }
-
-        /* Specific font sizes for existing elements as per original HTML */
-        .header-title {
-            font-size: 46px;
-            font-weight: bold;
-            margin-bottom: 5px;
-            display: block; /* Ensure it takes full width and respects margin */
-        }
-        .header-date {
+            border-left: 2px solid #B22222; /* Subtle vertical red line */
+            padding-left: 15px; /* Tabbing effect */
+            margin-bottom: 15px; /* Space between paragraphs */
             font-size: 16px;
+            word-break: break-word; /* Preserve original word-break behavior */
+        }
+
+        /* Style for list items (converted bullets) with shortened red indents */
+        /* These are indented further than body paragraphs to differentiate, 
+           and use the same red line style. */
+        .list-item-indent {
+            border-left: 2px solid #B22222; /* Same red line */
+            padding-left: 15px; /* Same tabbing from the line */
+            margin-left: 20px; /* Deeper indent from the left edge */
+            margin-bottom: 8px; /* Space between list items */
+            font-size: 16px;
+            word-break: break-word; /* Preserve original word-break behavior */
+        }
+
+        /* Quote specific styling */
+        blockquote {
+            margin: 30px 0 15px 0;
+            padding-left: 20px;
+            border-left: 2px solid #ccc; /* A subtle grey line for quotes */
             font-style: italic;
-            margin-bottom: 20px;
-            display: block;
         }
-        .main-header {
-            font-size: 26px;
-            font-weight: bold;
-            color: #333; /* Default header color */
+        blockquote p {
+            margin: 0;
         }
-        .quote-text {
-            font-size: 17px;
-            font-style: italic;
+
+        /* Link styles - preserving original colors */
+        a {
+            color: #F25D27; /* Main link color */
+            text-decoration: underline;
         }
-        .attribution-text {
-            font-size: 18px;
-            margin-left: 0;
-            margin-bottom: 20px;
-            display: block;
-            line-height: 1.4;
+        .header-link {
+            color: #04284A; /* Header link color */
+            text-decoration: none;
         }
-        .related-article-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 25px;
-            margin-bottom: 5px;
-            display: block;
-            word-break: break-word;
+        .footer-link {
+            color: #3d454e; /* Footer link color */
+            text-decoration: underline;
         }
-        .image-caption {
+        .footer-link-no-underline {
+            color: #f25d27; /* Specific footer link color without underline */
+            text-decoration: none;
+        }
+
+        /* Image credit styling */
+        .image-credit {
             font-size: 11px;
             color: #9f9f9f;
             font-style: italic;
-            margin-bottom: 10px;
-            display: block;
-            line-height: 1.2;
+            margin: 0 0 10px 0;
         }
 
-        /* Anchor link colors and decorations to preserve original intent */
-        a {
-            color: #F25D27; /* Common link color in the original */
-            text-decoration: underline;
-        }
-        /* Specific link color for some elements */
-        .related-article-title a {
-            color: #04284A;
-            text-decoration: none; /* Remove underline for these titles */
-        }
-        .footer-link a {
-            color: #3d454e;
-            text-decoration: underline;
-        }
-        .footer-subscribe a {
-            color: #f25d27;
-            text-decoration: none;
-        }
-        .footer-preferences a, .footer-view-browser a {
-            color: #3d454e;
-            text-decoration: underline;
-        }
-
-        /* Footer elements */
-        .footer-section {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee; /* Subtle separator for footer */
-        }
-        .footer-org-name {
-            font-size: 14px;
-            font-weight: bold;
-            margin-top: 20px;
-            display: block;
-        }
-        .footer-address {
-            font-size: 12px;
-            display: block;
-            margin-top: 5px;
-            line-height: 1.4;
-        }
-        .footer-cta {
-            margin-top: 20px;
-            display: block;
-            font-size: 12px;
-            line-height: 1.4;
-        }
-        .footer-link-group span {
-            font-size: 12px;
-            display: block;
-            margin-top: 5px;
-            line-height: 1.4;
-        }
-
+        /* Explicit font size classes for elements not covered by .body-paragraph or .list-item-indent */
+        .font-18px { font-size: 18px; }
+        .font-17px { font-size: 17px; }
+        .font-16px { font-size: 16px; }
+        .font-14px { font-size: 14px; }
+        .font-12px { font-size: 12px; }
     </style>
 </head>
 <body>
 
-    <h1 class="header-title">Daily News Brief</h1>
-    <span class="header-date">March 20, 2026</span>
+    <h1 class="font-46px">Daily News Brief</h1>
+    <p class="font-16px" style="font-style: italic; margin: 5px 0 20px 0;">March 20, 2026</p>
 
     <div class="body-paragraph">
         Welcome to CFR’s Daily News Brief. Today we’re covering the global economic fallout of the war in Iran, as well as...
     </div>
-    <div class="bullet-item">Japanese Prime Minister Takaichi Sanae’s visit to Washington</div>
-    <div class="bullet-item">Cuts to United Kingdom (UK) foreign aid programs</div>
-    <div class="bullet-item">A deal to release political prisoners in Belarus</div>
 
-    <h2 class="main-header">Top of the Agenda</h2>
+    <!-- Initial bullet points, converted to divs with custom indent -->
+    <div class="list-item-indent">
+        Japanese Prime Minister Takaichi Sanae’s visit to Washington
+    </div>
+    <div class="list-item-indent">
+        Cuts to United Kingdom (UK) foreign aid programs
+    </div>
+    <div class="list-item-indent" style="margin-bottom: 20px;">
+        A deal to release political prisoners in Belarus
+    </div>
+
+    <h2><strong>Top of the Agenda</strong></h2>
 
     <div class="body-paragraph">
-        <strong>The Iran war’s ramifications for the world economy are in focus after a week of heightened attacks on energy infrastructure.</strong> The World Trade Organization (WTO) <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cud3RvLm9yZy9lbmdsaXNoL25ld3NfZS9uZXdzMjZfZS9zdGF0XzE5bWFyMjZfMzI5X2UuaHRtP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Be61fca53">said</a> yesterday that if oil and gas prices remain high for the rest of the year, it could reduce the forecasted 2026 growth in global GDP by 0.3 percent. As countries weigh how to ease the energy shock, U.S. Treasury Secretary Scott Bessent <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuZm94YnVzaW5lc3MuY29tL2Vjb25vbXkvYmVzc2VudC1ydWxlcy1vdXQtZ292ZXJubWVudC1pbnRlcnZlbnRpb24tb2lsLWZ1dHVyZXMtbWFya2V0LWR1cmluZy1pcmFuLXdhcj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2B14b03eef">said</a> yesterday that Washington would consider removing sanctions on some Iranian oil, even as the <em>Wall Street Journal</em> <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cud3NqLmNvbS93b3JsZC9taWRkbGUtZWFzdC91LXMtd2FyLXBsYW5lcy1hbmQtaGVsaWNvcHRlcnMta2ljay1vZmYtYmF0dGxlLXRvLXJlb3Blbi1ob3JtdXotNTMwY2RiNzg_dXRtX3NvdXJjZT1zZW1hZm9yJnV0bV9jb250ZW50PTIwMjYwMzIw/695af380dce856b6aa066af2Bd04b68ca">reported</a> that U.S. attack jets and helicopters were targeting Iranian assets in the area of the Strait of Hormuz. Seven U.S. allies <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuZ292LnVrL2dvdmVybm1lbnQvbmV3cy9qb2ludC1zdGF0ZW1lbnQtZnJvbS10aGUtbGVhZGVycy1vZi10aGUtdW5pdGVkLWtpbmdkb20tZnJhbmNlLWdlcm1hbnktaXRhbHktdGhlLW5ldGhlcmxhbmRzLWFuZC1qYXBhbi1vbi10aGUtc3RyYWl0LW9mLWhvcm11ei0xOS1tYXJjaC0yMDI2P3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B8d07cc98">pledged</a> to help ensure safe passage through the strait, but did not specify how they would do so.
+        <strong>The Iran war’s ramifications for the world economy are in focus after a week of heightened attacks on energy infrastructure.</strong> The World Trade Organization (WTO) <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cud3RvLm9yZy9lbmdsaXNoL25ld3NfZS9uZXdzMjZfZS9zdGF0XzE5bWFyMjZfMzI5X2UuaHRtP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Be61fca53">said</a> yesterday that if oil and gas prices remain high for the rest of the year, it could reduce the forecasted 2026 growth in global GDP by 0.3 percent. As countries weigh how to ease the energy shock, U.S. Treasury Secretary Scott Bessent <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuZm94YnVzaW5lc3MuY29tL2Vjb25vbXkvYmVzc2VudC1ydWxlcy1vdXQtZ292ZXJubWVudC1pbnRlcnZlbnRpb24tb2lsLWZ1dHVyZXMtbWFya2V0LWR1cmluZy1pcmFuLXdhcj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2B14b03eef">said</a> yesterday that Washington would consider removing sanctions on some Iranian oil, even as the <em>Wall Street Journal </em><a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cud3NqLmNvbS93b3JsZC9taWRkbGUtZWFzdC91LXMtd2FyLXBsYW5lcy1hbmQtaGVsaWNvcHRlcnMta2ljay1vZmYtYmF0dGxlLXRvLXJlb3Blbi1ob3JtdXotNTMwY2RiNzg_dXRtX3NvdXJjZT1zZW1hZm9yJnV0bV9jb250ZW50PTIwMjYwMzIw/695af380dce856b6aa066af2Bd04b68ca">reported</a> that U.S. attack jets and helicopters were targeting Iranian assets in the area of the Strait of Hormuz. Seven U.S. allies <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuZ292LnVrL2dvdmVybm1lbnQvbmV3cy9qb2ludC1zdGF0ZW1lbnQtZnJvbS10aGUtbGVhZGVycy1vZi10aGUtdW5pdGVkLWtpbmdkb20tZnJhbmNlLWdlcm1hbnktaXRhbHktdGhlLW5ldGhlcmxhbmRzLWFuZC1qYXBhbi1vbi10aGUtc3RyYWl0LW9mLWhvcm11ei0xOS1tYXJjaC0yMDI2P3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B8d07cc98">pledged</a> to help ensure safe passage through the strait, but did not specify how they would do so.
     </div>
 
     <div class="body-paragraph">
-        <strong>Projections on economic costs. </strong>Some world regions would be hit harder economically by an extended war, the WTO said. It estimated Europe, a heavy energy importer, could see GDP grow at least one percent less than previously expected. A Goldman Sachs economist <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMTUvZ3VsZi1lY29ub21pZXMtYXQtcmlzay1vZi13b3JzdC1zdHJpZmVzLXRvcC1zaW5jZS0xOTk0LWFzLWlyYW4td2FyP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B4b54381d">forecast</a> earlier this week that if the war continues through the end of April it could shrink Kuwait and Qatar’s GDP by 14 percent this year and Saudi Arabia and the United Arab Emirates’ by around 3 and 5 percent, respectively. Those projections preceded an Iranian strike on a major Qatari gas facility this week that knocked out around 17 percent of the country’s liquified natural gas export capacity, the country’s energy minister <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L2lyYW4tYXR0YWNrLWRhbWFnZS13aXBlcy1vdXQtMTctcWF0YXJzLWxuZy1jYXBhY2l0eS10aHJlZS1maXZlLXllYXJzLXFhdGFyZW5lcmd5LTIwMjYtMDMtMTkvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Bbd672457">told</a> Reuters.
+        <strong>Projections on economic costs. </strong>Some world regions would be hit harder economically by an extended war, the WTO said. It estimated Europe, a heavy energy importer, could see GDP grow at least one percent less than previously expected. A Goldman Sachs economist <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMTUvZ3VsZi1lY29ub21pZXMtYXQtcmlzay1vZi13b3JzdC1zdHJpZmVzLXNpbmNlLTE5OTBzLW9uLWlyYW4td2FyP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B4b54381d">forecast</a> earlier this week that if the war continues through the end of April it could shrink Kuwait and Qatar’s GDP by 14 percent this year and Saudi Arabia and the United Arab Emirates’ by around 3 and 5 percent, respectively. Those projections preceded an Iranian strike on a major Qatari gas facility this week that knocked out around 17 percent of the country’s liquified natural gas export capacity, the country’s energy minister <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L2lyYW4tYXR0YWNrLWRhbWFnZS13aXBlcy1vdXQtMTctcWF0YXJzLWxuZy1jYXBhY2l0eS10aHJlZS1maXZlLXllYXJzLXFhdGFyZW5lcmd5LTIwMjYtMDMtMTkvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Bbd672457">told</a> Reuters.
     </div>
 
     <div class="body-paragraph">
         <strong>Signals on war length. </strong>In separate comments yesterday, U.S. President Donald Trump and Israeli Prime Minister Benjamin Netanyahu said the United States and Israel were accomplishing their battlefield goals. Both <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly94LmNvbS9TdGF0ZURlcHQvc3RhdHVzLzIwMzQ2NzA5NTQzOTE5ODYyMDM_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bd00e9b8a">hailed</a> their attacks on Iran’s military infrastructure, while Netanyahu <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cudGltZXNvZmlzcmFlbC5jb20vbmV0YW55YWh1LXRyYW5zY3JpcHQtd2UtaGF2ZS10by1iZS1tb3JlLXBvd2VyZnVsLXRoYW4tdGhlLWJhcmJhcmlhbnMtb3ItdGhleS13aWxsLWNyYXNoLW91ci1nYXRlcy1kZXN0cm95LW91ci1zb2NpZXRpZXMvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B7fec241b">said</a> Israel also sought to create the conditions in Iran for a popular uprising. Iran’s leaders have <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1lMGQwTElMU1cyZyZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bd97622ff">pledged</a> to keep fighting. Yesterday, Iranian Foreign Minister Abbas Araghchi <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly94LmNvbS9hcmFnaGNoaS9zdGF0dXMvMjAzNDYyNzcxNTg4MjUwNDU2MD9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B0142bde8">wrote</a> on social media that any agreement to end the war must compensate Iran for the destruction of civilian sites.
     </div>
 
-    <blockquote class="body-paragraph quote-text">
-        “From a very purely, narrow, sort of tactical military perspective, I think the war has been very successful. I think the difficulty lies in trying to translate those very narrow tactical military gains into some kind of larger strategic outcome. And it’s far from clear that the administration has any roadmap for how to get from here to there.”
+    <blockquote>
+        <p class="font-17px">“From a very purely, narrow, sort of tactical military perspective, I think the war has been very successful. I think the difficulty lies in trying to translate those very narrow tactical military gains into some kind of larger strategic outcome. And it’s far from clear that the administration has any roadmap for how to get from here to there.”</p>
     </blockquote>
-    <span class="attribution-text"><strong>—CFR expert Max Boot, <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9wcmVzaWRlbnRzLWluYm94L3RoZS1zdHJhdGVneS1nYXAtaW4taXJhbj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bfadb2be3"><em>The President’s Inbox</em></a></strong></span>
+    <p class="font-18px" style="margin: 0 0 20px 0;"><strong>—CFR expert Max Boot, <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9wcmVzaWRlbnRzLWluYm94L3RoZS1zdHJhdGVneS1nYXAtaW4taXJhbj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bfadb2be3"><em>The President’s Inbox</em></a></strong></p>
 
-    <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9hZnJpY2FzLXNpbGVuY2Utb24tdGhlLWlyYW4td2FyLXNwZWFrcy12b2x1bWVzP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B6e12bec0" target="_self" class="related-article-title">Africa’s Silence on the Iran War Speaks Volumes</a>
-    <span class="image-caption"><em>Thomas Mukoya/Reuters</em></span>
+    <h3><a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9hZnJpY2FzLXNpbGVuY2Utb24tdGhlLWlyYW4td2FyLXNwZWFrcy12b2x1bWVzP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2D6e12bec0" target="_self" class="header-link">Africa’s Silence on the Iran War Speaks Volumes</a></h3>
+    <p class="image-credit">Thomas Mukoya/Reuters</p>
     <div class="body-paragraph">
-        The conflict in Iran spells trouble for Tehran’s longtime efforts to influence African countries, although opinions on Iranian engagement—economic, diplomatic, and cultural—already varied widely within the continent, CFR Senior Fellow Ebenezer Obadare <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9hZnJpY2FzLXNpbGVuY2Utb24tdGhlLWirYW4td2FyLXNwZWFrcy12b2x1bWVzP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2D6e12bec0">writes in this Expert Take</a>.
+        The conflict in Iran spells trouble for Tehran’s longtime efforts to influence African countries, although opinions on Iranian engagement—economic, diplomatic, and cultural—already varied widely within the continent, CFR Senior Fellow Ebenezer Obadare <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9hZnJpY2FzLXNpbGVuY2Utb24tdGhlLWlyYW4td2FyLXNwZWFrcy12b2x1bWVzP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Dc6afdb75">writes in this Expert Take</a>.
     </div>
 
-    <h2 class="main-header">Across the Globe</h2>
+    <h2><strong>Across the Globe</strong></h2>
 
     <div class="body-paragraph">
-        <strong>Takaichi’s White House visit. </strong>Trump and Japanese Prime Minister Takaichi Sanae exchanged <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvdHJ1bXAtdGFrYWljaGktamFwYW4taXJhbi1zdHJhaXQtb2YtaG9ybXV6LTAwMDZiODQ4MTE4MzgxNzg2YmFhODM3YzQwM2U1ZTEzP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B8fa2418d">praise</a> during Takaichi’s first White House visit yesterday, though Trump criticized Japan earlier in the week for refusing to send military assets to help unblock the Strait of Hormuz. Takaichi told reporters she had explained to Trump the constitutional limits on Japan’s use of force overseas. Japanese firms will invest up to $73 billion in U.S. nuclear and natural gas facilities as part of a trade and investment deal reached last year, the White House <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cud2hpdGVob3VzZS5nb3YvZmFjdC1zaGVldHMvMjAyNi8wMy9mYWN0LXNoZWV0LXByZXNpZGVudC1kb25hbGQtai10cnVtcC1zdHJlbmd0aGVucy11LXMtamFwYW4tYWxsaWFuY2UtZm9yLXRoZS1iZW5lZml0LW9mLWFsbC1hbWVyaWNhbnMvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B680b88f5">said</a>.
+        <strong>Takaichi’s White House visit. </strong>Trump and Japanese Prime Minister Takaichi Sanae exchanged <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvdHJ1bXAtdGakaichi-japan-iran-strait-of-hormuz-0006b848118381786baa837c403e5e13?utm_source=dailybrief&utm_content=20260320/695af380dce856b6aa066af2B8fa2418d">praise</a> during Takaichi’s first White House visit yesterday, though Trump criticized Japan earlier in the week for refusing to send military assets to help unblock the Strait of Hormuz. Takaichi told reporters she had explained to Trump the constitutional limits on Japan’s use of force overseas. Japanese firms will invest up to $73 billion in U.S. nuclear and natural gas facilities as part of a trade and investment deal reached last year, the White House <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cud2hpdGVob3VzZS5nb3YvZmFjdC1zaGVldHMvMjAyNi8wMy9mYWN0LXNoZWV0LXByZXNpZGVudC1kb25hbGQtai10cnVtcC1zdHJlbmd0aGVucy11LXMtamFwYW4tYWxsaWFuY2UtZm9yLXRoZS1iZW5lZml0LW9mLWFsbC1hbWVyaWNhbnMvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B680b88f5">said</a>.
     </div>
 
     <div class="body-paragraph">
-        <strong>U.S. arms sales to Mideast. </strong>The State Department <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvYWVyb3NwYWNlLWRlZmVuc2UvdXMtYXBwcm92ZXMtYmlsbGlvbnMtYXJtcy1zYWxlcy1taWRkbGUtZWFzdC1jb3VudHJpZXMtMjAyNi0wMy0xOS8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bad276d18">announced</a> yesterday it had approved more than $16 billion in potential arms sales to Jordan, Kuwait, and the United Arab Emirates. Citing emergency circumstances, it <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuc3RhdGUuZ292L3JlbGVhc2VzL2J1cmVhdS1vZi1wb2xpdGljYWwtbWlsaXRhcnktYWZmYWlycy8yMDI2LzAzL3VuaXRlZC1hcmFiLWVtaXJhdGVzLWZpeGVkLXNpdGUtbG93LXNsb3ctc21hbGwtdW5tYW5uZWQtYWlyY3JhZnQtaW50ZWdyYXRlZC1kZWZlYXQtc3lzdGVtLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bee7dd278">waived</a> the normal requirement for Congress to review the sales. All three countries have been attacked by Iran this month in the ongoing war.
+        <strong>U.S. arms sales to Mideast. </strong>The State Department <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvYWVyb3NwYWNlLWRlZmVuc2UvdXMtYXBwcm92ZXMtYmlsbGlvbnMtYXJtcy1zYWxlcy1taWRkbGUtZWFzdC1jb3VudHJpZXMtMjAyNi0wMy0xOS8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzIw/695af380dce856b6aa066af2Bad276d18">announced</a> yesterday it had approved more than $16 billion in potential arms sales to Jordan, Kuwait, and the United Arab Emirates. Citing emergency circumstances, it <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuc3RhdGUuZ292L3JlbGVhc2VzL2J1cmVhdS1vZi1wb2xpdGljYWwtbWlsaXRhcnktYWZmYWlycy8yMDI2LzAzL3VuaXRlZC1hcmFiLWVtaXJhdGVzLWZpeGVkLXNpdGUtbG93LXNsb3ctc21hbGwtdW5tYW5uZWQtYWlyY3JhZnQtaW50ZWdyYXRlZC1kZWZlYXQtc3lzdGVtLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bee7dd278">waived</a> the normal requirement for Congress to review the sales. All three countries have been attacked by Iran this month in the ongoing war.
     </div>
 
     <div class="body-paragraph">
@@ -263,7 +215,7 @@
     </div>
 
     <div class="body-paragraph">
-        <strong>Belarus prisoner release. </strong>Belarus <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8xOS93b3JsZC9ldXJvcGUvYmVsYXJ1cy1wcmlzb25lcnMtZmVydGlsaXplci1wb3Rhc2gtc2FuY3Rpb25zLmh0bWw_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bb46a95f5">agreed</a> yesterday to free two hundred and fifty political prisoners as part of a deal with the United States that would lift sanctions on three Belarussian companies that export a key fertilizer ingredient. The near-closure of the Strait of Hormuz has caused a global fertilizer supply crunch. The United States, which heavily sanctioned Belarus for supporting Russia’s war in Ukraine, has increased its diplomatic engagement with the country in the last two years.
+        <strong>Belarus prisoner release. </strong>Belarus <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8xOS93b3JsZC9ldXJvcGUvYmVsYXJ1cy1wcmlzb25lcnMtZmVydGlsaXplci1wb3Rhc2gtc2FuY3Rpb25zLmh0bWw_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzIw/695af380dce856b6aa066af2Bb46a95f5">agreed</a> yesterday to free two hundred and fifty political prisoners as part of a deal with the United States that would lift sanctions on three Belarussian companies that export a key fertilizer ingredient. The near-closure of the Strait of Hormuz has caused a global fertilizer supply crunch. The United States, which heavily sanctioned Belarus for supporting Russia’s war in Ukraine, has increased its diplomatic engagement with the country in the last two years.
     </div>
 
     <div class="body-paragraph">
@@ -271,56 +223,52 @@
     </div>
 
     <div class="body-paragraph">
-        <strong>Hungary, Slovakia block Ukraine aid. </strong>At a European Council summit yesterday, Hungary and Slovakia <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L2V1LWxlYWRlcnMtcHJlc3MtaHVuZ2FyeXMtb3JiYW4tbGlmdC1ibG9jay11a3JhaW5lLWxvYW4tMjAyNi0wMy0xOS8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bfe51a1b7">blocked</a> a more than $100 billion <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cudGhlZ3VhcmRpYW4uY29tL3dvcmxkL2xpdmUvMjAyNi9tYXIvMTkvZXVyb3BlLXVrcmFpbmUtcnVzc2lhbi1ldS1sb2FuLW9yYmFuLWh1bmdhcnktdGFyaWZmcy1pcmFuLW5hdG8tbGF0ZXN0LW5ld3MtdXBkYXRlcz9DTVA9c2hhcmVfYnRuX3VybCZwYWdlPXdpdGg6YmxvY2stNjliYzAyNWM4ZjA4OTIwYjRiMzMxZDJmJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMCNibG9jay02OWJjMDI1YzhmMDg5MjBiNGIzMzFkMmY/695af380dce856b6aa066af2B7d90f33e">loan</a> for Ukraine. They cited a dispute over a damaged Ukrainian pipeline that normally transports Russian oil to Central Europe—even though Ukraine <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvOTA1ZWE0MDMtNjM5Yi00NGVmLThmMTItZGZjMzhlMzJlYjBkP3N5bi0yNWE2YjFhNj0xJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B2cc87e01">said</a> this week it would fix the pipeline. German Chancellor Friedrich Merz <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuYmJjLmNvbS9uZXdzL2FydGljbGVzL2NxNmpydmdxZWVqbz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bba1526e9">called</a> Hungary’s opposition “a gross act of disloyalty.”
+        <strong>Hungary, Slovakia block Ukraine aid. </strong>At a European Council summit yesterday, Hungary and Slovakia <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L2V1LWxlYWRlcnMtcHJlc3MtaHVuZ2FyeXMtb3JiYW4tbGlmdC1ibG9jay11a3JhaW5lLWxvYW4tMjAyNi0wMy0xOS8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzIw/695af380dce856b6aa066af2Bfe51a1b7">blocked</a> a more than $100 billion <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cudGhlZ3VhcmRpYW4uY29tL3dvcmxkL2xpdmUvMjAyNi9tYXIvMTkvZXVyb3BlLXVrcmFpbmUtcnVzc2lhbi1ldS1sb2FuLW9yYmFuLWh1bmdhcnktdGFyaWZmcy1pcmFuLW5hdG8tbGF0ZXN0LW5ld3MtdXBkYXRlcz9DTVA9c2hhcmVfYnRuX3VybCZwYWdlPXdpdGg6YmxvY2stNjliYzAyNWM4ZjA4OTIwYjRiMzMxZDJmJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMCNibG9jay02OWJjMDI1YzhmMDg5MjBiNGIzMzFkMmY/695af380dce856b6aa066af2B7d90f33e">loan</a> for Ukraine. They cited a dispute over a damaged Ukrainian pipeline that normally transports Russian oil to Central Europe—even though Ukraine <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvOTA1ZWE0MDMtNjM5Yi00NGVmLThmMTItZGZjMzhlMzJlYjBkP3N5bi0yNWE2YjFhNj0xJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2B2cc87e01">said</a> this week it would fix the pipeline. German Chancellor Friedrich Merz <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuYmJjLmNvbS9uZXdzL2FydGljbGVzL2NxNmpydmdxZWVqbz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bba1526e9">called</a> Hungary’s opposition “a gross act of disloyalty.”
     </div>
 
     <div class="body-paragraph">
-        <strong>Thailand’s PM reelected. </strong>Prime Minister Anutin Charnvirakul, a conservative loyal to Thailand’s monarchy, was overwhelmingly <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuamFwYW50aW1lcy5jby5qcC9uZXdzLzIwMjYvMDMvMTkvYXNpYS1wYWNpZmljL3BvbGl0aWNzL3RoYWlsYW5kLXByaW1lLW1pbmlzdGVyLXJldHVybi8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bbb306c50">reelected</a> yesterday. Anutin’s party gained parliamentary seats in last month’s snap election, which Anutin had ordered amid a border war with Cambodia and an upsurge in nationalist sentiment. He is the first prime minister to be reelected in twenty years.
+        <strong>Thailand’s PM reelected. </strong>Prime Minister Anutin Charnvirakul, a conservative loyal to Thailand’s monarchy, was overwhelmingly <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuamFwYW50aW1lcy5jby5qcC9uZXdzLzIwMjYvMDMvMTkvYXNpYS1wYWNpZmljL3BvbGl0aWNzL3RoYWlsYW5kLXByaW1lLW1pbmlzdGVyLXJldHVybi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzIw/695af380dce856b6aa066af2Bbb306c50">reelected</a> yesterday. Anutin’s party gained parliamentary seats in last month’s snap election, which Anutin had ordered amid a border war with Cambodia and an upsurge in nationalist sentiment. He is the first prime minister to be reelected in twenty years.
     </div>
 
     <div class="body-paragraph">
-        <strong>Chad’s reinforcements in Haiti. </strong>Chad will send eight hundred members of its security forces to Haiti this year as part of an international force to combat violence in the country, an unnamed Chadian police official <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYW1lcmljYXMvY2hhZC1wbGFucy1zZW5kLTgwMC1zZWN1cml0eS1wZXJzb25uZWwtaGFpdGktb2ZmaWNpYWwtc2F5cy0yMDI2LTAzLTIwLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2B9a973efe">told</a> Reuters. The UN Security Council <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly9uZXdzLnVuLm9yZy9lbi9zdG9yeS8yMDI1LzA5LzExNjYwMDY_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2B23b1c5f2">approved</a> the mission last year, though full details of its composition have yet to be publicly confirmed. Some Kenyan officers from the current, smaller Kenyan-led mission in Haiti <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cubWlhbWloZXJhbGQuY29tL25ld3MvbmF0aW9uLXdvcmxkL3dvcmxkL2FtZXJpY2FzL2hhaXRpL2FydGljbGUzMTUxMTYyMTAuaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bf5087351">returned</a> to Nairobi earlier this week.
+        <strong>Chad’s reinforcements in Haiti. </strong>Chad will send eight hundred members of its security forces to Haiti this year as part of an international force to combat violence in the country, an unnamed Chadian police official <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYW1lcmljYXMvY2hhZC1wbGFucy1zZW5kLTgwMC1zZWN1cml0eS1wZXJzb25uZWwtaGFpdGktb2ZmaWNpYWwtc2F5cy0yMDI2LTAzLTIwLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2B9a973efe">told</a> Reuters. The UN Security Council <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly9uZXdzLnVuLm9yZy9lbi9zdG9yeS8yMDI1LzA5LzExNjYwMDY_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260320/695af380dce856b6aa066af2B23b1c5f2">approved</a> the mission last year, though full details of its composition have yet to be publicly confirmed. Some Kenyan officers from the current, smaller Kenyan-led mission in Haiti <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cubWlhbWloZXJhbGQuY29tL25ld3MvbmF0aW9uLXdvcmxkL3dvcmxkL2FtZXJpY2FzL2hhaXRpL2FydGljbGUzMTUxMTYyMTAuaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bf5087351">returned</a> to Nairobi earlier this week.
     </div>
 
-    <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy93b21lbnMtcG93ZXItaW5kZXgtY2ZyLWdlbmRlci1wYXJpdHktc2NvcmUtc3RhbGxzLWluLXdhcm5pbmctc2lnbi1mb3Itd29tZW5zLXBvbGl0aWNhbC1wYXJ0aWNpcGF0aW9uP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Bc6afdb75" target="_self" class="related-article-title">CFR Gender Parity Score Stalls</a>
-    <span class="image-caption"><em>Stephane Mahe/Reuters</em></span>
+    <h3><a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy93b21lbnMtcG93ZXItaW5kZXgtY2ZyLWdlbmRlci1wYXJpdHktc2NvcmUtc3RhbGxzLWluLXdhcm5pbmctc2lnbi1mb3Itd29tZW5zLXBvbGl0aWNhbC1wYXJ0aWNpcGF0aW9uP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Dc6afdb75" target="_self" class="header-link">CFR Gender Parity Score Stalls</a></h3>
+    <p class="image-credit">Stephane Mahe/Reuters</p>
     <div class="body-paragraph">
-        The 2026 edition of the Women’s Power Index confirms a slowing trend of progress. It tracks five indicators related to women’s political participation, CFR Senior Fellow Linda Robinson and CFR’s Noël James <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy93b21lbnMtcG93ZXItaW5kZXgtY2ZyLWdlbmRlci1wYXJpdHktc2NvcmUtc3RhbGxzLWluLXdhcm5pbmctc2lnbi1mb3Itd29tZW5zLXBvbGl0aWNhbC1wYXJ0aWNipXRpb24P3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Dc6afdb75">writes in this article</a>.
+        The 2026 edition of the Women’s Power Index confirms a slowing trend of progress. It tracks five indicators related to women’s political participation, CFR Senior Fellow Linda Robinson and CFR’s Noël James <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy93b21lbnMtcG93ZXItaW5kZXgtY2ZyLWdlbmRlci1wYXJpdHktc2NvcmUtc3RhbGxzLWluLXdhcm5pbmctc2lnbi1mb3Itd29tZW5zLXBvbGl0aWNhbC1wYXJ0aWNpcGF0aW9uP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyMA/695af380dce856b6aa066af2Dc6afdb75">writes in this article</a>.
     </div>
 
-    <h3 class="main-header">What’s Next</h3>
-    <div class="bullet-item">
-        Today, the <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuYmJjLmNvbS93ZWF0aGVyL2FydGljbGVzL2MzZHp6cnhlbTUybz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Be22d5e91">Northern Hemisphere</a> experiences the vernal equinox, marking the start of spring.
+    <h2><strong>What’s Next</strong></h2>
+
+    <!-- Consolidated and formatted bullet points for "What's Next" -->
+    <div class="list-item-indent">
+        Today, the <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuYmJjLmNvbS93ZWF0aGVyL2FydGljbGVzL2MzZHp6cnhlbTUybz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2conent%3D20260320/695af380dce856b6aa066af2Be22d5e91">Northern Hemisphere</a> experiences the vernal equinox, marking the start of spring.
     </div>
-    <div class="bullet-item">
+    <div class="list-item-indent">
         Tomorrow, the Community of Latin American and Caribbean States holds a summit in <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2FuY2lsbGVyaWEuZ292LmNvL25ld3Nyb29tL25ld3MvYm9nb3RhLXNlcmEtc2VkZS14LWN1bWJyZS1jZWxhYy1saWRlcmVzLWFtZXJpY2EtbGF0aW5hLWNhcmliZS1yZXVuaXJhbi0yMS1tYXJ6bz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2B2848214e">Colombia</a>.
     </div>
-    <div class="bullet-item">
-        Sunday, <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvc2xvdmVuaWEtZWxlY3Rpb24tcGl0cy1saWJlcmFscy1hZ2FpbnN0LXBvcHVsaXN0LXJpZ2h0LXRpZ2h0LXJhY2UtMjAyNi0wMy0xOS8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bf583eb0b">Slovenia</a> holds a parliamentary election.
+    <div class="list-item-indent">
+        Sunday, <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvc2xvdmVuaWEtZWxlY3Rpb24tcGl0cy1saWJlcmFscy1hZ2FpbnN0LXBvcHVsaXN0LXJpZ2h0LXRpZ2h0LXJhY2UtMjAyNi0wMy0xOS8_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260320/695af380dce856b6aa066af2Bf583eb0b">Slovenia</a> holds a parliamentary election.
     </div>
-    <div class="bullet-item">
+    <div class="list-item-indent" style="margin-bottom: 20px;">
         Sunday, <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuZXVyb25ld3MuY29tLzIwMjYvMDMvMTcvaXRhbGlhbnMtdm90ZS1vbi1jb25zdGl0dXRpb25hbC1qdXN0aWNlLXJlZm9ybS10by1yZXNoYXBlLWp1ZGljaWFyeT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bef82df0a">Italy</a> votes on a constitutional referendum.
     </div>
 
-    <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9mcmVlZG9tLWhvdXNlcy1hbm51YWwtcmVwb3J0LXNob3dzLXRoZS1kaXJlLXN0YXRlLW9mLWRlbW9jcmFjeS13b3JsZHdpZGU_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2B56c4c6e5" target="_self" class="related-article-title">A Dire Global Democracy Scorecard</a>
-    <span class="image-caption"><em>Alexander Kazakov/Reuters</em></span>
+    <h3><a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9mcmVlZG9tLWhvdXNlcy1hbm51YWwtcmVwb3J0LXNob3dzLXRoZS1kaXJlLXN0YXRlLW9mLWRlbW9jcmFjeS13b3JsZHdpZGU_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260320/695af380dce856b6aa066af2B56c4c6e5" target="_self" class="header-link">A Dire Global Democracy Scorecard</a></h3>
+    <p class="image-credit">Alexander Kazakov/Reuters</p>
     <div class="body-paragraph">
-        Between a reduction in freedoms in the United States and an uptick in organized collaboration among autocracies around the world, Freedom House’s most recent report paints a stark image, CFR expert Joshua Kurlantzick <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9mcmVlZG9tLWhvdXNlcy1hbm51YWwtcmVwb3J0LXNob3dzLXRoZS1kaXJlLXN0YXRlLW9mLWRlbW9jcmFjeS13b3JsZHdpZGU_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2D56c4c6e5">writes in this article</a>.
+        Between a reduction in freedoms in the United States and an uptick in organized collaboration among autocracies around the world, Freedom House’s most recent report paints a stark image, CFR expert Joshua Kurlantzick <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9mcmVlZG9tLWhvdXNlcy1hbm51YWwtcmVwb3J0LXNob3dzLXRoZS1kaXJlLXN0YXRlLW9mLWRlbW9jcmFjeS13b3JsZHdpZGU_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260320/695af380dce856b6aa066af2D56c4c6e5">writes in this article</a>.
     </div>
 
-    <div class="footer-section">
-        <span class="footer-org-name">
-            <a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjA/695af380dce856b6aa066af2Bb150e753" target="_blank" rel="noopener">Council on Foreign Relations</a>
-        </span>
-        <span class="footer-address">58 East 68th Street, New York, NY 10065</span>
-        <span class="footer-address">1777 F Street, NW, Washington, DC 20006</span>
-        <span class="footer-cta">
-            <strong>Was this forwarded to you?</strong> <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" rel="noopener">Subscribe to the <em>Daily News Brief</em></a>
-        </span>
-        <div class="footer-link-group">
-            <span class="footer-preferences"><a href="https://link.cfr.org/oc/695af380dce856b6aa066af2qoksc.1ebe/59601e9f" target="_blank" rel="noopener">Manage Your Email Preferences</a></span>
-            <span class="footer-view-browser"><a href="https://link.cfr.org/public/44816700" target="_blank" rel="noopener">View in Browser</a></span>
-        </div>
+    <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px;">
+        <p class="font-14px" style="margin: 0 0 5px 0;"><strong><a href="https://link.cfr.org/click/44816700.65210/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260320/695af380dce856b6aa066af2Bb150e753" target="_blank" class="footer-link" rel="noopener">Council on Foreign Relations</a></strong></p>
+        <p class="font-12px" style="margin: 0 0 5px 0;">58 East 68th Street, New York, NY 10065</p>
+        <p class="font-12px" style="margin: 0 0 10px 0;">1777 F Street, NW, Washington, DC 20006</p>
+        <p class="font-12px" style="margin: 0 0 5px 0;"><strong>Was this forwarded to you? <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" class="footer-link-no-underline" rel="noopener">Subscribe to the <em>Daily News Brief</em></a></strong></p>
+        <p class="font-12px" style="margin: 0 0 5px 0;"><a href="https://link.cfr.org/oc/695af380dce856b6aa066af2qoksc.1ebe/59601e9f" target="_blank" rel="noopener" class="footer-link">Manage Your Email Preferences</a></p>
+        <p class="font-12px" style="margin: 0;"><a href="https://link.cfr.org/public/44816700" target="_blank" rel="noopener" class="footer-link">View in Browser</a></p>
     </div>
 
 </body>
