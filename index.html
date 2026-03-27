@@ -64,224 +64,205 @@
 <html>
 <head>
     <title>Daily News Brief</title>
+    <meta charset="utf-8">
     <style>
-        /* General body styling */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        /* Main container for the brief */
-        .news-container {
-            max-width: 650px; /* Slightly wider to accommodate indents */
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 30px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-            line-height: 1.6;
-            color: #333; /* Default text color */
-        }
-        /* Style for body paragraphs and "bullets" */
-        .body-paragraph {
-            font-size: 16px;
-            border-left: 2px solid #B22222; /* Subtle red line */
-            padding-left: 15px; /* Tabbing effect */
-            margin-left: 10px; /* Further indent for block */
-            margin-bottom: 15px; /* Space between paragraphs */
-            word-break: break-word; /* Preserve original word-break behavior */
-        }
-        /* Style for headers - no indent */
-        h1, h2 {
-            margin-left: 0;
-            padding-left: 0;
-            margin-top: 25px;
-            margin-bottom: 15px;
+            font-family: sans-serif;
             color: #333;
+            line-height: 1.6;
+            word-break: break-word; /* Apply word-break globally to the body or main container */
         }
-        h1 {
-            font-size: 46px;
-            font-weight: normal; /* Original H1 is not explicitly bold */
-            margin-bottom: 5px;
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 0 15px; /* Add some padding to the container */
         }
-        .date {
-            font-size: 16px;
-            font-style: italic;
-            color: #555;
-            margin-bottom: 20px;
-            display: block; /* Ensures it acts as a block */
-        }
-        h2 {
-            font-size: 26px; /* For "Top of the Agenda" */
-            font-weight: bold;
-        }
-        /* For "Across the Globe" and "What's Next" (originally tinyMce-placeholder) */
-        .section-header {
-            font-size: 26px; /* Assuming similar visual size to h2 */
-            font-weight: bold;
-            margin-top: 35px; /* More spacing before new section */
-        }
-        .intro-text {
-            font-size: 16px;
+        h1, h2, h3 {
+            margin-top: 30px;
             margin-bottom: 15px;
-            word-break: break-word;
+            padding: 0; /* Ensure headers are not indented */
+            line-height: 1.2;
+        }
+        .body-paragraph {
+            border-left: 2px solid #B22222;
+            padding-left: 15px;
+            margin-bottom: 1em;
+        }
+        .bullet-point {
+            margin-left: 20px; /* Indent more for 'shortened' appearance */
+            border-left: 2px solid #B22222;
+            padding-left: 10px;
+            margin-bottom: 0.5em;
         }
         .quote-block {
-            margin: 25px 0;
-            padding-left: 15px;
-            border-left: 2px solid #B22222;
             font-size: 18px;
-            font-style: italic;
+            margin: 20px 0 10px 20px; /* Slightly indented, no red line */
+            padding-left: 0;
             color: #333;
-            margin-left: 10px; /* Align with other body paragraphs */
-            word-break: break-word;
+            font-style: italic;
         }
         .quote-attribution {
-            font-size: 18px;
-            font-weight: bold;
-            text-align: right;
+            font-size: 16px;
             margin-top: 10px;
-            margin-bottom: 25px;
-            color: #333;
-            word-break: break-word;
+            margin-left: 20px; /* Aligned with quote block */
+            color: #555;
+        }
+        .related-article-title {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #04284A;
+            text-decoration: none;
+            display: block; /* Make the link a block to control margin */
         }
         .image-credit {
             font-size: 11px;
-            font-style: italic;
-            color: #777;
+            color: #9f9f9f;
             margin-bottom: 10px;
-            margin-left: 10px; /* Align with red line content */
+            font-style: italic;
         }
-        .article-link-title, .video-link-title {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 30px; /* Spacing before these title links */
-            margin-bottom: 5px;
-            display: block;
-        }
-        /* Link styling from original */
-        a {
-            text-decoration: underline;
-            color: #F25D27; /* Common link color */
-        }
-        .article-link-title a, .video-link-title a {
-            text-decoration: none; /* Keep original link style */
-            color: #04284A; /* Specific link color for titles */
-        }
-        .footer-section {
+        .footer {
+            margin-top: 40px;
             border-top: 1px solid #eee;
-            margin-top: 40px; /* More spacing for footer */
             padding-top: 20px;
             text-align: center;
             font-size: 12px;
             color: #555;
         }
-        .footer-address {
-            font-size: 12px;
-            margin: 5px 0;
-        }
-        .footer-subscribe {
-            font-size: 12px;
-            margin-bottom: 10px;
-        }
-        .footer-base-link { /* CFR link */
-            color: #3d454e;
+        .footer a {
+            color: #f25d27;
             text-decoration: none;
+        }
+        .footer a.cfr-link {
+            color: #3d454e;
             font-size: 14px;
             font-weight: bold;
-            display: block; /* Make it a block for proper spacing */
-            margin-bottom: 10px;
-        }
-        .footer-subscribe-link {
-            text-decoration: none;
-            color: #f25d27;
-        }
-        .footer-preferences-link, .footer-view-browser-link {
-            color: #3d454e;
-            text-decoration: underline;
-            font-size: 12px;
-            display: block;
-            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
-    <div class="news-container">
+    <div class="container">
 
-        <h1>Daily News Brief</h1>
-        <em class="date">March 26, 2026</em>
-
-        <p class="intro-text">Welcome to CFR’s Daily News Brief. Today we’re covering the United States pursuing weekend talks with Iran, as well as:</p>
-
-        <!-- Bullet points replaced with styled paragraphs -->
-        <p class="body-paragraph">Ukrainian strikes targeting Russia’s energy exports</p>
-        <p class="body-paragraph">U.S. charges for alleged chip smuggling</p>
-        <p class="body-paragraph">A UN resolution condemning the transatlantic slave trade</p>
-
-        <h2>Top of the Agenda</h2>
-
-        <p class="body-paragraph"><strong>The White House is reportedly still pushing for an off-ramp to the Iran war, though Iranian leaders say they are not officially negotiating.</strong> The two sides are passing indirect messages to each other via Pakistan, Pakistan’s foreign minister <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly94LmNvbS9NSXNoYXFEYXI1MC9zdGF0dXMvMjAzNzEwOTMyNzcxOTUyMjc2ND9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyNg/695af380dce856b6aa066af2B54b270b6" style="text-decoration: underline; color: #F25D27;">wrote</a> on social media today, while unnamed U.S. officials <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly9lZGl0aW9uLmNubi5jb20vMjAyNi8wMy8yNS93b3JsZC9saXZlLW5ld3MvaXJhbi13YXItdXMtaXNyYWVsLXRydW1wLTAzLTI1LTI2P3Bvc3QtaWQ9Y21uNjNyaTJyMDAwMDNiNnRmMzF0eGxpZCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B6a8eaa5d" style="text-decoration: underline; color: #F25D27;">told</a> CNN the Trump administration is trying to set up talks in Pakistan this weekend. Even as Washington makes overtures to peace, reports suggest it is also preparing for potential military escalation.</p>
-
-        <p class="body-paragraph"><strong>It takes two.</strong> Iran’s Foreign Minister Abbas Araghchi <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYXNpYS1wYWNpZmljL2lyYW4tc2F5cy1pdC1pcy1yZXZpZXdpbmctdXMtY2Vhc2VmaXJlLXBsYW4tbm8tdGFsa3MtdHJ1bXAtc2F5cy10ZWhyYW4tbGVhZGVycy0yMDI2LTAzLTI2Lz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B3d38e1dd" style="text-decoration: underline; color: #F25D27;">said</a> yesterday Tehran was reviewing a fifteen-point U.S. peace plan but insisted it did not intend to negotiate. Iranian state television <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvMTA4ZWNlNDQtZjI2Mi00YjkwLWIyYWQtNzQyYWRkMjJlZmNmP3N5bi0yNWE2YjFhNj0xJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyNg/695af380dce856b6aa066af2B9a769f05" style="text-decoration: underline; color: #F25D27;">quoted</a> a senior official as saying the war would only end when Tehran’s conditions are met, including an end to fighting on “all fronts” and guarantees Iran will not be attacked in the future.</p>
-
-        <p class="body-paragraph">Trump is prepared to “unleash hell” if Tehran does not make a deal, the White House press secretary <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cud3NqLmNvbS9wb2xpdGljcy9lbGVjdGlvbnMvdHJ1bXAtdGVsbHMtYWlkZXMtaGUtd2FudHMtc3BlZWR5LWVuZC10by1pcmFuLXdhci1lYjlmMmI0Yj9tb2Q9ZTJ0dyZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2Bb744c0ef" style="text-decoration: underline; color: #F25D27;">said</a> yesterday. Meanwhile, Israel has accelerated strikes to hit key targets before a potential end to the war, unnamed Israeli officials <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8yNS93b3JsZC9taWRkbGVlYXN0L2lzcmFlbC1hdHRhY2tzLWlyYW4tY2Vhc2VmaXJlLXBsYW4uaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B35657aa4" style="text-decoration: underline; color: #F25D27;">told</a> the <em>New York Times. </em>Israel’s defense minister <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vbGl2ZS8yMDI2LzAzLzI2L3dvcmxkL2iranswar-israel-trump-oil/44b20605-8fad-58fb-b52f-b635eb0a4404?smid=url-share&utm_source=dailybrief&utm_content=20260326/695af380dce856b6aa066af2Bbe4c07fa" style="text-decoration: underline; color: #F25D27;">said</a> today its military killed the Islamic Revolutionary Guard Corps’ naval commander overnight.</p>
-
-        <p class="body-paragraph"><strong>Reports about U.S. military options.</strong> U.S. defense and intelligence officials told lawmakers in a closed-door briefing yesterday that the use of ground troops had not been ruled out, without explaining what they could be used for or if they could be protected, NBC News <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cubmJjbmV3cy5jb20vcG9saXRpY3MvY29uZ3Jlc3MvdGVuc2lvbnMtZmxhcmUtaXJhbi1icmllZmluZy1sYXdtYWtlcnMtdHJ1bXAtb2ZmaWNpYWxzLWdyb3VuZC10cm9vcHMtcmNuYTI2NTIzMT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B23b2f1fd" style="text-decoration: underline; color: #F25D27;">reported</a>. In a sign of the tensions among Republicans over the war, Representative Nancy Mace (R-SC) <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly94LmNvbS9SZXBOYW5jeU1hY2Uvc3RhdHVzLzIwMzY4NDI2NDgzMzg1Nzk1NzI_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2Bd4f07455" style="text-decoration: underline; color: #F25D27;">wrote</a> on social media that the briefing reaffirmed her opposition to sending U.S. troops to Iran.</p>
-
-        <p class="body-paragraph">Iran believes its adversaries are preparing to occupy an Iranian island with the help of a Middle Eastern country, Iran’s parliamentary speaker Mohammad Bagher Ghalibaf <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly94LmNvbS9tYl9naGFsaWJhZi9zdGF0dXMvMjAzNjg2NDI4Njg3MDY5MTkzND9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyNg/695af380dce856b6aa066af2B47683477" style="text-decoration: underline; color: #F25D27;">wrote</a> on social media yesterday. In the case of an attack, he threatened Iran would retaliate against “all the vital infrastructure” of that country.</p>
-
-        <div class="quote-block">
-            “The military campaign against Iran is probably weeks from achieving what was initially envisioned… Nonetheless, the degradation of the Islamic Republic as a military and nuclear power has been enormous and is likely irreversible. It will take years, perhaps decades, for the clerical regime—if it survives—to rebuild.”
+        <!-- Main Title and Date -->
+        <div>
+            <span style="font-size: 46px; font-weight: bold;">Daily News Brief</span><br>
+            <em style="font-size: 18px; color: #555;">March 27, 2026</em>
         </div>
-        <p class="quote-attribution"><strong>—CFR expert Ray Takeyh and the Foundation for Defense of Democracies’ Reuel Marc Gerecht, the <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cud3NqLmNvbS9vcGluaW9uL3dpbGwtdHJ1bXAtZmluaXNoLXRoZS1qb2ItaW4taXJhbi03NWVlOGU4Mz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2Bfe4252fe" style="text-decoration: underline; color: #f25d27;"><em>Wall Street Journal</em></a></strong></p>
 
-        <p class="video-link-title"><a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1ON1l4QjFBeG1TOCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B86dc8b76" target="_self" style="text-decoration: none; color: #04284A;">What Do People Really Think About Tariffs?</a></p>
-        <p class="image-credit"><em>Mike Blake/Reuters</em></p>
-        <p class="body-paragraph">CFR and Morning Consult surveyed Americans about their knowledge of and opinions about tariffs. CFR expert Inu Manak and Morning Consult’s Sonnet Frisbie unpack the results <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj1ON1l4QjFBeG1TOCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2D86dc8b76" style="text-decoration: underline; color: #F25D27;">in this video</a>.</p>
+        <!-- Introduction -->
+        <div class="body-paragraph" style="margin-top: 20px;">
+            <span style="font-size: 16px;">Welcome to CFR’s Daily News Brief. Today we’re covering what Trump’s delay on a threat to strike Iranian energy sites means for the war, as well as...</span>
+        </div>
 
-        <h2 class="section-header">Across the Globe</h2>
+        <!-- Introduction Bullet Points -->
+        <div class="bullet-point">
+            <span style="font-size: 16px;">A Saudi Arabia-Ukraine security deal</span>
+        </div>
+        <div class="bullet-point">
+            <span style="font-size: 16px;">France’s defense pact with the Philippines</span>
+        </div>
+        <div class="bullet-point">
+            <span style="font-size: 16px;">Nepal’s new prime minister</span>
+        </div>
 
-        <p class="body-paragraph"><strong>Russian oil exports hampered.</strong> Ukrainian strikes, a pipeline attack, and international seizures of tankers have reduced Russia’s oil export capacity by at least 40 percent as of yesterday, Reuters <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L2xlYXN0LTQwLXJ1c3NpYXMtb2lsLWV4cG9ydC1jYXBhY2l0eS1oYWx0ZWQtcmV1dGVycy1jYWxjdWxhdGlvbnMtc2hvdy0yMDI2LTAzLTI1Lz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B8635d3a0" style="text-decoration: underline; color: #f25d27;">reported</a>. Ukraine has targeted Russia’s three main western oil export ports in recent weeks.</p>
+        <!-- Header: Top of the Agenda -->
+        <h2 style="font-size: 26px;"><strong>Top of the Agenda</strong></h2>
 
-        <p class="body-paragraph"><strong>New date for Trump’s China visit.</strong> Trump plans to visit China for a summit with Chinese President Xi Jinping on May 14 and 15, White House Press Secretary Karoline Leavitt <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvdHJ1bXAtY2hpbmEtdHJpcC1pcmFuLXdhci00MDFjNGMzM2EwMWIyYWNjZTcyZTk2ZWI4MDU4ZjhjYz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B27598fbd" style="text-decoration: underline; color: #f25d27;">announced</a> yesterday. The trip was rescheduled from late March due to the Iran war, which Leavitt suggested could be over by then.</p>
+        <!-- Top of the Agenda Paragraphs -->
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Trump yesterday </strong><a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly90cnV0aHNvY2lhbC5jb20vQHJlYWxEb25hbGRUcnVtcC8xMTYyOTcyOTU1NDM4Mzg3MTc_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2Bc57f017e" style="text-decoration: underline; color: #F25D27;"><strong>extended</strong></a><strong> a pause on his threat to target Iran’s energy infrastructure, allowing more time for potential diplomacy. </strong>Trump’s latest delay—now tied to an April 6 deadline—suggested a temporary limit to U.S. escalation. Israel <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY2JzbmV3cy5jb20vbGl2ZS11cGRhdGVzL2lyYW4td2FyLXRydW1wLWlzcmFlbC10ZWhyYW4tZGVuaWVzLWNlYXNlZmlyZS10YWxrcy1zdHJhaXQtb2YtaG9ybXVuLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjcjcG9zdC11cGRhdGUtOTI3NjdmNjM/695af380dce856b6aa066af2B4353116a" style="text-decoration: underline; color: #F25D27;">continues</a> heavy attacks across Iran, while Iran <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cueW5ldG5ld3MuY29tL2FydGljbGUvaGo3aTAwYm1qYng_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2Bef6753a1" style="text-decoration: underline; color: #F25D27;">fires</a> at Israel and Gulf states. Public statements <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvdXMtcHJvcG9zYWwtZW5kLXdhci1pcy1vbmUtc2lkZWQtZG9vci1kaXBsb21hY3ktc3RpbGwtb3Blbi1pcmFuaWFuLW9mZmljaWFsLXNheXMtMjAyNi0wMy0yNi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2B0e325249" style="text-decoration: underline; color: #F25D27;">suggest</a> U.S. and Iranian officials remain far apart on conditions to end the war, while Washington is reiterating calls for allies to help reopen the Strait of Hormuz. Group of Seven foreign ministers are <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuZGlwbG9tYXRpZS5nb3V2LmZyL0lNRy9wZGYvZzdfZG9zc2llcnByZXNzZV9hZV9hNF9lbmdfdjRfY2xlOGZjNzI5LnBkZj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B04bef5b8" style="text-decoration: underline; color: #F25D27;">discussing</a> the Iran war at a meeting in France<strong> </strong>today.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Europe’s priorities. </strong>France <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvZnJhbmNlLXNheXMtaXQtYXBwcm9hY2hlZC0zNS1jb3VudHJpZXMtb3Zlci1mdXR1cmUtaG9ybXV6LW1pc3Npb24tMjAyNi0wMy0yNi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2B530df641" style="text-decoration: underline; color: #F25D27;">hosted</a> consultations with around thirty-five countries yesterday about plans to protect shipping in the strait after hostilities have ended, its defense ministry said. Top European Union (EU) diplomat Kaja Kallas <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly94LmNvbS9rYWpha2FsbGFzL3N0YXR1cy8yMDM3MjA0NTYwNTc4NTM5Nzg0P3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2Bfd142b6d" style="text-decoration: underline; color: #F25D27;">said</a> today that supporting Ukraine should remain a priority as the Iran war continues. Her remarks came after the <em>Washington Post </em><a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cud2FzaGluZ3RvbnBvc3QuY29tL25hdGlvbmFsLXNlY3VyaXR5LzIwMjYvMDMvMjYvdXMtaXJhbi13YXItdWtyYWluZS1taXNzaWxlLWRlZmVuc2UvP3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B1c37402d" style="text-decoration: underline; color: #F25D27;">reported</a> yesterday, citing unnamed U.S. sources, that the Pentagon is considering diverting weapons earmarked for Ukraine to the Middle East. A NATO spokesperson <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvZXVyb3BlL3BlbnRhZ29uLWNvbnNpZGVycy1kaXZlcnRpbmctdWtyYWluZS1taWxpdGFyeS1haWQtbWlkZGxlLWVhc3Qtd2FzaGluZ3Rvbi1wb3N0LTIwMjYtMDMtMjYvP3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B77019975" style="text-decoration: underline; color: #F25D27;">said</a> in response that all equipment designated for Ukraine through a U.S.-European mechanism continues to flow to Kyiv.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Ongoing economic costs. </strong>Trump’s new deadline extends the timeline for a potential end to the war and its associated global economic costs. Yesterday, the Organization for Economic Cooperation and Development <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cub2VjZC5vcmcvY29udGVudC9kYW0vb2VjZC9lbi9wdWJsaWNhdGlvbnMvcmVwb3J0cy8yMDI2LzAzL29lY2QtZWNvbm9taWMtb3V0bG9vay1pbnRlcmltLXJlcG9ydC1tYXJjaC0yMDI2XzI1NGE4ZDU2L2Q0NjIzMDEzLWVuLnBkZj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B7eb8cb74" style="text-decoration: underline; color: #F25D27;">projected</a> that annual inflation this year across the Group of Twenty will be an estimated 1.2 percent higher than expected in December. The International Monetary Fund has begun to <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMjUvaW1mLXJ1bnMtc2NlbmFyaW9zLW9uLXdoaWNoLW5hdGlvbnMtbWF5LW5lZWQtYWlkLWR1ZS10by1pcmFuLXdhcj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B1642ffda" style="text-decoration: underline; color: #F25D27;">calculate</a> which countries might need new loans if the war continues, Bloomberg reported. Trump’s latest pause to his threat to strike Iranian energy facilities came after the U.S. stock market <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvc3RvY2stbWFya2V0cy10cnVtcC1pcmFuLW9pbC04MTE4ZjU4ZDc1ODU5YjlmYzc0YWIxMzNmYTllOGMzZT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B31e86391" style="text-decoration: underline; color: #F25D27;">suffered</a> its worst one-day drop of the war yesterday.</span>
+        </div>
 
-        <p class="body-paragraph"><strong>U.S. chip smuggling charges.</strong> The Department of Justice <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuanVzdGljZS5nb3Yvb3BhL3ByL2ch_chinesenationalandtwouscitizenschargedconspiringsmuggleartificialintelligence?utm_source=dailybrief&utm_content=20260326/695af380dce856b6aa066af2B6ed5bd96" style="text-decoration: underline; color: #f25d27;">unveiled</a> charges yesterday against two U.S. citizens and a Chinese national for violating export controls by conspiring to smuggle artificial intelligence (AI) technology into China. The announcement followed a previous set of U.S. chip smuggling charges <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly9lZGl0aW9uLmNubi5jb20vMjAyNi8wMy8xOS9wb2xpdGljcy9zdXBlci1taWNyby1jb21wdXRlci1mb3VuZGVyLWNoYXJnZWQtYWktY2hpcHMtY2hpbmE_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI2/695af380dce856b6aa066af2Bfa613cf8" style="text-decoration: underline; color: #f25d27;">issued</a> last week against Yih-Shyan Liaw, the cofounder of a California-based tech company, along with two other people. The company <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMTkvdGhyZWUtY2hhcmdlZC1ieS11cy13aXRoLXBsb3QtdG8taWxsZWdhbGx5LXNlbmQtYWktdGVjaC10by1jaGluYT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B6036b914" style="text-decoration: underline; color: #f25d27;">said</a> it is cooperating with the investigation.</p>
+        <!-- Quote Block -->
+        <blockquote class="quote-block">
+            <p style="margin: 0;">“Iran has learned the lessons of American foreign policy. It has used the tools at its disposal to exacerbate risk, forcing private actors to become unwitting tools of its statecraft…Tehran may now conclude that further pressure is the best way to extract more concessions.”</p>
+            <p class="quote-attribution"><strong>—CFR expert Edward Fishman, <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8yNi9vcGluaW9uL2irYW4tdXMtd2FyLXN0cmFpdC1ob3JtdXouaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B33ddb7fa" style="text-decoration: underline; color: #f25d27;"><em>The New York Times</em></a></strong></p>
+        </blockquote>
 
-        <p class="body-paragraph"><strong>UN resolution on slavery reparations.</strong> The United Nations General Assembly yesterday <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly9uZXdzLnVuLm9yZy9lbi9zdG9yeS8yMDI2LzAzLzExNjcxOTk_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI2/695af380dce856b6aa066af2B44882268" style="text-decoration: underline; color: #f25d27;">adopted</a> a resolution calling the trafficking of enslaved Africans the “gravest crime against humanity” and endorsing reparations. The resolution, proposed by Ghana, <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cudGhlZ3VhcmRpYW4uY29tL25ld3MvMjAyNi9tYXIvMjUvdW4tdm90ZXMtc2xhdmUtdHJhZGUtZ3JhdmVzdC1jcmltZS1hZ2FpbnN0LWh1bWFuaXR5LXJlcGFyYXRvcnktanVzdGljZT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B0a8a9e67" style="text-decoration: underline; color: #f25d27;">was passed</a> by 123–3 countries, with 52 abstentions that included the United Kingdom and members of the European Union (EU). Argentina, Israel, and the United States voted against it.</p>
+        <!-- Related Article 1 -->
+        <div>
+            <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy90aGUtZ3VsZi1kaWRudC13YW50LXRoZS1pcmFuLXdhci10aGV5LW5lZWQtdHJ1bXAtdG8td2luLWl0LWFueXdheT91dG1fbWVkaXVtPXNvY2lhbF9vd25lZCZ1dG1fc291cmNlPXR3JnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2B0a149e27" target="_self" class="related-article-title">Gulf Leaders Didn’t Want the War, but Need Trump to Win</a>
+        </div>
+        <div class="image-credit"><em>Getty Images</em></div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;">The prospect of Iranian attacks threatens the Gulf countries’ development model, Senior Fellow Steven A. Cook <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy90aGUtZ3VsZi1kaWRudC13YW50LXRoZS1pcmFuLXdhci10aGV5LW5lZWQtdHJ1bXAtdG8td2luLWl0LWFueXdheT91dG1fbWVkaXVtPXNvY2lhbF9vd25lZCZ1dG1fc291cmNlPXR3JnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2D0a149e27" style="text-decoration: underline; color: #F25D27;">writes in this Expert Take</a>.</span>
+        </div>
 
-        <p class="body-paragraph"><strong>Mexico to keep Cuban doctors.</strong> Mexican President Claudia Sheinbaum <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvbWV4aWNvLWN1YmEtZG9jdG9ycy10cnVtcC0zM2I5NDU5YzBkYWJkYzZkOGVmNTBjZjc4MjA5NmU5OD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B5552f58e" style="text-decoration: underline; color: #f25d27;">said</a> yesterday the country would continue hosting Cuban medical missions despite pressure from Washington. The U.S. State Department has urged countries to stop accepting Cuba’s medical diplomacy, saying it amounted to “forced labor.” The Bahamas, Guatemala, and Paraguay have recently <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMi8xMC93b3JsZC9hbWVyaWNhcy9ndWF0ZW1hbGEtY3ViYS1kb2N0b3JzLmh0bWw_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260326/695af380dce856b6aa066af2Ba5479b8c" style="text-decoration: underline; color: #f25d27;">ended</a> their participation in the Cuban program. Sheinbaum said the doctors provide critical support to Mexico’s rural health system.</p>
+        <!-- Header: Across the Globe -->
+        <h2 style="font-size: 26px;"><strong>Across the Globe</strong></h2>
 
-        <p class="body-paragraph"><strong>U.S.-Cameroon deportation deal.</strong> Cameroon appeared to agree to accept third-country deportees from the United States in exchange for U.S. silence regarding a political crackdown and the release of frozen U.S. funds for UN refugee services, according to a <em>New York Times </em><a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8yNS93b3JsZC9hZnJpY2EvaW4tc2VjcmV0LWRlcG9ydGF0aW9uLWRlYWwtdXMtbGV2ZXJhZ2VkLWZhdm9ycy1hbmQtZnVuZHMuaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2B53023d1b" style="text-decoration: underline; color: #f25d27;">investigation</a> that cited unnamed officials and State Department documents. The State Department did not comment.</p>
+        <!-- Across the Globe Paragraphs -->
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Saudi Arabia-Ukraine agreement. </strong>The two countries’ defense ministries have reached a security cooperation agreement, Ukrainian President Volodymyr Zelenskyy <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly94LmNvbS9aZWxlbnNreXlVYS9zdGF0dXMvMjAzNzQ1MTkxMTE0MjUzOTQxMj9zPTIwJnV0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B9520b255" style="text-decoration: underline; color: #f25d27;">wrote</a> today on social media. The deal, announced during Zelenskyy’s visit this week to Saudi Arabia, lays the groundwork for technology cooperation and investment. Zelenskyy added that Kyiv was ready to share its own military expertise and systems with Riyadh. It comes after he <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvaXJhbi11a3JhaW5lLXNoYWhlZC1ydXNzaWEtZHJvbmUtZGVmZW5zZXMtd2FyLTc2YzkxY2FkMjRiYjk4ZGQyMDFmOGYzN2E5M2MzNDY0P3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B295ba2ea" style="text-decoration: underline; color: #f25d27;">said</a> earlier this month that Kyiv was seeking missile interceptor systems from Gulf countries.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Qatari PM in Washington. </strong>Qatari Prime Minister Sheikh Mohammed bin Abdulrahman Al Thani met with U.S. Vice President JD Vance and Treasury Secretary Scott Bessent in Washington yesterday to discuss responses to “current regional developments,” including the need to ensure Qatari liquefied natural gas reaches global energy markets, Qatar’s foreign ministry <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly94LmNvbS9Nb2ZhUWF0YXJfRU4vc3RhdHVzLzIwMzc0NjUxNDQwNTQyMzU1NjI_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2Beb9be6a9" style="text-decoration: underline; color: #f25d27;">said</a>.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>France-Philippines deal. </strong>The two countries <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuaW5xdWlyZXIubmV0LzQ3MTIzMS9waC1mcmFuY2Utc2lnbi12aXNpdGluZy1mb3JjZXMtZGVhbC10by1kZWVwZW4tZGVmZW5zZS10aWVzL391dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B5dd2aa52" style="text-decoration: underline; color: #f25d27;">signed</a> an agreement in Paris yesterday to facilitate joint military activities. Philippine President Ferdinand Marcos Jr. has pursued <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDMtMjYvZnJhbmNlLXBoaWxpcHBpbmVzLXNpZ24tbWlsaXRhcnktYWdyZWVtZW50LWFtaWQtY2hpbmEtdGVuc2lvbnM_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2Be3148178" style="text-decoration: underline; color: #f25d27;">similar agreements</a> with Japan and New Zealand as part of a push to diversify Manila’s defense partners amid tensions with China in the South China Sea.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Taiwan opposition party leader sentenced. </strong>A Taiwan court yesterday <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvYTI5NjliZDktZDk1Mi00MWJhLWJiYWEtODlhMTVkYTQ5Y2FkP3N5bi0yNWE2YjFhNj0xJnV0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B9df71992" style="text-decoration: underline; color: #f25d27;">sentenced</a> Ko Wen-je, the founder of the opposition Taiwan People’s Party (TPP) and a former presidential candidate, to seventeen years in prison on bribery and corruption charges. He is also banned from running for president in 2028. Ko, 66, has <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuc2NtcC5jb20vbmV3cy9jaGluYS9wb2xpdGljcy9hcnRpY2xlLzMzNDgwMTAvdGFpd2FuZXNlLWNvdXJ0LWphaWxzLWZvcm1lci10YWlwZWktbWF5b3Ita28td2VuLWplLTE3LXllYXJzLWNvcnJ1cHRpb24_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2B0270d123" style="text-decoration: underline; color: #f25d27;">denied</a> wrongdoing. Some opposition critics argue that Taiwan’s judiciary is being politically weaponized, though President Lai Ching-te said last year that political interference in the judiciary had “ended.”</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>South Korea’s wartime stimulus. </strong>The government <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY2hhbm5lbHlhc2lhLmNvbS9lYXN0LWFzaWEvc291dGgta29yZWEtdXMxNy1iaWxsaW9uLXdhcnRpbWUtYnVkZ2V0LWlyYW4td2FyLWVuZXJneS1wcmljZXMtNjAxODM1Nj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2Bb0cb3d07" style="text-decoration: underline; color: #f25d27;">announced</a> yesterday it will seek congressional approval for a $17 billion supplemental budget designed to help companies and households cope with the rising cost of energy due to the Iran war. Seoul also <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L3NvdXRoLWtvcmVhLXJhaXNlLWZ1ZWwtcHJpY2UtY2FwLWV4cGFuZC10YXgtYnJlYWstY3VzaGlvbi1ibG93LWlyYW4tY29uZmxpY3QtMjAyNi0wMy0yNi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2B29afcda3" style="text-decoration: underline; color: #f25d27;">announced</a> plans to impose a higher fuel price cap effective tonight.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>New IOC rule on trans athletes. </strong>The International Olympic Committee (IOC) <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cub2x5bXBpY3MuY29tL2lvYy9uZXdzL2ludGVybmF0aW9uYWwtb2x5bXBpYy1jb21taXR0ZWUtYW5ub3VuY2VzLW5ldy1wb2xpY3ktb24tdGhlLXByb3RlY3Rpb24tb2YtdGhlLWZlbWFsZS13b21lbi1zLWNhdGVnb3J5LWluLW9seW1waWMtc3BvcnQ_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2B571e755d" style="text-decoration: underline; color: #f25d27;">announced</a> a ban yesterday on transgender women competing in women’s sports at future tournaments. All athletes who wish to compete in women’s categories will be required to undergo genetic testing, the IOC added. The decision, which the IOC said “protects fairness, safety, and integrity in the female category,” <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cubnByLm9yZy8yMDI2LzAzLzI2L254LXMxLTU3NjI1NzkvaW9jLWJhbnMtdHJhbnMtd29tZW4tZXZlbnRzLWdlbmV0aWMtdGVzdGluZz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B182fc574" style="text-decoration: underline; color: #f25d27;">followed</a> a multi-year review. The policy will be in effect for the 2028 Summer Olympics.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Nepal’s new prime minister. </strong>Balendra Shah, a thirty-five-year-old engineer and former rapper, was <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvbmVwYWwtbmV3LXByaW1lLW1pbnN0ZXItb2F0aC1hc3Ryb2xvZ3ktMTkwNDc4Mzg4MTVjNzNhZDRhYzIxZDRjMDRmYzI0Yj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B3dc6bed2" style="text-decoration: underline; color: #f25d27;">sworn in</a> as prime minister today after rising to national prominence last year in youth-led protests that toppled the former government. His party won almost two-thirds of seats in the lower house of parliament in this month’s legislative elections.</span>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;"><strong>Hurdle to Pentagon’s Anthropic ban. </strong>A federal judge yesterday indefinitely <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly9lZGl0aW9uLmNubi5jb20vMjAyNi8wMy8yNi9idXNpbmVzcy9hbnRocm9waWMtcGVudGFnb24taW5qdW5jdGlvbi1zdXBwbHktY2hhaW4tcmlzaz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2Bab63a628" style="text-decoration: underline; color: #f25d27;">blocked</a> the Defense Department’s designation of Anthropic as a supply chain risk, ruling that Anthropic’s disagreement with the government was insufficient to trigger such a measure and calling the Pentagon’s stance “Orwellian.” The judge delayed implementation of the ruling by one week to allow for a government appeal.</span>
+        </div>
 
-        <p class="body-paragraph"><strong>Probe of South African police chief.</strong> South African police commissioner Fannie Masemola has been charged over the allegedly corrupt handling of a police health services contract, a police spokesperson <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvYzQ4MmVkNTAtZTAzMy00NmQ5LWE1NTQtODhmNzdlZjg5MDI1P3N5bi0yNWE2YjFhNj0xJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDMyNg/695af380dce856b6aa066af2B97304993" style="text-decoration: underline; color: #f25d27;">said</a>. It is one of several anti-corruption cases currently moving forward involving the country’s police forces. Masemola pledged to cooperate with the investigation.</p>
+        <!-- Related Article 2 -->
+        <div>
+            <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjYtMDMtMjYvdHJ1bXAtcy1kb25yb2UtZG9jdHJpbmUtd29uLXQtd2luLWxhdGluLWFtZXJpY2Etd2l0aG91dC1tb3JlLWNhcnJvdHM_ZW1iZWRkZWQtY2hlY2tvdXQ9dHJ1ZSZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2Ba4e7344e" target="_self" class="related-article-title">The ‘Donroe’ Doctrine Needs Carrots</a>
+        </div>
+        <div class="image-credit"><em>Evelyn Hockstein/Reuters</em></div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;">For the United States to counter China’s influence in the Western Hemisphere, it must provide an alternative to the economic, financial, and technological roles its rival power increasingly plays, CFR expert Shannon O’Neil <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9vcGluaW9uL2FydGljbGVzLzIwMjYtMDMtMjYvdHJ1bXAtcy1kb25yb2UtZG9jdHJpbmUtd29uLXQtd2luLWxhdGluLWFtZXJpY2Etd2l0aG91dC1tb3JlLWNhcnJvdHM_ZW1iZWRkZWQtY2hlY2tvdXQ9dHJ1ZSZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2Da4e7344e" style="text-decoration: underline; color: #F25D27;">writes for Bloomberg</a>.</span>
+        </div>
 
-        <p class="body-paragraph"><strong>Postal service price hike.</strong> The United States Postal Service <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly9hYm91dC51c3BzLmNvbS9uZXdzcm9vbS9uYXRpb25hbC1yZWxlYXNlcy8yMDI2LzAzMjUtdXNwcy1hbm5vdW5jZXMtdHJhbnNwb3J0YXRpb24tcmVsYXRlZC10aW1lLWxpbWl0ZWQtcHJpY2UtY2hhbmdlLmh0bT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2Bb250dce8" style="text-decoration: underline; color: #f25d27;">announced</a> yesterday it plans to raise prices on most packages sent between April 26 of this year and January 17, 2027 by 8 percent in response to rising fuel costs. Stamps for mail will not be affected. The postal service was already <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8yNS91cy9wb2xpdGljcy91c3BzLXN1cmNoYXJnZS1wcmljZXMtZnVlbC1pcmFuLmh0bWw_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260326/695af380dce856b6aa066af2B9eb117e0" style="text-decoration: underline; color: #f25d27;">struggling</a> financially before the Iran war strained the global energy supply. The proposed price increase is now under review by a federal regulatory commission.</p>
+        <!-- Header: What's Next -->
+        <h2 style="font-size: 26px;"><strong>What’s Next</strong></h2>
 
-        <p class="video-link-title"><a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly95b3V0dWJlLmNvbS9zaG9ydHMvMUplZW5GMlZPdkU_c2k9V3o2Z19uQ0JZNHJrRkhSMyZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2Bba0b8969" target="_self" style="text-decoration: none; color: #04284A;">The Limits of the U.S. Ability to Transform Cuba</a></p>
-        <p class="image-credit"><em>Norlys Perez/Reuters</em></p>
-        <p class="body-paragraph">Cuba’s economy is in extreme distress with no organized political opposition on the island, which complicates Trump’s ambitions, CFR expert Will Freeman says <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly95b3V0dWJlLmNvbS9zaG9ydHMvMUplZW5GMlZPdkU_c2k9V3o2Z19uQ0JZNHJrRkhSMyZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjY/695af380dce856b6aa066af2Cba0b8969" style="text-decoration: underline; color: #F25D27;">in this CFR YouTube Short</a>.</p>
+        <!-- What's Next Bullet Points -->
+        <div class="bullet-point">
+            <span style="font-size: 16px;">Today, <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY29uc2lsaXVtLmV1cm9wYS5ldS9lbi9tZWV0aW5ncy9ldXJvZ3JvdXAvMjAyNi8wMy8yNy8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2Bff816fb6" style="text-decoration: underline; color: #f25d27;">EU</a> finance ministers hold a virtual meeting on the impacts of the Iran war.</span>
+        </div>
+        <div class="bullet-point">
+            <span style="font-size: 16px;">Today, Slovak Prime Minister Robert Fico visits <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cudGFzci5zay90YXNyLWNsYW5vay9UQVNSOjIwMjYwMzI2MDAwMDAwODg_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2Bc8d1d6ca" style="text-decoration: underline; color: #f25d27;">Romania</a>.</span>
+        </div>
+        <div class="bullet-point">
+            <span style="font-size: 16px;">Sunday, Indonesian President Prabowo Subianto begins a visit to <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cubW9mYS5nby5qcC9zX3NhL3NlYTIvaWQvcGFnZWl0ZV8wMDAwMDFfMDAwMDYuaHRtbD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B2a77ab31" style="text-decoration: underline; color: #f25d27;">Japan</a>.</span>
+        </div>
 
-        <h2 class="section-header">What’s Next</h2>
+        <!-- Related Article 3 -->
+        <div>
+            <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy93aHktaXQtbWF0dGVycy9hdXRvbm9tb3VzLXVrcmFpbmUtb25lLXdvbWFucy1wYXRoLWZyb20tYS11LXMtY29sbGVnZS1jYW1wdXMtYXMtdG8tdGhlLXVrcmFpbmlhbi1iYXR0bGVmaWVsZD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2B25233d3c" target="_self" class="related-article-title">The Frontline of Ukraine’s Military Innovation</a>
+        </div>
+        <div class="body-paragraph">
+            <span style="font-size: 16px;">Ukraine transformed its drone manufacturing process from garage ships to a sophisticated, rapidly scaling defense industry, the Snake Island Institute’s Cat Buchatskiy said <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy93aHktaXQtbWF0dGVycy9hdXRvbm9tb3VzLXVrcmFpbmUtb25lLXdvbWFucy1wYXRoLWZyb20tYS11LXMtY29sbGVnZS1jYW1wdXMtYXMtdG8tdGhlLXVrcmFpbmlhbi1iYXR0bGVmaWVsZD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjAzMjc/695af380dce856b6aa066af2D25233d3c" style="text-decoration: underline; color: #F25D27;">on this episode of <em>Why It Matters</em></a><em>.</em></span>
+        </div>
 
-        <!-- Consolidated and converted bullet points to styled paragraphs -->
-        <p class="body-paragraph">Today, former Venezuelan President Nicolás Maduro appears in federal court for drug trafficking charges in <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly9lZGl0aW9uLmNubi5jb20vMjAyNi8wMy8yNi91cy9tYWR1cm8taGVhZHMtYmFjay10by1jb3VydC1hbWlkLWZpZ2h0LW92ZXItaGlzLWxhd3llcnM_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260326/695af380dce856b6aa066af2Bf3744caa" style="text-decoration: underline; color: #f25d27;">New York</a>.</p>
-        <p class="body-paragraph">Today, a meeting of Group of Seven foreign ministers begins in <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYW1lcmljYXMvaXJhbi1iZS1oaWdoLWc3LW1pbmlzdGVyaWFsLWFnZW5kYS11cGNvbWluZy1tZWV0aW5nLWNhbmFkYS1zYXlzLTIwMjYtMDMtMTIvP3V0bV9zb3VyY2U9ZGFpbHlyef&utm_content=20260326/695af380dce856b6aa066af2B8ff07ce2" style="text-decoration: underline; color: #f25d27;">France</a>.</p>
-        <p class="body-paragraph">Today, the World Trade Organization begins a ministerial conference in <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cud3RvLm9yZy9lbmdsaXNoL3RoZXd0b19lL21pbmlzdF9lL21jMTRfZS9uZ29zX2UuaHRtP3V0bV9zb3VyY2U9ZGFpbHlyef&utm_content=20260326/695af380dce856b6aa066af2Be642b068" style="text-decoration: underline; color: #f25d27;">Cameroon</a>.</p>
-        <p class="body-paragraph">Tomorrow, <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuY29uc2lsaXVtLmV1cm9wYS5ldS9lbi9tZWV0aW5ncy9ldXJvZ3JvdXAvMjAyNi8wMy8yNy8_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260326/695af380dce856b6aa066af2B3d9c0a2c" style="text-decoration: underline; color: #f25d27;">EU</a> finance ministers hold a virtual meeting on the impacts of the Iran war.</p>
-
-        <p class="article-link-title"><a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9ob3ctaS1nb3QtbXktY2FyZWVyLWluLWZvcmVpZ24tcG9saWN5LXNlYmFzdGlhbi1tYWxsYWJ5P3V0bV9zb3VyY2U9ZGFpbHlyef&utm_content=20260326/695af380dce856b6aa066af2Bcdc269a2" target="_self" style="text-decoration: none; color: #04284A;">A Career in Foreign Affairs Via Journalism</a></p>
-        <p class="image-credit"><em>Photo Collage by Lucky Benson</em></p>
-        <p class="body-paragraph">Working as an <em>Economist </em>correspondent in South Africa, Japan, and the United States helped cultivate skills analyzing how societies evolve, Senior Fellow Sebastian Mallaby told CFR’s Ivana Saric <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9ob3ctaS1nb3QtbXktY2FyZWVyLWluLWZvcmVpZ24tcG9saWN5LXNlYmFzdGlhbi1tYWxsYWJ5P3V0bV9zb3VyY2U9ZGFpbHlyef&utm_content=20260326/695af380dce856b6aa066af2Dcdc269a2" style="text-decoration: underline; color: #F25D27;">in this article</a>.</p>
-
-        <div class="footer-section">
-            <a href="https://link.cfr.org/click/44921399.65645/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWlseWJriref&utm_content=20260326/695af380dce856b6aa066af2Bf1c80ba0" target="_blank" rel="noopener" class="footer-base-link">Council on Foreign Relations</a>
-            <p class="footer-address">58 East 68th Street, New York, NY 10065</p>
-            <p class="footer-address" style="margin-bottom: 15px;">1777 F Street, NW, Washington, DC 20006</p>
-            <p class="footer-subscribe">
-                <strong>Was this forwarded to you?</strong> <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" rel="noopener" class="footer-subscribe-link">Subscribe to the <em>Daily News Brief</em></a>
-            </p>
-            <a href="https://link.cfr.org/oc/695af380dce856b6aa066af2qqtkn.1enh/c5600c07" target="_blank" rel="noopener" class="footer-preferences-link">Manage Your Email Preferences</a>
-            <a href="https://link.cfr.org/public/44921399" target="_blank" rel="noopener" class="footer-view-browser-link">View in Browser</a>
+        <!-- Footer -->
+        <div class="footer">
+            <a href="https://link.cfr.org/click/44937476.65127/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwMzI3/695af380dce856b6aa066af2B32f22c62" target="_blank" rel="noopener" class="cfr-link">Council on Foreign Relations</a><br>
+            <span style="color: #555;">58 East 68th Street, New York, NY 10065</span><br>
+            <span style="color: #555;">1777 F Street, NW, Washington, DC 20006</span><br><br>
+            <strong>Was this forwarded to you? <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" rel="noopener">Subscribe to the <em>Daily News Brief</em></a></strong><br>
+            <span style="margin-top: 5px; display: block;"><a href="https://link.cfr.org/oc/695af380dce856b6aa066af2qr5z8.1e93/89af6e77" target="_blank" rel="noopener" style="color: #3d454e;">Manage Your Email Preferences</a></span>
+            <span style="margin-top: 5px; display: block;"><a href="https://link.cfr.org/public/44937476" target="_blank" rel="noopener" style="text-decoration: underline; color: #3d454e;">View in Browser</a></span>
         </div>
 
     </div>
