@@ -65,249 +65,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily News Brief</title>
+    <title>Daily News Brief - April 2, 2026</title>
     <style>
         body {
-            font-family: sans-serif;
-            margin: 20px;
-            color: #333;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
             line-height: 1.6;
+            color: #333;
+            word-break: break-word; /* Apply globally as it was on many spans */
         }
-
-        /* General styling for headers */
-        .header {
-            margin-top: 25px;
-            margin-bottom: 15px;
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 1.5em; /* Spacing above headers */
+            margin-bottom: 0.8em; /* Spacing below headers */
             line-height: 1.2;
-            word-break: break-word; /* Ensure headers also respect word-break */
+            padding-left: 0;
+            border-left: none;
+            margin-left: 0;
         }
 
-        /* Specific header styles */
-        .header-main {
+        /* Main title */
+        .main-title {
             font-size: 46px;
             font-weight: bold;
             margin-bottom: 5px;
         }
-        .header-date {
+        .main-date {
             font-size: 16px;
             font-style: italic;
-            color: #555;
             margin-bottom: 20px;
-            display: block;
+            color: #333; /* Ensuring color is consistent */
         }
-        .header-section { /* Top of the Agenda, Across the Globe */
+
+        /* Styles for body paragraphs with red line */
+        .body-paragraph {
+            border-left: 3px solid #B22222; /* Subtle vertical red line */
+            padding-left: 15px; /* Tabbing */
+            margin-left: 0; /* Ensure no default margin from parent */
+            margin-bottom: 1em; /* Spacing between paragraphs */
+            font-size: 16px;
+        }
+
+        /* Styles for shortened red indents (for list-like items) */
+        .short-indent-item {
+            border-left: 3px solid #B22222; /* Subtle vertical red line */
+            padding-left: 10px; /* Shorter tabbing */
+            margin-left: 0;
+            margin-bottom: 0.5em; /* Closer spacing for list-like items */
+            font-size: 16px;
+        }
+
+        /* Section headers (e.g., "Top of the Agenda") */
+        .section-header {
             font-size: 26px;
-            font-weight: bold;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .header-sub-section { /* Linked articles like "As the U.S. Co-Hosts..." */
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 30px;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .header-whats-next { /* What's Next */
-            font-size: 20px;
             font-weight: bold;
             margin-top: 30px;
             margin-bottom: 15px;
-            display: block;
         }
 
-        /* Styling for body paragraphs with the subtle vertical red line */
-        .body-paragraph {
-            border-left: 3px solid #B22222;
-            padding-left: 15px; /* Tabbing effect */
-            margin-bottom: 15px; /* Spacing between paragraphs */
-            font-size: 16px; /* Default size for body text */
-            word-break: break-word;
-        }
-
-        /* Styling for bullet-like items (replaces <li>) */
-        .bullet-item {
-            border-left: 3px solid #B22222;
-            padding-left: 15px;
-            margin-bottom: 8px; /* Slightly less space than full paragraphs for list items */
-            font-size: 16px;
-            line-height: 1.4;
-            word-break: break-word;
-            display: block; /* Ensure it takes its own line */
-        }
-
-        /* Quote styling */
-        .quote-text {
-            font-size: 18px;
-            font-style: italic;
-            margin-bottom: 5px;
-            word-break: break-word;
-        }
-        .quote-author {
-            font-size: 18px;
+        /* Article title links */
+        .article-title-link {
+            font-size: 20px;
             font-weight: bold;
-            margin-bottom: 20px;
-            display: block;
-            word-break: break-word;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        .article-title-link a {
+            text-decoration: none;
+            color: #04284A;
         }
 
-        /* Caption styling */
-        .caption {
+        /* Image captions */
+        .image-caption {
             font-size: 11px;
             color: #9f9f9f;
             font-style: italic;
-            margin-top: -10px; /* Pull closer to the preceding element */
+            margin-top: 5px;
             margin-bottom: 10px;
-            display: block;
-            word-break: break-word;
         }
 
-        /* Footer styling */
-        .footer-link {
+        /* Quote styling */
+        blockquote {
+            border-left: 3px solid #B22222;
+            padding-left: 15px;
+            margin-left: 0;
+            margin-top: 20px;
+            margin-bottom: 1em;
+            font-size: 18px;
+            font-style: italic;
+        }
+        .quote-attribution {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: right; /* Maintain original text alignment for attribution */
+            margin-bottom: 20px;
+            padding-left: 0; /* Ensure no border/padding on attribution */
+            border-left: none;
+        }
+        .quote-attribution a {
+            text-decoration: underline;
+            color: #f25d27;
+        }
+
+        /* Link colors from original */
+        a {
+            color: #F25D27;
+            text-decoration: underline;
+        }
+        .footer-link-primary {
             font-size: 14px;
             font-weight: bold;
-            margin-top: 30px;
-            margin-bottom: 5px;
-            display: block;
-            word-break: break-word;
+            color: #04284A;
+            text-decoration: none;
         }
-        .footer-address, .footer-email-pref, .footer-view-browser {
+        .footer-text {
             font-size: 12px;
             color: #3d454e;
-            margin-bottom: 2px;
-            display: block;
-            word-break: break-word;
+            margin-bottom: 0.3em;
         }
-        .footer-subscribe {
-            font-size: 14px;
-            margin-top: 15px;
-            margin-bottom: 10px;
-            display: block;
-            word-break: break-word;
-        }
-
-        /* Link colors from original HTML */
-        a {
-            text-decoration: underline;
-            color: #F25D27; /* Default link color for body text */
-        }
-        .header-sub-section a, .footer-link a, .footer-email-pref a, .footer-view-browser a {
-            color: #04284A; /* Links in headers */
-            text-decoration: none; /* Override underline for specific header links as in original */
-        }
-        .footer-link a, .footer-email-pref a, .footer-view-browser a {
-            color: #3d454e; /* Footer specific link color */
+        .footer-subscribe strong {
+            font-size: 16px;
         }
         .footer-subscribe a {
+            font-size: 16px;
+            text-decoration: none;
             color: #f25d27;
-            text-decoration: none;
         }
-        a:hover {
-            text-decoration: none;
+        .footer-options a {
+            font-size: 12px;
+            color: #3d454e;
+            text-decoration: underline;
         }
+
     </style>
 </head>
 <body>
 
-    <div class="header-main">Daily News Brief</div>
-    <div class="header-date">April 1, 2026</div>
+    <div class="main-title">Daily News Brief</div>
+    <div class="main-date">April 2, 2026</div>
 
     <div class="body-paragraph">
-        Welcome to CFR’s Daily News Brief. Today we’re covering Israel’s newly announced plans to remain in Lebanon, as well as...
+        Welcome to CFR’s Daily News Brief. Today we’re covering Trump’s prime-time speech about the Iran war, as well as...
     </div>
+    <div class="short-indent-item">A NASA mission to the moon</div>
+    <div class="short-indent-item">India’s first nationwide census in more than fifteen years</div>
+    <div class="short-indent-item">U.S.-Denmark negotiations over Greenland</div>
 
-    <!-- Replaced bullet points with styled divs -->
-    <div class="bullet-item">Japan’s long-range missile deployment</div>
-    <div class="bullet-item">Trump’s threat to leave NATO</div>
-    <div class="bullet-item">Indonesia’s fuel rationing</div>
-
-    <div class="header-section">Top of the Agenda</div>
+    <h2 class="section-header">Top of the Agenda</h2>
 
     <div class="body-paragraph">
-        <strong>Israel plans to destroy multiple Lebanese border towns and maintain its occupation of southern Lebanon after its ground invasion ends, Defense Minister Israel Katz </strong><a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8zMS93b3JsZC9taWRkbGVlYXN0L2lzcmFlbC1sZWJhbm9uLWdyb3VuZC1pbnZhc2lvbi5odG1sP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2B7c4bfbb6"><strong>said</strong></a><strong> yesterday. </strong>The fighting between Israel and Hezbollah in southern Lebanon has been some of the deadliest of the regional conflict and has escalated even as senior U.S. officials said yesterday they are looking to wind down the Iran war. Lebanese officials have condemned Israel’s military campaign within their borders and called for international intervention to stop it. Ten European countries and the European Union (EU) jointly <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuZGlwbG9tYXRpZS5nb3V2LmZyL2VuL2NvdW50cnktZmlsZXMvbGViYW5vbi9uZXdzL2FydGljbGUvam9pbnQtc3RhdGVtZW50LW9uLWxlYmFub24tMzEtMDMtMjY_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B5d480cda">called</a> for a ceasefire yesterday and for Lebanon’s territorial integrity to be respected.
+        <strong>Trump said the United States plans to attack Iran “extremely hard” over the next two to three weeks in a <a href="https://link.cfr.org/click/45034392.67234/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNC8wMS91cy9wb2xpdGljcy90cnVtcC10cmFuc2NyaXB0LXNwZWVjaC1pcmFuLmh0bWw_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNDAy/695af380dce856b6aa066af2Bbd617a12" style="color: #F25D27;">speech</a> last night that made little mention of diplomacy. </strong>It was his first formal address about the Iran war since its start more than a month ago. Yet Trump made no major announcements, instead reiterating recent talking points: core U.S. goals are “nearing completion,” Trump said, giving no assurances about the reopening of the Strait of Hormuz and saying that other countries should “take the lead” on the matter. Iran’s military command responded by <a href="https://link.cfr.org/click/45034392.67234/aHR0cHM6Ly93d3cuZnJhbmNlMjQuY29tL2VuL2xpdmUtbmV3cy8yMDI2MDQwMi1pcmFuLWZpcmVzLW1pc3NpbGVzLWF0LWlzcmFlbC1hZnRlci10cnVtcC10aHJlYXRlbnMtd2Vla3Mtb2Ytc3RyaWtlcz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDI/695af380dce856b6aa066af2B96927d02" style="color: #F25D27;">vowing</a> to carry out “more crushing, broader, and more destructive” attacks, according to state media.
     </div>
 
     <div class="body-paragraph">
-        <strong>The latest on the Lebanon front. </strong>Israel’s plans for a so-called security zone would <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvbWlkZGxlLWVhc3QvaXNyYWVsLWRlc3Ryb3ktYWxsLWhvdXNlcy1uZWFyLWxlYmFub24tYm9yZGVyLWRlZmVuY2UtbWluaXN0ZXItc2F5cy0yMDI2LTAzLTMxLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2Ba574f1a8">cover</a> almost one-tenth of Lebanon and bar some six hundred thousand people from returning to their homes. Katz said yesterday that Israeli forces would remain in the area until Israel deems itself secure from Hezbollah and that Israel planned to use the same tactics in Lebanese border towns that it used in parts of Gaza. More than <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly9uZXdzLnVuLm9yZy9lbi9zdG9yeS8yMDI2LzAzLzExNjcyMjI_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2Bf5167ba8">1,200</a> people have been killed in Lebanon and more than one million displaced, according to the United Nations, while thirteen Israelis have been <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cudGltZXNvZmlzcmFlbC5jb20vZm91ci1zb2xkaWVycy1raWxsZWQtMi13b3VuZGVkLWluLXNvdXRoLWxlYmFub24tY2xhc2gtd2l0aC1oZXpib2xsYWIvP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2B505afcb7">killed</a> in the fighting.
-    </div>
-    <div class="body-paragraph">
-        <strong>The latest on the Iran front. </strong>U.S. President Donald Trump <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cueW91dHViZS5jb20vc2hvcnRzL1JfNHdtRGlNVFF3P3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2Bca2ea7fa">said</a> yesterday the United States would be done with the war in “two to three weeks,” and hinted a U.S. exit could come before the reopening of the Strait of Hormuz. China and Pakistan <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly94LmNvbS9mb3JlaWdub2ZmaWNlcGsvc3RhdHVzLzIwMzg5ODIzNzQ1MTY3OTM1ODA_cz00NiZ0PTVBN05uV0xlVFJaR2FpZHJlVkJPWmcmdXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B489bb3a3">issued</a> a joint statement calling for a ceasefire and offering to facilitate peace talks. Iranian Foreign Minister Abbas Araghchi <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuYWxqYXplZXJhLmNvbS9uZXdzLzIwMjYvMy8zMS9uby10cnV0aC10by11cy1pcmFuaWFuLW5lZ290aWF0aW9ucy1pcmFucy1mbS10ZWxscy1hbC1qYXplZXJhP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2Be10f80d9">told</a> Al Jazeera that Tehran sought a full end to the regional war rather than a ceasefire, even as military hostilities continue to expand. Israel <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8zMS93b3JsZC9taWRkbGVlYXN0L3RlaHJhbi1waGFybWFjZXV0aWNhbC1zdHJpa2UtaXNyYWVsLmh0bWw_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B1976d049">struck</a> a pharmaceutical plant in Iran yesterday, while Iran’s Islamic Revolutionary Guard Corps <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly90Lm1lL1FvZHNOZXdzJTVGaXIvMzQ2NzY_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2Bce0becb3">said</a> it planned to attack a slew of U.S. tech companies operating in the region. Meanwhile, the United Arab Emirates is weighing joining the war to help the United States reopen the Strait of Hormuz, the <em>Wall Street Journal</em> <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cud3NqLmNvbS93b3JsZC9taWRkbGUtZWFzdC91YWUtaXJhbi13YXItc3RyYWl0LW9mLWhvcm11ei05ODM2ZWNiYj9zdD1BNkYyRmEmdXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2Bb5671bf7">reported</a>.
+        <strong>Further details from the speech. </strong>The president voiced plans to bomb Iran—a nation of more than 90 million—“back to the stone ages.” Trump threatened to strike Iran’s power plants and possibly its oil infrastructure if a deal to end the war is not reached. He also said the United States was surveilling Iran’s nuclear materials and would attack if Iran were to “make a move” toward them, while praising the degradation of Iran’s navy and air force as a result of the war. Global oil prices <a href="https://link.cfr.org/click/45034392.67234/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvZ2xvYmFsLW1hcmtldHMtd3JhcHVwLTEtMjAyNi0wNC0wMi8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNDAy/695af380dce856b6aa066af2B5319ff64" style="color: #F25D27;">rose</a> and stocks tumbled in the wake of Trump’s address.
     </div>
 
-    <p class="quote-text">“This Lebanese front is a serious undertaking for an [Israeli military] that is already stretched…The kind of a large-scale ground invasion, this displacement we're seeing, the potential humanitarian crisis—all of this is at the expense of the Lebanese people.”</p>
-    <p class="quote-author">—CFR Senior Fellow Elisa Ewers in <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g_dj02dUdtWFVFcnprcyZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B81703120">a CFR video</a></p>
-
-    <div class="header-sub-section"><a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy90aGUtdS1zLWlzLWNvLWhvc3RpbmctdGhlLXdvcmxkLWN1cC1idXQtbXVjaC1vZi10aGUtd29ybGQtY2FudC1hdHRlbmQ_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B4c4a7db2" target="_self">As the U.S. Co-Hosts the World Cup, Much of the World Can’t Attend</a></div>
-    <div class="caption"><em>Carl De Souza/AFP/Getty Images</em></div>
     <div class="body-paragraph">
-        As tensions simmer between the United States and several participating countries, questions abound over how the tournament will play out both on and off the field, CFR’s Mariel Ferragamo <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy90aGUtdS1zLWlzLWNvLWhvc3RpbmctdGhlLXdvcmxkLWN1cC1idXQtbXVjaC1vZi10aGUtd29ybGQtY2FudC1hdHRlbmQ_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2D4c4a7db2">writes in this article</a>.
-    </div>
-
-    <div class="header-section">Across the Globe</div>
-
-    <div class="body-paragraph">
-        <strong>U.S. tensions with European allies… </strong>Trump <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cudGVsZWdyYXBoLmNvLnVrL3dvcmxkLW5ld3MvMjAyNi8wNC8wMS9kb25hbGQtdHJ1bXAtc3Ryb25nbHktY29uc2lkZXJpbmctcHVsbGluZy11cy1vdXQtb2YtbmF0by8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2Bd80bdc20">told</a> the <em>Telegraph </em>in an interview published today that he is considering pulling the United States out of NATO over tensions with European allies over the Iran war. NATO allies have resisted Trump’s calls to join the war and&nbsp;forcefully reopen the Strait of Hormuz. Italy denied U.S. warplanes permission to land in Sicily, <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cud2FzaGluZ3RvbnBvc3QuY29tL3dvcmxkLzIwMjYvMDMvMzEvZXVyb3BlLWFsbGllcy10cnVtcC1pcmFuLXdhci1vcHBvc2l0aW9uLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B4fb77c8a">multiple</a> <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cudGVsZWdyYXBoLmNvLnVrL3dvcmxkLW5ld3MvMjAyNi8wMy8zMS9pdGFseS1tZWxvbmktYmxvY2tzLXVzLWpldHMtc2ljaWx5LWJhc2UvP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2B56dbbcdf">outlets</a> reported yesterday, while Spain on Monday <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvdHJ1bXAtc3BhaW4tdW5pdGVkLXN0YXRlcy1pcmFuLXdhci0wNWUyM2VmNGUwYmRhOWNiMjI2YTE2YjEwY2Q5NDM3Yz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B3af06bff">blocked</a> its airspace to U.S. planes involved in the conflict. Trump also <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly90cnV0aHNvY2lhbC5jb20vQHJlYWxEb25hbGRUcnVtcC8xMTYzMjM1MTYxODM3MTgyNjI_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B91930233">criticized</a> France on social media yesterday, claiming it blocked planes going to Israel from its airspace.
-    </div>
-    <div class="body-paragraph">
-        <strong>…and their responses. </strong>Following Trump’s post, an unnamed French official <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wMy8zMS93b3JsZC9taWRkbGVlYXN0L3RydW1wLWV1cm9wZS1pcmFuLWNyaXRpY2lzbS5odG1sP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2Bb071b065">told</a> the <em>New York Times </em>that France had not closed its airspace to U.S. planes. United Kingdom Prime Minister Keir Starmer yesterday reiterated the country’s desire not to get “dragged into” the war and said he would seek closer ties with the EU.
-    </div>
-    <div class="body-paragraph">
-        <strong>Mounting war costs. </strong>Fighting in the Middle East could cost Arab countries between $120 billion and $194 billion in lost economic output, the United Nations Development Program estimated in a new <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cudW5kcC5vcmcvYXJhYi1zdGF0ZXMvcHVibGljYXRpb25zL21pbGl0YXJ5LWVzY2FsYXRpb24tbWlkZGxlLWVhc3QtZWNvbm9taWMtYW5kLXNvY2lhbC1pbXBsaWNhdGlvbnMtYXJhYi1zdGF0ZXMtcmVnaW9uLWFzc2Vzc21lbnQ_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B35448467">report</a> this week. That amounts to a regional GDP decline of between 3.7 and 6 percent. The calculations were made based on the first month of the war.
-    </div>
-    <div class="body-paragraph">
-        <strong>Indonesia’s fuel rationing. </strong>Jakarta <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2hhbm5lbG5ld3Nhc2lhLmNvbS9hc2lhL21pZGRsZS1lYXN0LXdhci1pbmRvbmVzaWEtcmF0aW9ucy1mdWVsLXByaWNlcy1zb2FyLTYwMjg2NjY_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B693ed901">announced</a> a cap yesterday on how much fuel private drivers can buy per day, as well as work-from-home requirements for non-essential government employees. The measures are a response to rising energy prices. The policy takes effect today and is due to be reviewed every two months.
-    </div>
-    <div class="body-paragraph">
-        <strong>Japan’s long-range missiles. </strong>Japan <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvamFwYW4tY2hpbmEtdGFpd2FuLW1pc3NpbGUtbG9uZ3JhbmdlLTQwMzIyYWI1MTczNWIyY2UxN2NlNmYwMmQyMjRkMTRmP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2B6405a0f5">deployed</a> its first long-range missile—capable of reaching mainland China—at an army camp in the country’s southwest yesterday. The ability to strike enemy bases <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2hvc3VuLmNvbS9lbmdsaXNoL3dvcmxkLWVuLzIwMjYvMDQvMDEvR05HVVc3N0g2WkRLQkpMQVpQSFlKUkxPNUUvP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2B56ccb519">represents</a> a departure from the traditional self-defense focus of Tokyo’s postwar security doctrine. It plans to deploy even longer range Tomahawk missiles on a destroyer ship later this year.&nbsp;
-    </div>
-    <div class="body-paragraph">
-        <strong>U.S. journalist kidnapped in Iraq. </strong>Iraq’s interior ministry and the U.S. State Department <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly9lZGl0aW9uLmNubi5jb20vMjAyNi8wMy8zMS9wb2xpdGljcy9zaGVsbHkta2l0dGxlc29uLXVzLWpvdXJuYWxpc3Qta2lkbmFwcGVkLWlyYXE_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B4663017d">said</a> yesterday they were working to secure the release of a U.S. journalist kidnapped in Baghdad. News site Al-Monitor <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuYWwtbW9uaXRvci5jb20vb3JpZ2luYWxzLzIwMjYvMDMvYWwtbW9uaXRvci1jYWxscy1yZWxlYXNlLWNvbnRyaWJ1dG9yLXNoZWxseS1raXR0bGVzb24_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B7a1321b7">identified</a> her as Shelly Kittleson, one of their contributors. A State Department official <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly94LmNvbS9BU0R5bGFuSm9obnNvbi9zdGF0dXMvMjAzOTA2ODAyMjQ1MTYxMzg1OD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B852c3826">said</a> someone with ties to Iranian-aligned Kataib Hezbollah was believed to be involved in the kidnapping.&nbsp;
-    </div>
-    <div class="body-paragraph">
-        <strong>France-Japan rare earth cooperation. </strong>The two countries <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly9lbmdsaXNoLmt5b2RvbmV3cy5uZXQvYXJ0aWNsZXMvLS83MzM4OT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B8c791f41">agreed</a> to cooperate on securing rare earth supply chains today during French President Emmanuel Macron’s visit to Tokyo. As part of those efforts, they will <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYXNpYS1wYWNpZmljL2phcGFuLWZyYW5jZS1pbmstcmFyZS1lYXJ0aHMtZGVhbC1uaWtrZWktcmVwb3J0cy0yMDI2LTAzLTMxLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2Bb989ca05">procure</a> raw minerals to be refined in southern France, Japanese public broadcaster NHK reported. France’s finance minister <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYXNpYS1wYWNpZmljL2phcGFuLWZyYW5jZS1pbmstcmFyZS1lYXJ0aHMtZGVhbC1uaWtrZWktcmVwb3J0cy0yMDI2LTAzLTMxLz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2Cb989ca05">said</a> the initiative was meant to reduce both countries’ reliance on China.&nbsp;
-    </div>
-    <div class="body-paragraph">
-        <strong>Malaysia’s sovereign wealth scandal. </strong>A Malaysian court <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuc3RyYWl0c3RpbWVzLmNvbS9hc2lhL3NlLWFzaWEvbWFsYXlzaWEtY291cnQtb3JkZXJzLWV4LXBtLW5hamliLXRvLXBheS0xLTY4Yi10by1mb3JtZXItMW1kYi1zdWJzaWRpYXJ5LW92ZXItZmlkdWNpYXJ5LWR1dHktYnJlYWNoP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2Bda683ab8">ordered</a> former Prime Minister Najib Razak yesterday to pay around $1.3 billion for misusing public money as part of a case related to embezzlement at the country’s sovereign wealth fund. Najib <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuYmJjLmNvbS9uZXdzL2FydGljbGVzL2Nyazd5Mjd2cDFlbz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B10e42baa">has been serving</a> multiple concurrent jail sentences related to his activities regarding the fund.
-    </div>
-
-    <div class="header-sub-section"><a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2ZyLm9yZy9ldmVudC9jcml0aWNhbC1taW5lcmFscy1ncm91bmQ_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B20c83d17" target="_self">Critical Minerals From the Ground Up</a></div>
-    <div class="caption"><em>Thomas Peter/Reuters</em></div>
-    <div class="body-paragraph">
-        Federal policy on critical minerals introduces opportunities across the United States to spur innovation, attract investment, and strengthen domestic processing and manufacturing capacity. CFR Senior Fellow Heidi Crebo-Rediker and the Nevada Governor’s Office of Economic Development’s Thomas Burns discussed them <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2ZyLm9yZy9ldmVudC9jcml0aWNhbC1taW5lcmFscy1ncm91bmQ_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2D20c83d17">in this State and Local Officials Webinar</a>.
-    </div>
-
-    <div class="header-whats-next">What’s Next</div>
-
-    <!-- Replaced messy <li> and duplicate text with styled divs -->
-    <div class="bullet-item">Today, the U.S. Supreme Court hears arguments in a case about birthright citizenship in <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cubnByLm9yZy8yMDI2LzAzLzMwL254LXMxLTU3NjA5ODMvYmlydGhyaWdodC1jaXRpemVuc2hpcC1wdWJsaWMtb3Bpbmlvbi1zdXByZW1lLWNvdXJ0LWFyZ3VtZW50cz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B30f790ca">Washington, DC</a>.</div>
-    <div class="bullet-item">Today, Armenian Prime Minister Nikol Pashinyan visits <a href="https://link.cfr.org/click/45004739.64833/aHR0cDovL2VuLmtyZW1saW4ucnUvcHJlc3MvYW5ub3VuY2VtZW50cy83OTQ0MT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B0df7ab06">Moscow</a>.</div>
-    <div class="bullet-item">Tomorrow, Macron begins a visit to <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2hvc3VuLmNvbS9lbmdsaXNoL25hdGlvbmFsLWVuLzIwMjYvMDMvMTMvTENHVDNBUEczTkYzUkJDQ1I3R0VBM05RWFEvP3V0bV9zb3VyY2U9ZGFpbHlyZWVmZ213dG1fY29udGVudD0yMDI2MDQwMQ/695af380dce856b6aa066af2B1f71d10c">South Korea</a>.</div>
-
-    <div class="header-sub-section"><a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy90cnVtcHMtbWF4aW11bS1wcmVzc3VyZS1jYW1wYWlnbi1vbi1jdWJhLWV4cGxhaW5lZD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B8790956a" target="_self">Trump’s ‘Maximum Pressure’ Campaign on Cuba, Explained</a></div>
-    <div class="caption"><em>Yamil Lage/AFP/Getty Images</em></div>
-    <div class="body-paragraph">
-        The administration is enacting a pressure campaign aimed at driving significant economic and political change on the communist-led island, CFR’s Diana Roy <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy90cnVtcHMtbWF4aW11bS1wcmVzc3VyZS1jYW1wYWlnbi1vbi1jdWJhLWV4cGxhaW5lZD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2D8790956a">writes in this article</a>.
-    </div>
-
-    <div class="footer-link">
-        <a href="https://link.cfr.org/click/45004739.64833/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWl5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA0MDE/695af380dce856b6aa066af2B454f6207" target="_blank" rel="noopener">Council on Foreign Relations</a>
-    </div>
-    <div class="footer-address">58 East 68th Street, New York, NY 10065</div>
-    <div class="footer-address">1777 F Street, NW, Washington, DC 20006</div>
-
-    <div class="footer-subscribe">
-        Was this forwarded to you? <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" rel="noopener">Subscribe to the <em>Daily News Brief</em></a>
-    </div>
-    <div class="footer-email-pref">
-        <a href="https://link.cfr.org/oc/695af380dce856b6aa066af2qslvn.1e0x/4bddb6a4" target="_blank" rel="noopener">Manage Your Email Preferences</a>
-    </div>
-    <div class="footer-view-browser">
-        <a href="https://link.cfr.org/public/45004739" target="_blank" rel="noopener">View in Browser</a>
-    </div>
-
-</body>
-</html>
+        <strong>The status of U.S.-Iran diplomacy. </strong>Unnamed U.S. and Iranian officials <a href="https://link.cfr.org/click/45034392.67234/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNC8wMS91cy9wb2xpdGljcy90cnVtcC1pcmFuLXdhci5odG1sP3V0bV9zb3VyY2U9ZGFpbHlyeWZm/695af380dce856b6aa066af2B994f177c" style="color: #F25D27;">told</a> the <em>New York Times </em>the two countries are exchanging messages, but have not entered formal negotiations over a truce or peace deal. While Trump <a href="https://link.cfr.org/click/45034392.67234/aHR0cHM6Ly90cnV0aHNvY2lhbC5jb20vQHJlYWxEb25hbGRUcnVtcC8xMTYzMjk1MTI0NjY5NDY2NTY_dXRtX3NvdXJjZT1kYWl5c2ZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZ_cmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZ_cmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZfcmVnZmZ_
     </div>
 </body>
 </html>
