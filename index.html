@@ -63,195 +63,225 @@
         <!DOCTYPE html>
 <html>
 <head>
-<title>Daily News Brief</title>
-<style>
-    body {
-        font-family: sans-serif;
-        line-height: 1.6;
-        color: #333;
-        margin: 20px; /* Added for better overall presentation */
-    }
+    <title>Daily News Brief</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        /* Font size utility classes for consistent styling */
+        .font-size-46 { font-size: 46px; line-height: 1.2; }
+        .font-size-26 { font-size: 26px; line-height: 1.3; }
+        .font-size-20 { font-size: 20px; line-height: 1.4; }
+        .font-size-18 { font-size: 18px; line-height: 1.5; }
+        .font-size-16 { font-size: 16px; line-height: 1.6; }
+        .font-size-14 { font-size: 14px; line-height: 1.6; }
+        .font-size-12 { font-size: 12px; line-height: 1.6; }
+        .font-size-11 { font-size: 11px; line-height: 1.6; }
 
-    /* Base paragraph styling, most paragraphs were 12px in original */
-    p {
-        margin-top: 0;
-        margin-bottom: 1em;
-        word-break: break-word; /* Preserve original word-breaking behavior */
-        font-size: 12px; /* Default paragraph font size */
-    }
+        /* General styles for headers - no indent or red line */
+        h1, h2, h3 {
+            margin-top: 25px; /* Spacing above headers */
+            margin-bottom: 15px; /* Spacing below headers */
+            padding: 0;
+            border: none;
+            color: #04284A; /* Dark blue for main headers based on link color in titles */
+            font-weight: bold; /* Most headers are bold in original */
+        }
+        h1 { color: #333; } /* Primary title is just black text in original, no link */
 
-    /* Styles for body paragraph sections with the red vertical line */
-    .body-paragraph-indented {
-        border-left: 2px solid #B22222; /* Subtle vertical red line */
-        padding-left: 10px; /* Tabbing effect */
-        margin-bottom: 1em; /* Space between blocks */
-    }
+        /* Link colors */
+        a {
+            color: #F25D27; /* Default red/orange link color */
+            text-decoration: underline;
+        }
+        a.dark-blue-link {
+            color: #04284A;
+            text-decoration: none; /* Some links were explicitly no underline */
+        }
+        a.footer-link {
+            color: #3d454e;
+            text-decoration: underline;
+        }
+        a.footer-link-no-underline {
+             color: #3d454e;
+             text-decoration: none;
+        }
 
-    /* Styles for bullet point replacements with the red indent */
-    .bullet-replacement {
-        border-left: 2px solid #B22222;
-        padding-left: 10px;
-        margin-bottom: 0.5em; /* Slightly tighter spacing for "bullet" items */
-        font-size: 12px; /* Original bullet font size */
-    }
+        /* Style for body paragraphs with red vertical line and tabbing */
+        .body-paragraph {
+            margin-left: 15px; /* Tabbing the entire block */
+            border-left: 2px solid #B22222; /* Subtle vertical red line */
+            padding-left: 10px; /* Space between line and text */
+            margin-bottom: 15px; /* Space between paragraphs */
+        }
+        .body-paragraph p {
+            margin: 0; /* Remove default paragraph margins inside the div */
+            padding: 0;
+        }
 
-    /* Headers should not be indented and retain their original font sizes */
-    h1, h2, h3 {
-        padding-left: 0;
-        border-left: none;
-        margin-top: 1.5em; /* Space above headers */
-        margin-bottom: 0.5em; /* Space below headers */
-        word-break: break-word; /* Preserve original word-breaking behavior */
-        color: #333; /* Default header color */
-    }
-    h1 { font-size: 46px; } /* Daily News Brief */
-    h2 { font-size: 26px; font-weight: bold; } /* Top of the Agenda */
-    h3 { font-size: 16px; font-weight: bold; } /* Across the Globe, What's Next */
+        /* Style for red-indented list items (replacing bullet points) */
+        .red-indent-list-item {
+            margin-left: 30px; /* Deeper indent for list items */
+            border-left: 2px solid #B22222;
+            padding-left: 10px;
+            margin-bottom: 8px; /* Tighter spacing for list items */
+        }
+        .red-indent-list-item p {
+            margin: 0; /* Remove default paragraph margins inside the div */
+            padding: 0;
+        }
 
-    /* Specific paragraph font sizes and styles */
-    .intro-message-paragraph { font-size: 12px; }
-    .section-intro-paragraph { font-size: 16px; } /* Welcome to CFR... */
-    .main-topic-paragraph { font-size: 16px; } /* Main Trump/Xi summary */
-    .sub-topic-paragraph { font-size: 16px; } /* Trade., Iran. etc. */
-    .quote-text { font-size: 18px; margin-bottom: 0.5em; }
-    .quote-author { font-size: 18px; font-weight: bold; }
-    .podcast-link p { font-size: 18px; } /* Parent span was 18px */
-    .podcast-link a { font-size: 20px; text-decoration: none; color: #04284A; } /* Link itself was 20px */
-    .podcast-description { font-size: 16px; }
-    .image-caption { font-size: 11px; color: #9f9f9f; font-style: italic; }
-
-    /* General link styling */
-    a {
-        color: #F25D27; /* Common link color from original */
-        text-decoration: underline;
-    }
-    a:hover {
-        text-decoration: none;
-    }
-
-    /* Specific elements */
-    em { font-style: italic; }
-    strong { font-weight: bold; }
-    .main-date {
-        font-style: italic;
-        font-size: 14px; /* Slightly larger for date */
-        margin-bottom: 1em;
-        display: block; /* Ensures it takes its own line */
-    }
-
-    /* Footer specific styling */
-    .footer {
-        margin-top: 2em;
-        padding-top: 1em;
-        border-top: 1px solid #eee; /* Subtle separator */
-    }
-    .footer p {
-        font-size: 12px;
-        margin-bottom: 0.5em;
-        color: #555;
-    }
-    .footer a {
-        text-decoration: none; /* Default to no underline for footer links */
-    }
-    .footer .main-link a {
-        font-size: 14px;
-        font-weight: bold;
-        color: #3d454e; /* Specific color for Council on Foreign Relations link */
-        text-decoration: underline; /* Specific underline for this link */
-    }
-    .footer .subscribe-link a {
-        color: #f25d27; /* Specific color for subscribe link */
-    }
-    .footer .utility-link a {
-        color: #3d454e; /* Specific color for utility links */
-        text-decoration: underline; /* Specific underline for these links */
-    }
-</style>
+        /* Specific text colors */
+        .text-gray { color: #9f9f9f; }
+        .text-darkgray { color: #3d454e; }
+        em { font-style: italic; }
+        strong { font-weight: bold; }
+    </style>
 </head>
 <body>
 
-    <h1 style="font-size: 46px;">Daily News Brief</h1>
-    <p class="main-date">May 15, 2026</p>
+    <h1 class="font-size-46"><span style="word-break: break-word;">Daily News Brief</span></h1>
+    <p class="font-size-16"><em>May 15, 2026</em></p>
 
-    <p class="body-paragraph-indented intro-message-paragraph">Dear readers,</p>
+    <div class="body-paragraph">
+        <p class="font-size-12"><span style="word-break: break-word;">Dear readers,</span></p>
+    </div>
 
-    <p class="body-paragraph-indented intro-message-paragraph">The <em>Daily News Brief</em> is taking a hiatus after today, May 15, and will return in a refreshed form after Labor Day.</p>
+    <div class="body-paragraph">
+        <p class="font-size-12"><span style="word-break: break-word;">The <em>Daily News Brief</em> is taking a hiatus after today, May 15, and will return in a refreshed form after Labor Day.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented intro-message-paragraph">With global events unfolding in unprecedented ways, the Council on Foreign Relations is committed to helping our members and community make sense of a rapidly changing world. Our flagship newsletter will be reimagined to bring you the same global news you expect, alongside analysis from our experts and glimpses from inside the Council—a weekday afternoon dispatch you won't find anywhere else.</p>
+    <div class="body-paragraph">
+        <p class="font-size-12"><span style="word-break: break-word;">With global events unfolding in unprecedented ways, the Council on Foreign Relations is committed to helping our members and community make sense of a rapidly changing world. Our flagship newsletter will be reimagined to bring you the same global news you expect, alongside analysis from our experts and glimpses from inside the Council—a weekday afternoon dispatch you won't find anywhere else.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented intro-message-paragraph">It has been our honor to land in your inbox each morning. Reply to this email to share feedback or sign up for updates as we test new formats this summer. (We read every email.)</p>
+    <div class="body-paragraph">
+        <p class="font-size-12"><span style="word-break: break-word;">It has been our honor to land in your inbox each morning. Reply to this email to share feedback or sign up for updates as we test new formats this summer. (We read every email.)</span></p>
+    </div>
 
-    <p class="body-paragraph-indented intro-message-paragraph">Warm regards,<br>The <em>Daily News Brief</em> team</p>
+    <div class="body-paragraph">
+        <p class="font-size-12"><span style="word-break: break-word;">Warm regards,</span></p>
+        <p class="font-size-12"><span style="word-break: break-word;">The <em>Daily News Brief</em> team</span></p>
+    </div>
 
-    <p class="body-paragraph-indented section-intro-paragraph">Welcome to CFR’s Daily News Brief. Today we’re covering the conclusion of U.S. President Donald Trump’s trip to Beijing, as well as...</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><span style="word-break: break-word;">Welcome to CFR’s Daily News Brief. Today we’re covering the conclusion of U.S. President Donald Trump’s trip to Beijing, as well as...</span></p>
+    </div>
 
-    <p class="bullet-replacement">A rare visit to Cuba by the CIA chief</p>
-    <p class="bullet-replacement">The Pentagon’s new effort to broker rare earth deals</p>
-    <p class="bullet-replacement">Rising fuel prices in India and Kenya</p>
+    <div class="red-indent-list-item">
+        <p class="font-size-16"><span style="word-break: break-word;">A rare visit to Cuba by the CIA chief</span></p>
+    </div>
+    <div class="red-indent-list-item">
+        <p class="font-size-16"><span style="word-break: break-word;">The Pentagon’s new effort to broker rare earth deals</span></p>
+    </div>
+    <div class="red-indent-list-item">
+        <p class="font-size-16"><span style="word-break: break-word;">Rising fuel prices in India and Kenya</span></p>
+    </div>
 
-    <h2><strong>Top of the Agenda</strong></h2>
+    <h2 class="font-size-26"><strong><span style="word-break: break-word;">Top of the Agenda</span></strong></h2>
 
-    <p class="body-paragraph-indented main-topic-paragraph"><strong>Trump and Chinese President Xi Jinping both <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvdHJ1bXAteGktc2V0LXNlY29uZC1kYXktdGFsa3MtYWZ0ZXItdGFpd2FuLXdhcm5pbmctMjAyNi0wNS0xNC8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B89a50161">praised</a> their Beijing summit for improving bilateral ties, though the visit produced few specific public commitments. </strong>Trump departed for the United States today after a day of private meetings and tours with Xi. Trump <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vbGl2ZS8yMDI2LzA1LzE0L3dvcmxkL3RydW1wLXhpLXN1bW1pdC1iZWlqaW5nLzIyZTJmZjI2LWZmOGQtNTJjYS1hNmM4LWY5NmUzODgyMmQ5ZT9zbWlkPXVybC1zaGFyZSZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bcb648e4c">said</a> earlier in the day that the two had “settled a lot of different problems,” while China’s foreign ministry <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly94LmNvbS9TcG94Q0hOX01hb05pbmcvc3RhdHVzLzIwNTUxOTg5ODk3MDkxNTY1OTI_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bec571a15">said</a> they had “agreed on a new vision” of strategic stability. While neither side issued many details, the end of the visit gave signals on…</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Trump and Chinese President Xi Jinping both </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvdHJ1bXAteGktc2V0LXNlY29uZC1kYXktdGFsa3MtYWZ0ZXItdGFpd2FuLXdhcm5pbmctMjAyNi0wNS0xNC8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B89a50161" class="text-red-link">praised</a><span style="word-break: break-word;"> their Beijing summit for improving bilateral ties, though the visit produced few specific public commitments. </span></strong><span style="word-break: break-word;">Trump departed for the United States today after a day of private meetings and tours with Xi. Trump </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vbGl2ZS8yMDI2LzA1LzE0L3dvcmxkL3RydW1wLXhpLXN1bW1pdC1iZWlqaW5nLzIyZTJmZjI2LWZmOGQtNTJjYS1hNmM4LWY5NmUzODgyMmQ5ZT9zbWlkPXVybC1zaGFyZSZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bcb648e4c" class="text-red-link">said</a><span style="word-break: break-word;"> earlier in the day that the two had “settled a lot of different problems,” while China’s foreign ministry </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly94LmNvbS9TcG94Q0hOX01hT05pbmcvc3RhdHVzLzIwNTUxOTg5ODk3MDkxNTY1OTI_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bec571a15" class="text-red-link">said</a><span style="word-break: break-word;"> they had “agreed on a new vision” of strategic stability. While neither side issued many details, the end of the visit gave signals on…</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Trade. </strong>Trump <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZm94YnVzaW5lc3MuY29tL2ZveC1uZXdzLXdvcmxkL3RydW1wLWFubm91bmNlcy1jaGluYS1idXktMjAwLWJvZWluZy1qZXRzLWFmdGVyLXhpLXRhbGtzLWEtbG90LWpvYnM_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2Beb015bd4">told</a> Fox News that China plans to buy two hundred Boeing airplanes, though China did not immediately <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNS8xNS93b3JsZC9hc2lhL3RydW1wLWJvZWluZy1vcmRlci1jaGluYS5odG1sP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B12475ba6">comment</a> on the matter. U.S. Treasury Secretary Scott Bessent <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY25iYy5jb20vMjAyNi8wNS8xNC9jbmJjLXRyYW5zY3JpcHQtdXMtdHJlYXN1cnktc2VjcmV0YXJ5LXNjb3R0LWJlc3NlbnQtc3BlYWtzLXdpdGgtY25iY3Mtam9lLWtlcm5lbi1vbi1zcXVhd2stYm94LXRvZGF5Lmh0bWw_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B2758fc3a">told</a> CNBC that the two sides would discuss the creation of a board to oversee investments in non-sensitive areas, and U.S. Trade Representative Jamieson Greer <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDUtMTUvdXMtZXhwZWN0cy1kcmFtYXRpYy1hZ3JpY3VsdHVyYWwtcHVyY2hhc2VzLWJ5LWNoaW5hLWdyZWVyLXNheXM_c3JuZD1waHgtbGF0aW5hbWVyaWNhJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B538357b2">told</a> Bloomberg that Washington expects Beijing to commit to buying billions of dollars of U.S. agricultural goods.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Trade. </span></strong><span style="word-break: break-word;">Trump </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZm94YnVzaW5lc3MuY29tL2ZveC1uZXdzLXdvcmxkL3RydW1wLWFubm91bmNlcy1jaGluYS1idXktMjAwLWJvZWluZy1qZXRzLWFmdGVyLXhpLXRhbGtzLWEtbG90LWpvYnM_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2Beb015bd4" class="text-red-link">told</a><span style="word-break: break-word;"> Fox News that China plans to buy two hundred Boeing airplanes, though China did not immediately </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNS8xNS93b3JsZC9hc2lhL3RydW1wLWJvZWluZy1vcmRlci1jaGluYS5odG1sP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B12475ba6" class="text-red-link">comment</a><span style="word-break: break-word;"> on the matter. U.S. Treasury Secretary Scott Bessent </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY25iYy5jb20vMjAyNi8wNS8xNC9jbmJjLXRyYW5zY3JpcHQtdXMtdHJlYXN1cnktc2VjcmV0YXJ5LXNjb3R0LWJlc3NlbnQtc3BlYWtzLXdpdGgtY25iY3Mtam9lLWtlcm5lbi1vbi1zcXVhd2stYm94LXRvZGF5Lmh0bWw_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B2758fc3a" class="text-red-link">told</a><span style="word-break: break-word;"> CNBC that the two sides would discuss the creation of a board to oversee investments in non-sensitive areas, and U.S. Trade Representative Jamieson Greer </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDUtMTUvdXMtZXhwZWN0cy1kcmFtYXRpYy1hZ3JpY3VsdHVyYWwtcHVyY2hhc2VzLWJ5LWNoaW5hLWdyZWVyLXNheXM_srnd=phx-latinamerica&utm_source=dailybrief&utm_content=20260515/695af380dce856b6aa066af2B538357b2" class="text-red-link">told</a><span style="word-break: break-word;"> Bloomberg that Washington expects Beijing to commit to buying billions of dollars of U.S. agricultural goods.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Iran. </strong>Trump <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cud2FzaGluZ3RvbnBvc3QuY29tL3BvbGl0aWNzLzIwMjYvMDUvMTUvYmVpamluZy1zdW1taXQteWllbGRzLWNoaW5lc2UtZ29hbC1lcXVhbC1mb290aW5nLXdpdGgtdXMvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B89b663d0">said</a> that both leaders feel “very similar” about how the war should end, and he <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZm94bmV3cy5jb20vcG9saXRpY3MvdHJ1bXAtcmV2ZWFscy14aXMtc3RhbmNlLWFybWluZy1pcmFuLWhvcm11ei10ZW5zaW9ucy1yYXR0bGUtbWFya2V0cz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Ba4af6f44">told</a> Fox that Xi agreed not to provide military equipment to Iran. While Beijing did not announce any changes in its posture, its foreign ministry <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly94LmNvbS9NRkFfQ2hpbmEvc3RhdHVzLzIwNTUxMjIzNTM2MDk0NzQ0MzA_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B7bc88805">emphasized</a> China’s prior endorsement of a joint peace proposal made with Pakistan. Meanwhile, Iranian news outlets <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNS8xNC93b3JsZC9taWRkbGVlYXN0L2irYW4tc3RyYWl0LWhvcm11ei1jaGluYS1zaGlwcy5odG1sP3NtaWQ9dXJsLXNoYXJlJnNtaWQ9bnl0Y29yZS1pb3Mtc2hhcmUmcnNyYz1jbC1zaGFyZSZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B4b3367d7">reported</a> yesterday that Tehran had allowed some Chinese vessels to pass through the Strait of Hormuz following contacts from Beijing.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Iran. </span></strong><span style="word-break: break-word;">Trump </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cud2FzaGluZ3RvbnBvc3QuY29tL3BvbGl0aWNzLzIwMjYvMDUvMTUvYmVpamluZy1zdW1taXQteWllbGRzLWNoaW5lc2UtZ29hbC1lcXVhbC1mb290aW5nLXdpdGgtdXMvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B89b663d0" class="text-red-link">said</a><span style="word-break: break-word;"> that both leaders feel “very similar” about how the war should end, and he </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZm94bmV3cy5jb20vcG9saXRpY3MvdHJ1bXAtcmV2ZWFscy14aXMtc3RhbmNlLWFybWluZy1pcmFuLWhvcm11ei10ZW5zaW9ucy1yYXR0bGUtbWFya2V0cz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Ba4af6f44" class="text-red-link">told</a><span style="word-break: break-word;"> Fox that Xi agreed not to provide military equipment to Iran. While Beijing did not announce any changes in its posture, its foreign ministry </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly94LmNvbS9NRkFfQ2hpbmEvc3RhdHVzLzIwNTUxMjIzNTM2MDk0NzQ0MzA_cz0yMCZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B7bc88805" class="text-red-link">emphasized</a><span style="word-break: break-word;"> China’s prior endorsement of a joint peace proposal made with Pakistan. Meanwhile, Iranian news outlets </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNS8xNC93b3JsZC9taWRkbGVlYXN0L2lyYW4tc3RyYWl0LWhvcm11ei1jaGluYS1zaGlwcy5odG1sP3NtaWQ9dXJsLXNoYXJlJnNtaWQ9bnl0Y29yZS1pb3Mtc2hhcmUmcnNyYz1jbC1zaGFyZSZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B4b3367d7" class="text-red-link">reported</a><span style="word-break: break-word;"> yesterday that Tehran had allowed some Chinese vessels to pass through the Strait of Hormuz following contacts from Beijing.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Artificial intelligence. </strong>The United States and China will “set up a protocol” to ensure nonstate actors do not get their hands on artificial intelligence (AI) models, Bessent said. Reuters <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvcmV0YWlsLWNvbnN1bWVyL3VzLWNsZWFycy1oMjAwLWNoaXAtc2FsZXMtMTAtY2hpbmEtZmlybXMtbnZpZGlhLWNlby1sb29rcy1icmVha3Rocm91Z2gtMjAyNi0wNS0xNC8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2Bb2ae1d3f">reported</a> yesterday that Washington had greenlit the sale of Nvidia’s second-most powerful chip to ten Chinese firms, but no deliveries had been made. Neither leader made specific announcements about chip sales during the trip.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Artificial intelligence. </span></strong><span style="word-break: break-word;">The United States and China will “set up a protocol” to ensure nonstate actors do not get their hands on artificial intelligence (AI) models, Bessent said. Reuters </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvcmV0YWlsLWNvbnN1bWVyL3VzLWNsZWFycy1oMjAwLWNoaXAtc2FsZXMtMTAtY2hpbmEtZmlybXMtbnZpZGlhLWNlby1sb29rcy1icmVha3Rocm91Z2gtMjAyNi0wNS0xNC8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2Bb2ae1d3f" class="text-red-link">reported</a><span style="word-break: break-word;"> yesterday that Washington had greenlit the sale of Nvidia’s second-most powerful chip to ten Chinese firms, but no deliveries had been made. Neither leader made specific announcements about chip sales during the trip.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Taiwan. </strong>U.S. Secretary of State Marco Rubio <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubmJjbmV3cy5jb20vcG9saXRpY3MvdHJ1bXAtYWRtaW5pc3RyYXRpb24vcnViaW8taW50ZXJ2aWV3LW5iYy1uZXdzLWV4dGVuZC10cmFuc2NyaXB0LXRvbS1sbGFtYXMtbHVuYy1iZWlqaW5nLXN1bW1pdC1yY25hMzQ1MjQ4P3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Ba7d69053">told</a> NBC News yesterday that U.S. policy toward Taiwan was “unchanged” following Trump’s meeting with Xi. Taiwan’s foreign ministry <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvdGFpd2FuLXRoYW5rcy11cy1zdXBwb3J0LWFoZWFkLWZ1cnRoZXItdHJ1bXAteGktdGFsa3MtMjAyNi0wNS0xNS8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B7035d166">thanked</a> Washington for its support. Trump <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubmJjbmV3cy5jb20vcG9saXRpY3MvdHJ1bXAtYWRtaW5pc3RyYXRpb24vbGl2ZS1ibG9nL3RydW1wLXhpLWppbnBpbmctc3VtbWl0LWNoaW5hLWxpdmUtdXBkYXRlcy1yY25hMzQ0NTMwL3JjcmQxMTAwNDI_Y2Fub25pY2FsQ2FyZD10cnVlJnV0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B29cd2b66">told</a> reporters aboard Air Force One today that he spoke “a lot” about Taiwan with Xi and added that “on Taiwan, [Xi] does not want to see a fight for independence because that would be a very strong confrontation.”</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Taiwan. </span></strong><span style="word-break: break-word;">U.S. Secretary of State Marco Rubio </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubmJjbmV3cy5jb20vcG9saXRpY3MvdHJ1bXAtYWRtaW5pc3RyYXRpb24vcnViaW8taW50ZXJ2aWV3LW5iYy1uZXdzLWV4dGVuZC10cmFuc2NyaXB0LXRvbS1sbGFtYXMtYmVpamluZy1zdW1taXQtcmNuYTM0NTI0OD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Ba7d69053" class="text-red-link">told</a><span style="word-break: break-word;"> NBC News yesterday that U.S. policy toward Taiwan was “unchanged” following Trump’s meeting with Xi. Taiwan’s foreign ministry </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvdGFpd2FuLXRoYW5rcy11cy1zdXBwb3J0LWFoZWFkLWZ1cnRoZXItdHJ1bXAteGktdGFsa3MtMjAyNi0wNS0xNS8_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B7035d166" class="text-red-link">thanked</a><span style="word-break: break-word;"> Washington for its support. Trump </span><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubmJjbmV3cy5jb20vcG9saXRpY3MvdHJ1bXAtYWRtaW5pc3RyYXRpb24vbGl2ZS1ibG9nL3RydW1wLXhpLWppbnBpbmctc3VtbWl0LWNoaW5hLWxpdmUtdXBkYXRlcy1yY25hMzQ0NTMwL3JjcmQxMTAwNDI_Y2Fub25pY2FsQ2FyZD10cnVlJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B29cd2b66" class="text-red-link">told</a><span style="word-break: break-word;"> reporters aboard Air Force One today that he spoke “a lot” about Taiwan with Xi and added that “on Taiwan, [Xi] does not want to see a fight for independence because that would be a very strong confrontation.”&nbsp;</span></p>
+    </div>
 
-    <p class="body-paragraph-indented quote-text">“The best outcome of the summit is a tacit extension of the current truce with some deliverables on agriculture, aerospace, and investment. This uneasy stability serves both sides: It buys China time to consolidate technological autonomy and further sharpen its economic security controls, and it gives the United States and its partners a narrow window to build some resilience into their own industrial bases.”</p>
-    <p class="body-paragraph-indented quote-author">—CFR Senior Fellow Heidi E. Crebo-Rediker in an <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9hdC10aGUtdHJ1bXAteGktc3VtbWl0LWNoaW5hLXdpbGwtaGF2ZS10aGUtdXBwZXItaGFuZD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B107865f3">Expert Take</a></p>
+    <div class="body-paragraph">
+        <p class="font-size-18"><span style="word-break: break-word;">“The best outcome of the summit is a tacit extension of the current truce with some deliverables on agriculture, aerospace, and investment. This uneasy stability serves both sides: It buys China time to consolidate technological autonomy and further sharpen its economic security controls, and it gives the United States and its partners a narrow window to build some resilience into their own industrial bases.”</span></p>
+    </div>
+    <div class="body-paragraph">
+        <p class="font-size-18"><strong><span style="word-break: break-word;">—CFR Senior Fellow Heidi E. Crebo-Rediker in an <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9hdC10aGUtdHJ1bXAteGktc3VtbWl0LWNoaW5hLXdpbGwtaGF2ZS10aGUtdXBwZXItaGFuZD91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B107865f3" class="text-red-link">Expert Take</a></span></strong></p>
+    </div>
 
-    <p class="body-paragraph-indented podcast-link"><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9wcmVzaWRlbnRzLWluYm94L3RydW1wLWFuZC14aS1pbi1iZWlqaW5nLXdpdGgtcnVzaC1kb3NoaT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B3574c52c">Trump and Xi in Beijing</a></p>
+    <h3 class="font-size-20"><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9wcmVzaWRlbnRzLWluYm94L3RydW1wLWFuZC14aS1pbi1iZWlqaW5nLXdpdGgtcnVzaC1kb3NoaT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B3574c52c" target="_self" class="dark-blue-link"><span style="word-break: break-word;">Trump and Xi in Beijing</span></a></h3>
 
-    <p class="body-paragraph-indented podcast-description">Though Trump would prefer that China change its approach to the Iran war, the U.S. pullback from last year’s trade clash with China shows the limits of Washington’s pressure, Senior Fellow Rush Doshi says on <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9wcmVzaWRlbnRzLWluYm94L3RydW1wLWFuZC14aS1pbi1iZWlqaW5nLXdpdGgtcnVzaC1kb3NoaT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2D3574c52c">this episode of <em>The President’s Inbox</em></a><em>.</em></p>
+    <p class="font-size-11 text-gray" style="margin-top: -10px; margin-bottom: 10px;"><em><span style="word-break: break-word;">Carlos Barria/Reuters</span></em></p>
 
-    <h3>Across the Globe</h3>
+    <div class="body-paragraph">
+        <p class="font-size-16"><span style="word-break: break-word;">Though Trump would prefer that China change its approach to the Iran war, the U.S. pullback from last year’s trade clash with China shows the limits of Washington’s pressure, Senior Fellow Rush Doshi says on <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9wb2RjYXN0cy9wcmVzaWRlbnRzLWluYm94L3RydW1wLWFuZC14aS1pbi1iZWlqaW5nLXdpdGgtcnVzaC1kb3NoaT91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2D3574c52c" class="text-red-link">this episode of <em>The President’s Inbox</em></a><em>.</em></span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>CIA chief in Cuba... </strong>CIA Director John Ratcliffe made a rare visit to Havana yesterday to meet with Cuban officials in a bid to advance “the political dialogue between both nations,” the Cuban government <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cudGhlZ3VhcmRpYW4uY29tL3dvcmxkLzIwMjYvbWF5LzE0L2NpYS1kaXJlY3Rvci1oYXMtbWV0LW9mZmljaWFscy1pbi1oYXZhbmEtZm9yLXRhbGtzLWN1YmEtY2xhaW1zP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B3a960e78">said</a>. Ratcliffe conveyed that Washington would “seriously engage” if Havana makes unspecified “fundamental changes,” an unnamed CIA official <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYW1lcmljYXMvdXMtZ292ZXJubWVudC1wbGFuZS1zcG90dGVkLWhhdmFuYXMtaW50ZXJuYXRpb25hbC1haXJwb3J0LTIwMjYtMDUtMTQvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2Be4d345de">told</a> Reuters. Cuban President Miguel Díaz-Canel <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubWlhbWloZXJhbGQuY29tL25ld3MvbmF0aW9uLXdvcmxkL3dvcmxkL2FtZXJpY2FzL2N1YmEvYXJ0aWNsZTMxNTc1OTYxOS5odG1sP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2Bcfa92861">said</a> yesterday Cuba would accept an offer of $100 million in humanitarian aid from the United States.</p>
+    <h3 class="font-size-18"><span style="word-break: break-word;">Across the Globe</span></h3>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>…and leaks about U.S. judicial action. </strong>Unnamed U.S. officials also told multiple <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2JzbmV3cy5jb20vbmV3cy91cy1tb3ZpbmctdG8taW5kaWN0LWN1YmFzLXJhdWwtY2FzdHJvLW9mZmljaWFscy1zYXkvP3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B546d4978">news</a> <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vbGVnYWwvZ292ZXJubWVudC91cy1wbGFucy1pbmRpY3QtY3ViYXMtcmF1bC1jYXN0cm8tdXMtZG9qLW9mZmljaWFsLXNheXMtMjAyNi0wNS0xNS8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B4d16f98f">outlets</a> yesterday that the Justice Department was moving to indict former Cuban President Raúl Castro. It echoes the step taken against former Venezuelan President Nicolás Maduro before the U.S. raid to apprehend him in January. The Justice Department did not immediately comment.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">CIA chief in Cuba... </span></strong><span style="word-break: break-word;">CIA Director John Ratcliffe made a rare visit to Havana yesterday to meet with Cuban officials in a bid to advance “the political dialogue between both nations,” the Cuban government <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cudGhlZ3VhcmRpYW4uY29tL3dvcmxkLzIwMjYvbWF5LzE0L2NpYS1kaXJlY3Rvci1oYXMtbWV0LW9mZmljaWFscy1pbi1oYXZhbmEtZm9yLXRhbGtzLWN1YmEtY2xhaW1zP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B3a960e78" class="text-red-link">said</a>. Ratcliffe conveyed that Washington would “seriously engage” if Havana makes unspecified “fundamental changes,” an unnamed CIA official <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvYW1lcmljYXMvdXMtZ292ZXJubWVudC1wbGFuZS1zcG90dGVkLWhhdmFuYXMtaW50ZXJuYXRpb25hbC1haXJwb3J0LTIwMjYtMDUtMTQvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2Be4d345de" class="text-red-link">told</a> Reuters. Cuban President Miguel Díaz-Canel <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubWlhbWloZXJhbGQuY29tL25ld3MvbmF0aW9uLXdvcmxkL3dvcmxkL2FtZXJpY2FzL2N1YmEvYXJ0aWNsZTMxNTc1OTYxOS5odG1sP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2Bcfa92861" class="text-red-link">said</a> yesterday Cuba would accept an offer of $100 million in humanitarian aid from the United States.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Saudi pitch on regional pact. </strong>Riyadh has floated the idea of a regional nonaggression pact that includes Iran to its neighbors once the war is over, unnamed diplomats <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvYWI3OGU2MGUtN2E0MS00OTQzLWExYTUtYmQ2MGI0Y2EzMWI5P3N5bi0yNWE2YjFhNj0xJnV0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B5c0e6668">told</a> the <em>Financial Times. </em>It could be based on the <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9ldmVudC9hcnRodXItYy1oZWx0b24tbWVtb3JpYWwtbGVjdHVyZS1sZWdhY3ktaGVsc2lua2ktYWNjb3Jkcz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bb13ee1a3">Helsinki process</a> that managed tensions during the Cold War, two unnamed Western diplomats said; multiple European countries reportedly support the idea.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">…and leaks about U.S. judicial action. </span></strong><span style="word-break: break-word;">Unnamed U.S. officials also told multiple <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2JzbmV3cy5jb20vbmV3cy91cy1tb3ZpbmctdG8taW5kaWN0LWN1YmFzLXJhdWwtY2FzdHJvLW9mZmljaWFscy1zYXkvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B546d4978" class="text-red-link">news</a> <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vbGVnYWwvZ292ZXJubWVudC91cy1wbGFucy1pbmRpY3QtY3ViYXMtcmF1bC1jYXN0cm8tdXMtZG9qLW9mZmljaWFsLXNheS0yMDI2LTA1LTE1Lz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B4d16f98f" class="text-red-link">outlets</a> yesterday that the Justice Department was moving to indict former Cuban President Raúl Castro. It echoes the step taken against former Venezuelan President Nicolás Maduro before the U.S. raid to apprehend him in January. The Justice Department did not immediately comment.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>UK retreat from climate fund. </strong>The United Kingdom (UK) plans to halve its 2024-2027 contribution to the world’s largest government-backed <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9iYWNrZ3JvdW5kZXJzL3VuZGVyc3RhbmRpbmctZ2xvYmFsLXB1c2gtY2xpbWF0ZS1maW5hbmNlP3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B94a99fe0">climate fund</a>, cutting around $1 billion, a spokesperson for the fund <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDUtMTQvd29ybGQtcy1iaWdnZXN0LWNsaW1hdGUtZnVuZC1zYXlzLXVrLWhhbHZlcy1wbGFubmVkLWNvbnRyaWJ1dGlvbj9zcm5kPXBoeC1ncmVlbiZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B7035ab6c">said</a>. London cited an overall reduction in its foreign aid budget. The UK became the largest contributor to the fund after Trump withdrew a $4 billion pledge last year.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Saudi pitch on regional pact. </span></strong><span style="word-break: break-word;">Riyadh has floated the idea of a regional nonaggression pact that includes Iran to its neighbors once the war is over, unnamed diplomats <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZnQuY29tL2NvbnRlbnQvYWI3OGU2MGUtN2E0MS00OTQzLWExYTUtYmQ2MGI0Y2EzMWI5P3N5bi0yNWE2YjFhNj0xJnV0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B5c0e6668" class="text-red-link">told</a> the <em>Financial Times. </em>It could be based on the <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9ldmVudC9hcnRodXItYy1oZWx0b24tbWVtb3JpYWwtbGVjdHVyZS1sZWdhY3ktaGVsc2lua2ktYWNjb3Jkcz9uVHVtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2Bb13ee1a3" class="text-red-link">Helsinki process</a> that managed tensions during the Cold War, two unnamed Western diplomats said; multiple European countries reportedly support the idea.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Pentagon mineral deals squad. </strong>A new team inside the Pentagon has been <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDUtMTQvcGVudGFnb24tYWltcy10by1icmVhay1jaGluYS1yYXJlLWVhcnRocy1ncmlwLXdpdGgtY3JpdGljYWwtbWluZXJhbHMtcGxhbj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bde561ef0">tasked</a> with accelerating deals to supply the United States with <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy91cy1jcml0aWNhbC1taW5lcmFscy1kaWxlbW1hLXdoYXQta25vdz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bdd1ab098">rare earths</a> using government funds and financing tools. China currently dominates the global supply chain. Some critics have warned the rush to sign deals could lead to insufficient screening of unproven companies or potential conflicts of interest, Bloomberg reported yesterday, though a Pentagon spokesperson said the team conducts “rigorous vetting.”</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">UK retreat from climate fund. </span></strong><span style="word-break: break-word;">The United Kingdom (UK) plans to halve its 2024-2027 contribution to the world’s largest government-backed <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9iYWNrZ3JvdW5kZXJzL3VuZGVyc3RhbmRpbmctZ2xvYmFsLXB1c2gtY2xpbWF0ZS1maW5hbmNlP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B94a99fe0" class="text-red-link">climate fund</a>, cutting around $1 billion, a spokesperson for the fund <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDUtMTQvd29ybGQtcy1iaWdnZXN0LWNsaW1hdGUtZnVuZC1zYXlzLXVrLWhhbHZlcy1wbGFubmVkLWNvbnRyaWJ1dGlvbj9zcm5kPXBoeC1ncmVlbiZ1dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B7035ab6c" class="text-red-link">said</a>. London cited an overall reduction in its foreign aid budget. The UK became the largest contributor to the fund after Trump withdrew a $4 billion pledge last year.&nbsp;</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Iran-UAE tensions in BRICS. </strong>A BRICS foreign ministers meeting in New Delhi ended without a joint statement today after members voiced differing positions over the situation in the Middle East, host India <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvaW5kaWEtYnJpY3MtaXJhbi13YXItYzIyMzkyNTZjNWYwOGFkMTU3MzlmYjUyOGE1M2FlZGQ_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B995120dd">said</a>. Iranian Foreign Minister Abbas Araghchi <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvaXJhbi11YWUtY2xhc2gtYnJpY3MtZm9yZWlnbi1taW5pc3RlcnMtbWVldGluZy0yMDI2LTA1LTE0Lz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B0482018b">called for</a> fellow BRICS member the United Arab Emirates (UAE) yesterday to reconsider its policy toward Tehran after accusing Abu Dhabi of facilitating military operations against it, according to Iranian state media.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Pentagon mineral deals squad. </span></strong><span style="word-break: break-word;">A new team inside the Pentagon has been <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuYmxvb21iZXJnLmNvbS9uZXdzL2FydGljbGVzLzIwMjYtMDUtMTQvcGVudGFnb24tYWltcy10by1icmVhay1jaGluYS1yYXJlLWVhcnRocy1ncmlwLXdpdGgtY3JpdGljYWwtbWluZXJhbHMtcGxhbj91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bde561ef0" class="text-red-link">tasked</a> with accelerating deals to supply the United States with <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy91cy1jcml0aWNhbC1taW5lcmFscy1kaWxlbW1hLXdoYXQta25vdz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2Bdd1ab098" class="text-red-link">rare earths</a> using government funds and financing tools.<strong> </strong>China currently dominates the global supply chain. Some critics have warned the rush to sign deals could lead to insufficient screening of unproven companies or potential conflicts of interest, Bloomberg reported yesterday, though a Pentagon spokesperson said the team conducts “rigorous vetting.”&nbsp;</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Reported change for Adani case. </strong>The U.S. Justice Department is considering dropping corruption charges against Gautam Adani, India’s richest man, filed at the end of the Biden administration, unnamed sources <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNS8xNC9ueXJlZ2lvbi9nYXV0YW0tYWRhbmktYmlsbGlvbmFpcmUtZG9qLXRydW1wLmh0bWw_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B847b25a1">told</a> the <em>New York Times. </em>They added the move was part of a Trump administration retreat from pursuing foreign bribery cases. A spokesperson for Adani did not comment.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Iran-UAE tensions in BRICS. </span></strong><span style="word-break: break-word;">A BRICS foreign ministers meeting in New Delhi ended without a joint statement today after members voiced differing positions over the situation in the Middle East, host India <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvaW5kaWEtYnJpY3MtaXJhbi13YXItYzIyMzkyNTZjNWYwOGFkMTU3MzlmYjUyOGE1M2FlZGQ_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B995120dd" class="text-red-link">said</a>. Iranian Foreign Minister Abbas Araghchi <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vd29ybGQvY2hpbmEvaXJhbi11YWUtY2xhc2gtYnJpY3MtZm9yZWlnbi1taW5pc3RlcnMtbWVldGluZy0yMDI2LTA1LTE0Lz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B0482018b" class="text-red-link">called for</a> fellow BRICS member the United Arab Emirates (UAE) yesterday to reconsider its policy toward Tehran after accusing Abu Dhabi of facilitating military operations against it, according to Iranian state media.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented sub-topic-paragraph"><strong>Fuel price hikes in India and Kenya. </strong><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L2luZGlhLWhpa2VzLXBldHJvbC1kaWVzZWwtcHJpY2VzLWJ5LTMtcnVwZWVzbGl0ZXItcmV0YWlsZXJzLXNheS0yMDI2LTA1LTE1Lz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B4635240b">Both</a> <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vc3VzdGFpbmFiaWxpdHkvYm9hcmRzLXBvbGljeS1yZWd1bGF0aW9uL2tlbnlhLXJhaXNlcy1yZXRhaWwtcHJpY2VzLWZ1ZWwtZHVlLWlyYW4tY29uZmxpY3QtMjAyNi0wNS0xNC8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B96107158">countries</a> increased prices at the pump due to the global energy crunch since yesterday. India’s more than 3 percent increase at state-run fuel retailers is the first time New Delhi has passed on the international price hike to consumers. Kenya is raising prices by as much as 23.5 percent, following a 24.2 percent hike last month.</p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Reported change for Adani case. </span></strong><span style="word-break: break-word;">The U.S. Justice Department is considering dropping corruption charges against Gautam Adani, India’s richest man, filed at the end of the Biden administration, unnamed sources <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cubnl0aW1lcy5jb20vMjAyNi8wNS8xNC9ueXJlZ2lvbi9nYXV0YW0tYWRhbmktYmlsbGlvbmFpcmUtZG9qLXRydW1wLmh0bWw_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B847b25a1" class="text-red-link">told</a> the <em>New York Times. </em>They added the move was part of a Trump administration retreat from pursuing foreign bribery cases. A spokesperson for Adani did not comment.</span></p>
+    </div>
 
-    <p class="body-paragraph-indented podcast-link"><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZm9yZWlnbmFmZmFpcnMuY29tL3VuaXRlZC1zdGF0ZXMvaWxsdXNpb24tcmVjaXByb2NpdHk_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B950659be" target="_self">Trump’s Self-Defeating Trade Policy</a></p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><strong><span style="word-break: break-word;">Fuel price hikes in India and Kenya. </span></strong><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vYnVzaW5lc3MvZW5lcmd5L2luZGlhLWhpa2VzLXBldHJvbC1kaWVzZWwtcHJpY2VzLWJ5LTMtcnVwZWVzbGl0ZXItcmV0YWlsZXJzLXNheS0yMDI2LTA1LTE1Lz91dG1fc291cmNlPWRhaWx5YnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B4635240b" class="text-red-link">Both</a> <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cucmV1dGVycy5jb20vc3VzdGFpbmFiaWxpdHkvYm9hcmRzLXBvbGljeS1yZWd1bGF0aW9uL2tlbnlhLXJhaXNlcy1yZXRhaWwtcHJpY2VzLWZ1ZWwtZHVlLWlyYW4tY29uZmxpY3QtMjAyNi0wNS0xNC8_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B96107158" class="text-red-link">countries</a> increased prices at the pump due to the global energy crunch since yesterday. India’s more than 3 percent increase at state-run fuel retailers is the first time New Delhi has passed on the international price hike to consumers. Kenya is raising prices by as much as 23.5 percent, following a 24.2 percent hike last month.</span></p>
+    </div>
 
-    <p class="image-caption"><em>Carlos Barria/Reuters</em></p>
+    <h3 class="font-size-18"><span style="word-break: break-word;">What’s Next </span></h3>
 
-    <p class="body-paragraph-indented podcast-description">U.S. trading partners may be willing to appease Trump in the short term, but they do have other trading options—and they are already starting to pursue alternatives to the United States, Senior Fellow Inu Manak and CFR’s Allison Smith <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZm9yZWlnbmFmZmFpcnMuY29tL3VuaXRlZC1zdGF0ZXMvaWxsdXNpb24tcmVjaXByb2NpdHk_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2D950659be">write for <em>Foreign Affairs</em></a><em>. </em></p>
+    <div class="red-indent-list-item">
+        <p class="font-size-16"><span style="word-break: break-word;">Today, Israel and Lebanon conclude a round of negotiations in <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvaXNyYWVsLWxlYmFub24taGV6Ym9sbGFoLWlyYW4tYzE5NDYyMGVmMTgzODgxMmRhNjE2N2RiOTE4ZGEzZWE_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2Bc1ff7ad3" class="text-red-link">Washington, DC</a>.</span></p>
+    </div>
+    <div class="red-indent-list-item">
+        <p class="font-size-16"><span style="word-break: break-word;">Tomorrow, <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly9pc2xhbmQuaXMvZW4vcC9tdW5pY2lwYWwtZWxlY3Rpb25zLTIwMjY_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B0be104b8" class="text-red-link">Iceland</a> holds municipal elections.</span></p>
+    </div>
+    <div class="red-indent-list-item">
+        <p class="font-size-16"><span style="word-break: break-word;">Tomorrow, the Eurovision Song Contest final takes place in <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZXVyb3Zpc2lvbi5jb20vc3Rvcmllcy9ydW5uaW5nLW9yZGVyLWV1cm92aXNpb24tMjAyNi1ncmFuZC1maW5hbC12aWVubmEvP3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B7013f28b" class="text-red-link">Vienna</a>.</span></p>
+    </div>
+    <div class="red-indent-list-item">
+        <p class="font-size-16"><span style="word-break: break-word;">Sunday, <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZHcuY29tL2VuL2NhcGUtdmVyZGUtZWxlY3Rpb25zLTIwMjYtaXMtZGVtb2NyYWN5LW9uLXRoZS1saW5lL3ZpZGVvLTc3MTUwNDg2P3V0bV9zb3VyY2U9ZGFpbHlicmllZiZ1dG1fY29udGVudD0yMDI2MDUxNQ/695af380dce856b6aa066af2B6b335a98" class="text-red-link">Cape Verde</a> holds parliamentary elections.</span></p>
+    </div>
 
-    <h3>What’s Next</h3>
+    <h3 class="font-size-20"><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9kaWZmZXJlbnQtb2JqZWN0aXZlcy1zYW1lLXBob3RvLW9wLWhvdy10cnVtcC1hbmQteGktd2lsbC1hcHByb2FjaC10aGUtYmVpamluZy1zdW1taXQ_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B6b22aa73" target="_self" class="dark-blue-link"><span style="word-break: break-word;">Different Objectives, Same Photo Op</span></a></h3>
 
-    <p class="bullet-replacement">Today, Israel and Lebanon conclude a round of negotiations in <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly9hcG5ld3MuY29tL2FydGljbGUvaXNyYWVsLWxlYmFub24taGV6Ym9sbGFoLWlyYW4tYzE5NDYyMGVmMTgzODgxMmRhNjE2N2RiOTE4ZGEzZWE_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2Bc1ff7ad3">Washington, DC</a>.</p>
-    <p class="bullet-replacement">Tomorrow, <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly9pc2xhbmQuaXMvZW4vcC9tdW5pY2lwYWwtZWxlY3Rpb25zLTIwMjY_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B0be104b8">Iceland</a> holds municipal elections.</p>
-    <p class="bullet-replacement">Tomorrow, the Eurovision Song Contest final takes place in <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZXVyb3Zpc2lvbi5jb20vc3Rvcmllcy9ydW5uaW5nLW9yZGVyLWV1cm92aXNpb24tMjAyNi1ncmFuZC1maW5hbC12aWVubmEvP3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B7013f28b">Vienna</a>.</p>
-    <p class="bullet-replacement">Sunday, <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuZHcuY29tL2VuL2NhcGUtdmVyZGUtZWxlY3Rpb25zLTIwMjYtaXMtZGVtb2NyYWN5LW9uLXRoZS1saW5lL3ZpZGVvLTc3MTUwNDg2P3V0bV9zb3VyY2U9ZGFpbHlyYnJpZWYmdXRtX2NvbnRlbnQ9MjAyNjA1MTU/695af380dce856b6aa066af2B6b335a98">Cape Verde</a> holds parliamentary elections.</p>
+    <p class="font-size-11 text-gray" style="margin-top: -10px; margin-bottom: 10px;"><em><span style="word-break: break-word;">Jonathan Ernst/Reuters</span></em></p>
 
-    <p class="body-paragraph-indented podcast-link"><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9kaWZmZXJlbnQtb2JqZWN0aXZlcy1zYW1lLXBob3RvLW9wLWhvdy10cnVtcC1hbmQteGktd2lsbC1hcHByb2FjaC10aGUtYmVpamluZy1zdW1taXQ_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B6b22aa73" target="_self">Different Objectives, Same Photo Op</a></p>
+    <div class="body-paragraph">
+        <p class="font-size-16"><span style="word-break: break-word;">While Trump went to the China summit seeking headline deals, Xi’s longer game is focused on strategic patience, Senior Fellow Zongyuan Zoe Liu <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9kaWZmZXJlbnQtb2JqZWN0aXZlcy1zYW1lLXBob3RvLW9wLWhvdy10cnVtcC1hbmQteGktd2lsbC1hcHByb2FjaC10aGUtYmVpamluZy1zdW1taXQ_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2D6b22aa73" class="text-red-link">writes in an Expert Take</a>.</span></p>
+    </div>
 
-    <p class="image-caption"><em>Jonathan Ernst/Reuters</em></p>
-
-    <p class="body-paragraph-indented podcast-description">While Trump went to the China summit seeking headline deals, Xi’s longer game is focused on strategic patience, Senior Fellow Zongyuan Zoe Liu <a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy9hcnRpY2xlcy9kaWZmZXJlbnQtb2JqZWN0aXZlcy1zYW1lLXBob3RvLW9wLWhvdy10cnVtcC1hbmQteGktd2lsbC1hcHByb2FjaC10aGUtYmVpamluZy1zdW1taXQ_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2D6b22aa73">writes in an Expert Take</a>.</p>
-
-    <div class="footer">
-        <p class="main-link"><strong><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWlseWJyaWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B8efd8023" target="_blank" rel="noopener">Council on Foreign Relations</a></strong></p>
-        <p>58 East 68th Street, New York, NY 10065</p>
-        <p>1777 F Street, NW, Washington, DC 20006</p>
-        <p><strong>Was this forwarded to you? <span class="subscribe-link"><a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" rel="noopener">Subscribe to the <em>Daily News Brief</em></a></span></strong></p>
-        <p class="utility-link"><a href="https://link.cfr.org/oc/695af380dce856b6aa066af2r88w0.6zv/2a13acc2" target="_blank" rel="noopener">Manage Your Email Preferences</a></p>
-        <p class="utility-link"><a href="https://link.cfr.org/public/45734400" target="_blank" rel="noopener">View in Browser</a></p>
+    <!-- Footer -->
+    <div style="margin-top: 30px; margin-left: 0;">
+        <p class="font-size-14 text-darkgray" style="margin-bottom: 5px;"><strong><a href="https://link.cfr.org/click/45734400.9067/aHR0cHM6Ly93d3cuY2ZyLm9yZy8_dXRtX3NvdXJjZT1kYWlseWJriWVmJnV0bV9jb250ZW50PTIwMjYwNTE1/695af380dce856b6aa066af2B8efd8023" target="_blank" class="footer-link-no-underline" rel="noopener"><span style="word-break: break-word;">Council on Foreign Relations</span></a></strong></p>
+        <p class="font-size-12 text-darkgray" style="margin-bottom: 5px;"><span style="word-break: break-word;">58 East 68th Street, New York, NY 10065</span></p>
+        <p class="font-size-12 text-darkgray" style="margin-bottom: 5px;"><span style="word-break: break-word;">1777 F Street, NW, Washington, DC 20006</span></p>
+        <p class="font-size-12 text-darkgray" style="margin-top: 15px; margin-bottom: 5px;"><strong>Was this forwarded to you? <a href="https://link.cfr.org/join/66n/hp-nsp-dailynewsbrief-footer" target="_blank" class="text-red-link" rel="noopener">Subscribe to the <em>Daily News Brief</em></a></strong></p>
+        <p class="font-size-12 text-darkgray" style="margin-bottom: 5px;"><a href="https://link.cfr.org/oc/695af380dce856b6aa066af2r88w0.6zv/2a13acc2" target="_blank" rel="noopener" class="footer-link">Manage Your Email Preferences</a></p>
+        <p class="font-size-12 text-darkgray" style="margin-bottom: 5px;"><a href="https://link.cfr.org/public/45734400" target="_blank" rel="noopener" class="footer-link">View in Browser</a></p>
     </div>
 
 </body>
